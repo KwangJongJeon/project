@@ -7,9 +7,25 @@ void Game::draw_map()
 	int i;
 	
 	cout << "�̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢�" << endl;
-	for (i = 0; i < 19; i++)
+	for (i = 0; i < 20; i++)
 	{
 		cout << "��                                                        ��" << endl;
 	}
 	cout << "�̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢�" << endl;
 }
+
+/*
+void draw_something(Point ref_pos)
+{
+	Point::GetScrPosFromCurPos(ref_pos);
+	Point::gotoxy(ref_pos);
+	std::cout << "��";
+}
+
+void erase(Point ref_pos)
+{
+	Point::GetScrPosFromCurPos(ref_pos);
+	Point::gotoxy(ref_pos);
+	std::cout << " ";
+}
+*/
