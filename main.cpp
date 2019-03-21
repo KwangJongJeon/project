@@ -1,6 +1,8 @@
 #include <windows.h>
 #include <iostream>
 #include <conio.h>
+#include "Game.h"
+#include "Point.h"
 
 using namespace std;
 
@@ -8,59 +10,55 @@ const int g_KEY_UP = 80;
 const int g_KEY_LEFT = 75;
 const int g_KEY_RIGHT = 77;
 const int g_KEY_DOWN = 72;
-	
-void gotoxy(int x, int y)
-{
-	COORD Pos = {x, y}; 
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
-}
+const int g_init_x = 2;
+const int g_init_y = 15;
 
 
-void move_character(int key, int& x, int& y)
+
+void move_character(int key, Point& cur_pos)
 {
 	if(key == g_KEY_UP)
 	{
 		cout << " ";
-		y += 1;
-		gotoxy(x, y);
-		cout << "@";
+		cur_pos.setY(cur_pos.getY() + 1);
+		Point::gotoxy(cur_pos);	
+		cout << "¡Ü";
 	}
 	
 	if(key == g_KEY_DOWN)
 	{
 		cout << " "; 
-		y -= 1;
-		gotoxy(x, y);
-		cout << "@";
+		cur_pos.setY(cur_pos.getY() - 1);
+		Point::gotoxy(cur_pos);	
+		cout << "¡Ü";
 	}
 		
 	if(key == g_KEY_RIGHT)
 	{
 		cout << " "; 
-		x += 1;
-		gotoxy(x, y);
-		cout << "@";
+		cur_pos.setX(cur_pos.getX() + 1);
+		Point::gotoxy(cur_pos);	
+		cout << "¡Ü";
 	}
 		
 	if(key == g_KEY_LEFT)
 	{	
 		cout << " "; 
-		x -= 1;
-		gotoxy(x, y);
-		cout << "@";
+		cur_pos.setX(cur_pos.getX() - 1);
+		Point::gotoxy(cur_pos);	
+		cout << "¡Ü";
 	}
 }
 
 
 int main()
 {
+	Game game;
+	Point cur_pos(g_init_x, g_init_y);
+	
 	int key = 0;
-
 	
-	int x = 10; 
-	int y = 5;
-	
-	gotoxy(x, y);
+	Point::gotoxy(cur_pos);	
 	
 	while(true)
 	{
@@ -70,8 +68,8 @@ int main()
 			if(key == 224 || key == 0)
 			{
 				key = getch();
-				gotoxy(x, y);
-				move_character(key, x, y);
+				Point::gotoxy(cur_pos);	
+				move_character(key, cur_pos);
 			}
 		}
 	}
