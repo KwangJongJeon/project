@@ -18,6 +18,7 @@ int main()
 	
 
 	Point::gotoxy(player.get_cur_pos());	
+	player.draw_something(player.get_cur_pos());
 	
 	while(true)
 	{
@@ -27,7 +28,7 @@ int main()
 			if(key == 224 || key == 0)
 			{
 				key = getch();
-
+				
 				Point::gotoxy(player.get_cur_pos());	
 				player.move_character(key);			
 			}

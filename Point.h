@@ -24,5 +24,5 @@ class Point
 		static void gotoxy(int x, int y);
 		static void gotoxy(Point pos);
 		
-		Point GetScrPosFromCurPos(Point &pos);
+		static Point GetScrPosFromCurPos(Point &pos);
 };

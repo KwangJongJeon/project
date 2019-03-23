@@ -26,6 +26,7 @@ void Character::move_character(const int key)
 	if(key == g_KEY_UP)
 	{
 		erase(m_cur_pos);
+		m_cur_pos.setY(m_cur_pos.getY() + 1);
 		draw_something(m_cur_pos);
 		/*
 		cout << " "; 
@@ -37,26 +38,41 @@ void Character::move_character(const int key)
 	
 	if(key == g_KEY_DOWN)
 	{
+		erase(m_cur_pos);
+		m_cur_pos.setY(m_cur_pos.getY() - 1);
+		draw_something(m_cur_pos);
+		/*
 		cout << " "; 
 		m_cur_pos.setY(m_cur_pos.getY() - 1);
 		Point::gotoxy(m_cur_pos);	
 		cout << "¡Ü";
+		*/
 	}
 		
 	if(key == g_KEY_RIGHT)
 	{
+		erase(m_cur_pos);
+		m_cur_pos.setX(m_cur_pos.getX() + 1);
+		draw_something(m_cur_pos);
+		/*
 		cout << " "; 
 		m_cur_pos.setX(m_cur_pos.getX() + 1);
 		Point::gotoxy(m_cur_pos);	
 		cout << "¡Ü";
+		*/
 	}
 		
 	if(key == g_KEY_LEFT)
 	{	
+		erase(m_cur_pos);
+		m_cur_pos.setX(m_cur_pos.getX() - 1);
+		draw_something(m_cur_pos);
+		/*
 		cout << " "; 
 		m_cur_pos.setX(m_cur_pos.getX() - 1);
 		Point::gotoxy(m_cur_pos);	
 		cout << "¡Ü";
+		*/
 	}
 };
 

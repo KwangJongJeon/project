@@ -3,7 +3,7 @@
 class Board
 {
 	private:
-		int m_board[20][55];
+		int m_board[20][30];
 		
 	public:
 		Board();
