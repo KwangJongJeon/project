@@ -1,4 +1,6 @@
+#pragma once
 #include "Point.h"
+#include <iostream>
 
 class Board
 {

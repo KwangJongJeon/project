@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "Point.h"
+#include "Board.h"
 
 class Game
 {
@@ -15,8 +16,8 @@ class Game
 		}
 		void draw_map();
 		
-		/*
-		static void draw_something(Point ref_pos);
-		static void erase(Point ref_pos);
-		*/
+		
+		void check_pos(Point pos);
+		
+		
 };

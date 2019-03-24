@@ -15,4 +15,5 @@ void Point::gotoxy(Point pos)
 Point Point::GetScrPosFromCurPos(Point &pos) // 배열좌표를 화면좌표로 가져온다.
 {
 	pos.setX(2 * pos.m_x + 2);
+	pos.setY(pos.m_y + 1);
 }
