@@ -15,3 +15,28 @@ void Game::draw_map()
 }
 
 
+void Game::run()
+{
+	Character player;
+	
+	int key = 0;
+	
+	draw_map();
+	Point::gotoxy(player.get_cur_pos());
+	player.draw_something(player.get_cur_pos());
+	
+	while(true)
+	{
+		if(kbhit())
+			{
+				key = getch();
+				if(key == 224 || key == 0)
+				{
+					key = getch();
+					
+					Point::gotoxy(player.get_cur_pos());	
+					player.move_character(key);			
+				}
+		}
+	}
+}

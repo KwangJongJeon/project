@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "Character.h"
 #include "Point.h"
 #include "Board.h"
 
@@ -8,16 +9,16 @@ class Game
 {
 	private:
 		
+
 		
 	public:
 		Game()
 		{
-			draw_map();
+			run();
 		}
-		void draw_map();
 		
-		
-		void check_pos(Point pos);
-		
+		void draw_map();	
+		void run();
+
 		
 };

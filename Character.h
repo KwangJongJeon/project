@@ -25,5 +25,6 @@ class Character
 		void move_character(const int key);
 		void mark_pos_to_board(Point pos);
 		
-		void check_pos(Point pos);
+		
+		bool check_valid_pos();
 };
