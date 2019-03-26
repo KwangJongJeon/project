@@ -1,10 +1,7 @@
-class Slime : public Character
+class Slime : public Unit
 {
 	private:
-		const int hp;
-		const int mp;
-		int attack_status;
-		int armor_status;
+		
 		
 	public:
 		
