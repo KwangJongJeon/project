@@ -2,6 +2,10 @@
 
 class Unit
 {
+	// player's id starts at 1.
+	// monster's id starts at 10. 
+	// item's id starts at 100.
+	  
 	private:
 		int m_max_hp;
 		int m_max_mp;
@@ -9,9 +13,9 @@ class Unit
 		int m_mp;
 		int m_ATK;
 		int m_DEF;
-		int m_Level
+		int m_level;
 		
-		// player's status
+		// unit's status
 		int m_STR;  // Strength, +1 STR -> +3 ATK
 		int m_INT;  // Intelligence, affect to max_mp and magin ATK
 		int m_DEX;  // Dexterity, affect to Dodge percentage -> maybe +1 Dex -> +0.8% Dodge percentage
@@ -25,7 +29,7 @@ class Unit
 		
 	public:
 		void dodge();
-		void attack();
+		void attack(Unit& enemy_unit);
 		void critical_hit();
 		
 		
@@ -38,10 +42,12 @@ class Unit
 		
 		
 		void set_wearing_weapon(int input_weapon) { m_wearing_weapon = input_weapon; }
-		void set_wearing_armor(int input_armor) { m_wearing_armon = input_armor; }
+		void set_wearing_armor(int input_armor) { m_wearing_armor = input_armor; }
 		void set_hunger(int input_hunger) { m_hunger = input_hunger; }
 		
-		void get_STR()
+		void set_status();
+		
+		void get_STR();
 		
 		void level_up()
 		{

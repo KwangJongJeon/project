@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o Game.o Point.o Board.o Character.o
-LINKOBJ  = main.o Game.o Point.o Board.o Character.o
+OBJ      = main.o Game.o Point.o Board.o Character.o Unit.o
+LINKOBJ  = main.o Game.o Point.o Board.o Character.o Unit.o
 LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
 INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -38,3 +38,6 @@ Board.o: Board.cpp
 
 Character.o: Character.cpp
 	$(CPP) -c Character.cpp -o Character.o $(CXXFLAGS)
+
+Unit.o: Unit.cpp
+	$(CPP) -c Unit.cpp -o Unit.o $(CXXFLAGS)
