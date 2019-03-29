@@ -49,13 +49,5 @@ class Unit
 		
 		void get_STR();
 		
-		void level_up()
-		{
-			if(m_EXP >= 100)
-				m_level += 1;
-			
-			// need more code for random distributed code	
-		}
-
-
+		void level_up();
 };

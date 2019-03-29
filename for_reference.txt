@@ -73,8 +73,8 @@ inner class의 생성자를 호출시키고 그 뒤에 static member variable을 초기화한다.
 friend function And class 
 객체지향의 기본원칙 encapsulation을 유지하기 위해 friend를 쓰면 깔끔하게 정리할 수 있음
 어떤 함수가 클래스 A에 있는 private 멤버에 접근하고 싶음. 
+이럴때는 그 함수를 클래스내부에 클래스 A의 친구로 선언해주됨. 
 연산자 오버로딩에서 자주 쓰임.
-이럴때는 그 함수를 클래스내부에 클래스 A의 친구로 선언해주면됨. 
 ex) friend void doSomething(A& a);
 전방선언
 클래스 내부에 있는 함수를 친구로 선언하고 싶다.
@@ -84,3 +84,35 @@ ex.2) friend void B::doSomething(A& a)
 전방선언을 피하기 위해
 
 선언만 class안에 넣어두고 함수는 밖으로 빼면 좋다.
+
+- 익명 객체 
+이름을 넣지않고 객체만 선언. l-value가 아닌 r-value처럼 작동함.
+ex) A().print(); 
+int(6) + int(8) // 캐스팅이라고 배웠는데 익명객체로 덧셈임. 
+
+
+- nested types 
+클래스 안에서만 자료형을 선언. 클래스 안에 포함된 자료형
+특정 클래스에서만 사용되는 데이터 타입 -> enum타입을 class안에 넣어버림
+enum class -> Fruit::FruitType::APPLE과 같이 1단계 더들어감.
+
+- 실행 시간 측정하기.
+
+
+- 연산자 오버로딩하기.
+사용자 정의 자료형끼리도 산술연산자 사용가능. 
+
+ex) friend Cents operator + (const Cents &c1, const Cents &c2)
+    {
+      return c1.m_value + c2.m_value;
+    }
+-> 멤버로 떼면 컴파일러 에러남. too many parameter
+   왼쪽에있는 파라미터를 this로 대체해야함. 
+   +는 원래 unary operator이기떄문
+
+?:, ::, sizeof, .(member selection), .*은 연산자 오버로딩이 안된다.
+^ 연산자는 연산순위가 매우 낮으니 특별한 기능이 있도록 오버로딩하려면 괄호로 싸고 왠만하면 오버로딩을 하지말자.
+연산자 오버로딩을 해도 연산자 우선순위는 그대로이니 조심하자.
+
+=, [], (), -> // member function 형태로만 오버로딩이 가능하다.
+
