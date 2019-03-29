@@ -41,10 +41,46 @@ Something(const Something& st_in)
 - 파라미터에 복사가되는걸 막으려면 const TypeName &parameterName을 쓰면 좋다.
 함수에 const선언을하면 리턴타입에도 const를 사용하는것이 일반적이다.
 
-정적 멤버변수 
+- 정적 멤버변수 
 static
 클래스 내부에서 static 변수. extern등 앞에있는 강의 참고.
 클래스에서 유래된 모든 인스턴스가 static value를 공유하게 됨.
 static member의 경우 define in cpp, cpp안에다가 정의하자. 안그럼 에러남
 
+- 정적 멤버 함수
+특정 인스턴스와 상관없이 함수를 사용하고 싶을때 사용
+주의할점. this포인터를 사용할 수 없다. non-static member function에서만 사용할 수 있음.
+이에따라 this로 접근해야하는 모든게 안됨.
 
+- 멤버함수는 함수포인터를 이용해 가져오려면 멤버함수의 주소가 같기 때문에 
+int (Something::*fptr1)() = &Something::temp; 이런식으로 가져와야한다
+cout << (s2.*fptr1)() << endl; 
+
+- static의 경우 
+int (*fptr2)() = &Something::getValue;
+와 같이 가져옴
+
+- member function은 인스턴스에 종속되지 않는다.
+static member variable은 constructor에서 초기화를 시켜줄 수가 없다.
+static 생성자는 현재 cpp에서 지원해주지 않는다. 
+
+inner class 
+클래스안의 클래스. 이걸 이용하면 s_value를 초기화해줄 수 있다. 내부 클래스이기 때문
+static _init s_initializer;를 클래스의 멤버펑션에 집어넣음으로써 
+inner class의 생성자를 호출시키고 그 뒤에 static member variable을 초기화한다.
+간접적으로 초기화가 가능하긴함.
+
+friend function And class 
+객체지향의 기본원칙 encapsulation을 유지하기 위해 friend를 쓰면 깔끔하게 정리할 수 있음
+어떤 함수가 클래스 A에 있는 private 멤버에 접근하고 싶음. 
+연산자 오버로딩에서 자주 쓰임.
+이럴때는 그 함수를 클래스내부에 클래스 A의 친구로 선언해주면됨. 
+ex) friend void doSomething(A& a);
+전방선언
+클래스 내부에 있는 함수를 친구로 선언하고 싶다.
+ex.1) friend class B
+ex.2) friend void B::doSomething(A& a)
+
+전방선언을 피하기 위해
+
+선언만 class안에 넣어두고 함수는 밖으로 빼면 좋다.
