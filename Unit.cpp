@@ -1,15 +1,85 @@
 #include "Unit.h"
 
 void Unit::attack(Unit& enemy_unit)
+{	
+	if(dodge())
+	{}
+	else if(critical_hit())
+	{
+		enemy_unit.m_hp - 3*( m_ATK - enemy_unit.m_DEF );
+	}
+	else
+	{
+		enemy_unit.m_hp - ( m_ATK - enemy_unit.m_DEF );
+	}
+	
+	// need implement after combat condition 
+}
+
+
+bool Unit::dodge()
 {
-	enemy_unit.m_hp - ( m_ATK - enemy_unit.m_DEF );
+	if(rand() % 100 < m_dodge_percentage)
+		return true; 
+	
+	return false;
+}
+
+
+bool Unit::critical_hit()
+{
+	if(rand() % 100 < m_critical_percentage)
+		return true; 
+	
+	return false;
 }
 
 
 void Unit::level_up()
 {
 	if(m_EXP >= 100)
-	m_level += 1;
-	// need more code for random distributed code	
+	{
+		for(int count = 0; count < 5; ++count)
+		{
+			switch(rand() % 4)	// randomly rise player's status.
+			{
+				case 0:
+					set_STR(m_STR + 1);
+					break;
+				case 1:
+					set_INT(m_INT + 1);
+					break;
+				case 2:
+					set_DEX(m_DEX + 1);
+					break;
+				case 3: 
+					set_CON(m_CON + 1);
+					break;
+				case 4:
+					set_LUK(m_LUK + 1);
+					break;
+			}
+		}
+		
+		set_status();
+		
+		m_level += 1;
+	}
+}
+
+
+void Unit::set_status()
+{
+	m_max_hp +=  m_CON * 5;
+	m_hp = m_max_hp;
+	
+	m_max_mp += m_INT * 5;
+	m_mp = m_max_mp;
+	
+	m_ATK += m_STR * 3;
+	m_DEF += m_CON * 1;
+	
+	m_critical_percentage += 0.8 * m_LUK;
+	m_dodge_percentage += 1.0 * m_DEX;
 }
 

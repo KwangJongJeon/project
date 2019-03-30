@@ -1,15 +1,14 @@
-#include <windows.h>
-#include <iostream>
-#include <conio.h>
+#include <cstdlib>
+
 #include "Game.h"
-#include "Point.h"
-#include "Character.h"
-#include "values.h"
+
 
 using namespace std;
 
 
 int main()
 {
+	srand(time(0)); // set seed
+	
 	Game game_start;
 }

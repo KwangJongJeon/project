@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=3
 CompilerSettings=0000000100000000000000000
-UnitCount=16
+UnitCount=15
 
 [VersionInfo]
 Major=1
@@ -39,14 +39,14 @@ Build=0
 LanguageID=1033
 CharsetID=1252
 CompanyName=
-FileVersion=
+FileVersion=1.0.0.0
 FileDescription=Developed using the Dev-C++ IDE
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
 ProductName=
-ProductVersion=
+ProductVersion=1.0.0.0
 AutoIncBuildNr=0
 SyncProduct=1
 
@@ -192,16 +192,6 @@ BuildCmd=
 
 [Unit15]
 FileName=Unit.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit16]
-FileName=random.cpp
 CompileCpp=1
 Folder=
 Compile=1
