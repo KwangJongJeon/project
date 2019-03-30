@@ -164,7 +164,7 @@ for(int count = 1; count <= 20; ++count)
 - 입출력연산자 오버로딩하기.
 friend std::ostream& operator << (std::ostream &out, const Point &point)
 {
-  cout << point.m_x << " " << point.m_y << " " << point.m_z;
+  out << point.m_x << " " << point.m_y << " " << point.m_z;
   return out; // chaining 하기 위해서 리턴함.
 }
 
@@ -294,4 +294,63 @@ class Dollar
 } 
 
 
+- 복사 생성자, 복사 초기화.
+자기하고 똑같은애가 들어오는게 복사생성자
+Fraction(const Fraction &fraction) // copy constructor
+  : m_numberator(fraction.m_numerator), m_denomirator(fraction.m_denominator)
+{}
 
+복사를 못하게 막아버리고싶으면
+copy constructor를 private: 로 옮겨버리면된다. 
+
+컴파일러가 Release모드일경우 복사초기화 반환값을 최적화해준다. 
+copy constructor가 호출되는부분을 그냥 값을 옮겨주는것으로 바꿈으로써 최적화한다. 
+
+
+
+- 변환 생성자, explicit // 변환 생성자를 사용못하게 막음 , delete // 생성자를 사용하지 못하게 지움
+Converting constructor 
+동적할당의 delete와는 다름., 
+
+들어가는 값을 자동으로 생성자처럼 바꿔주는것임.
+
+ex) doSomething(Fraction frac);
+    doSomething(7)
+이런식으로 사용함. 
+
+이걸 막기위해선 생성자 앞에 explicit을 달아놓으면 됨.
+
+delete. 이전버전에서는 허용을 했는데 새 버전에서는 허용을 안함.
+Fraction(char) = delete; // 예전에 쓰던 방식으로 쓸것이 걱정되서 강력하게 막아둠.
+
+
+- 대입 연산자 오버로딩, 동적할당된 메모리에 대한 포인터 변수를 멤버로 가지고있는 클래스의 경우
+복사를하거나 대입을 할 때 깊은복사냐 얕은복사냐에 따라 복사생성자 구현이 까다로워짐
+깊은복사 (Deep copy vs Shallow copy) 
+
+MyString copy = hello; // 이런식이면 복사생성자가 호출되고
+copy = hello; // 이런식이면 대입연산자가 호출됨.
+기본 복사 생성자가 사용됨.(Default) 변수들을 복사해줌. 
+포인터 주소만 복사 - shallow copy, 내용까지 복사 - Deep copy
+동적 메모리 할당을 이용하는 경우에는 copy constructor나 assignment operator를 오버로딩할 때
+주의해야한다. 
+
+대입연산자의경우 자기가 자기에게 대입을 할 수 있는데 프로그램 입장에서 문제가 있을 수 있다.
+if(this == &source) // prevent self-assignment
+  return *this;
+
+copy constructor를 만들 여력이 되지 않으면 delete를 이용해 임시방편으로 ㅁ가아둬도 된다.
+
+- 이니셜라이저 리스트
+std::initializer_list
+
+#include <initializer_list>
+
+auto li = { 1, 2, 3, 4 ,5 } // initializer_list로 auto가 잡힌다.
+// initializer list는 대괄호를 지원하지 않는다. 
+for( auto & element : list)
+{
+  m_data[count] = element;
+  ++count; 
+}
+이 구문은 initializer list 내부의 iterator를 이용하기 때문에 사용이 가능하다.
