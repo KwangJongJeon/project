@@ -21,7 +21,7 @@ class Unit
 		double 	m_dodge_percentage;
 		
 		
-		int m_giveExp; // if player kill monsters, take this exp from monster
+	
 				
 				
 		// unit's status
