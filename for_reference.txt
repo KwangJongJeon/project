@@ -71,6 +71,8 @@ inner classÀÇ »ı¼ºÀÚ¸¦ È£Ãâ½ÃÅ°°í ±× µÚ¿¡ static member variableÀ» ÃÊ±âÈ­ÇÑ´Ù.
 °£Á¢ÀûÀ¸·Î ÃÊ±âÈ­°¡ °¡´ÉÇÏ±äÇÔ.
 
 friend function And class 
+
+
 °´Ã¼ÁöÇâÀÇ ±âº»¿øÄ¢ encapsulationÀ» À¯ÁöÇÏ±â À§ÇØ friend¸¦ ¾²¸é ±ò²ûÇÏ°Ô Á¤¸®ÇÒ ¼ö ÀÖÀ½
 ¾î¶² ÇÔ¼ö°¡ Å¬·¡½º A¿¡ ÀÖ´Â private ¸â¹ö¿¡ Á¢±ÙÇÏ°í ½ÍÀ½. 
 ÀÌ·²¶§´Â ±× ÇÔ¼ö¸¦ Å¬·¡½º³»ºÎ¿¡ Å¬·¡½º AÀÇ Ä£±¸·Î ¼±¾ğÇØÁÖµÊ. 
@@ -155,3 +157,100 @@ std::uniform_int_distribution<> dice(1, 6); // 1~6»çÀÌ¿¡¼­ ¼±ÅÃµÊ. ÀüºÎ µ¿ÀÏÇÑ È
 
 for(int count = 1; count <= 20; ++count)
   cout << dice(mersenne) << endl;
+
+
+
+
+- ÀÔÃâ·Â¿¬»êÀÚ ¿À¹ö·ÎµùÇÏ±â.
+friend std::ostream& operator << (std::ostream &out, const Point &point)
+{
+  cout << point.m_x << " " << point.m_y << " " << point.m_z;
+  return out; // chaining ÇÏ±â À§ÇØ¼­ ¸®ÅÏÇÔ.
+}
+
+- ÆÄÀÏÃâ·Â
+#include <fstream>
+ofstream of("out.txt");
+
+of << p1 << " " << p2 << endl;
+of.close();
+
+friend std::istream& operator >> (std::istream &in, Point &point)
+{
+  cin >> point.m_x >> point.m_y >> point.m_z
+
+  return in;
+}
+
+- ´ÜÇ×¿¬»êÀÚ ¿À¹ö·Îµù (+, -, !)
+Cents operator - (Cents cents)
+{
+  return Cents(-m_cents)
+}
+
+¾î¶² ÀÇ¹Ì¸¦ °®´ÂÁö´Â ¾Ë¾Æ¼­ ¼³Á¤
+bool operator ! ()  const
+{
+  // !Cents(...) Cents°¡ 0ÀÌ¸é false. ¾Æ´Ï¸é true
+  return (cents.m_cents == 0? true : false)
+}
+
+
+- ºñ±³¿¬»êÀÚ ¿À¹ö·Îµù (==, !=, >=, >)
+if¹® ÀÌ¿ëÇÏ·Á¸é ±¸Çö. std::sort ÀÌ¿ë½Ã¿¡µµ ±¸ÇöÇØ¾ßÇÔ.
+
+friend bool operator == (const Cents &c1, const Cents &c2)
+{
+  return c1.m_cents == c2.m_cents
+}
+
+friend bool operator != (const Cents &c1, const Cents &c2)
+{
+  return c1.m_cents != c2.m_cents;
+}
+
+- Áõ°¨¿¬»êÀÚ ¿À¹ö·Îµù
+
+-prefix
+Cents & operator ++ ()
+{
+  ++m_cents;
+
+  return *this;
+}
+
+-postfix
+Cents operator ++ (int) // &·Î ¸®ÅÏÀ» ¾ÈÇÔ ´õ¹Ì·Î ÆÄ¶ó¹ÌÅÍ¸¦ ¾Æ¹«°Å³ª ³ÖÀ½
+{
+  Cents temp(m_cents)
+  
+  ++(*this);
+
+  return temp;
+}
+
+
+- Ã·ÀÚ¿¬»êÀÚ ¿À¹ö·Îµù // [] 
+subscript overloading
+
+// Ç×»ó l-value¿©¾ßÇÏ´Ï±î
+int & operator [] (const int index) // referenceÀÎ ÀÌÀ¯? °ªÀ» ¹Ù²ãÁÙ ¼ö ÀÖ°Ô ÇÏ±â À§ÇØ¼­. 
+{
+  assert(index >= 0);
+  assert(index < 0); // assert¸¦ »ç¿ëÇÏ´Â°Ô ÁÁÀ½.
+  return m_list[index];
+}
+
+const int & operator [] (const int index) const // constÀÎ °´Ã¼°¡ °ªÀ» ÀĞ¾î¿À°ÔÇÏ±â À§ÇØ ¿À¹ö·Îµù 
+{
+  return m_list[index];
+}
+
+#include <cassert>
+
+
+Æ÷ÀÎÅÍ·Î µ¿ÀûÇÒ´çµÉ°æ¿ì
+IntList *list = new IntList;
+(*list)[3] // µ¿ÀûÇÒ´çÀÏ°æ¿ì ÀÌ·±½ÄÀ¸·Î Á¢±ÙÇØ¾ßÇÔ.
+
+
