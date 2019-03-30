@@ -254,3 +254,44 @@ IntList *list = new IntList;
 (*list)[3] // 동적할당일경우 이런식으로 접근해야함.
 
 
+괄호연산자 오버로딩과 함수 객체 () 
+함수를 호출할때 쓰는 괄호와 똑같음 
+이에따라 함수를 객체인거처럼 FUNCTOR인거처럼 사용가능.
+class Accumulator
+{
+int operator()(int i) { return (m_counter += i); }
+}
+acc(10);
+acc(20);
+마치 함수를 호출하는거처럼 사용 functor라고 부름. 
+
+
+- 형변환 오버로딩 typecast
+
+operator int()
+{
+  cout << "cast here"
+  return m_cents;
+}
+
+Cents cents(7)
+int value = (int)cent;
+value = int(cent);
+value = static_cast<int>(cent); 와 전부 같음.
+
+좀 더 실용적인 예제
+class Dollar
+{
+  private:
+    int m_dollars = 0;
+
+  public:
+     Dollar(const int& input) : m_dollars(input){}
+     operator Cents() 
+    {
+      return Cents(m_dollars * 100)
+    }
+} 
+
+
+
