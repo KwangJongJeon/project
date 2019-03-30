@@ -116,3 +116,42 @@ ex) friend Cents operator + (const Cents &c1, const Cents &c2)
 
 =, [], (), -> // member function 형태로만 오버로딩이 가능하다.
 
+
+-Random Number Generator
+
+1.
+PRNG
+static unsigned int seed = 5523; // seed number
+seed = 8253729 * seed = seed + 2396403; // overflow시킴
+return seed % 32768; // random의 범위를 지정. 정밀한 결과가 필요할경우 별로 좋지않음.
+
+2.
+#include <cstdlib> // std::rand(), std::srand()
+
+std::srand(5323);  // seed를 설정함
+std::rand() // 실제로 값을 가져옴
+
+seed number를 계속 바꾸기 위해서 time을 연동시키기도함
+#include <ctime> // std::time()
+std::srand(static_cast<unsigned int>(std::time(0));
+
+3.
+특정한 정수사이에 random number 발생 
+
+int getRandomNumber(int min, int max)
+{
+  static const double fraction = 1.0 / (RAND_MAX + 1.0) // RANDOM NUMBER를 생성할때 가장 큰 숫자 
+  return min + static_cast<int>((max-min+1)*(std::rand() * fraction)); 
+}
+
+rand % 4 + 5 // 이런식으로 범위를 정해도 됨. 난수가 특정영역으로 몰릴 수도 있음.
+
+
+4. 정밀한경우. (Random Library 사용. c++ 11부터 도입됨)
+#include <random> 
+std::random_device rd; // 별도의 랜덤 디바이스 제공( 시간을 이용한것과 비슷하다 생각하면 됨)
+std::mt19937 mersenne(rd()); // 수학자 이름임. create a mesenne twister. time연동과 유사함
+std::uniform_int_distribution<> dice(1, 6); // 1~6사이에서 선택됨. 전부 동일한 확률로 나옴.
+
+for(int count = 1; count <= 20; ++count)
+  cout << dice(mersenne) << endl;
