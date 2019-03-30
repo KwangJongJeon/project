@@ -1,4 +1,4 @@
-class Slime : public Unit
+class Slime : public Monster
 {
 	private:
 		
@@ -25,5 +25,7 @@ class Slime : public Unit
 			m_INT = 0;
 			m_CON = 0;
 			m_ATK = 0;
+			
+			m_giveExp = 20;
 		}
 };

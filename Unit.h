@@ -21,6 +21,9 @@ class Unit
 		double 	m_dodge_percentage;
 		
 		
+		int m_giveExp; // if player kill monsters, take this exp from monster
+				
+				
 		// unit's status
 		int m_STR;  // Strength, +1 STR -> +3 ATK
 		int m_INT;  // Intelligence, affect to max_mp and magic ATK. +1 Int -> +5 max_mp
