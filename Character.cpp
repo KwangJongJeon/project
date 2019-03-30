@@ -32,8 +32,8 @@ void Character::move_character(const int key)
 			m_cur_pos.setY(m_cur_pos.getY() - 1);
 			erase(m_cur_pos);
 			
-			//cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
-			// m_board.get_state(m_cur_pos);
+			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
+			 m_board->get_state(m_cur_pos);
 			//mark_pos_to_board(m_cur_pos);
 			
 			m_cur_pos.setY(m_cur_pos.getY() + 1);
@@ -55,8 +55,8 @@ void Character::move_character(const int key)
 			m_cur_pos.setY(m_cur_pos.getY() + 1);
 			erase(m_cur_pos);
 			
-			// cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
-			// m_board.get_state(m_cur_pos);
+			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
+			m_board->get_state(m_cur_pos);
 			//mark_pos_to_board(m_cur_pos);
 			
 			m_cur_pos.setY(m_cur_pos.getY() - 1);
@@ -77,8 +77,8 @@ void Character::move_character(const int key)
 			m_cur_pos.setX(m_cur_pos.getX() - 1);
 			erase(m_cur_pos);
 			
-			// cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
-			// m_board.get_state(m_cur_pos);
+			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
+			m_board->get_state(m_cur_pos);
 			// mark_pos_to_board(m_cur_pos);
 			
 			m_cur_pos.setX(m_cur_pos.getX() + 1);
@@ -99,8 +99,8 @@ void Character::move_character(const int key)
 			m_cur_pos.setX(m_cur_pos.getX() + 1);
 			erase(m_cur_pos);
 			
-			// cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
-			//m_board.get_state(m_cur_pos);
+			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
+			m_board->get_state(m_cur_pos);
 			//mark_pos_to_board(m_cur_pos);
 			
 			m_cur_pos.setX(m_cur_pos.getX() - 1);

@@ -4,9 +4,9 @@ Board::Board() // board initialization
 {
 	int i, j;
 	
-	for(i = 0; i < 20; ++i)
-		for(j = 0; j < 30; ++j)
-			m_board[30][20] = -1;  
+	for(i = 0; i < 30; ++i)
+		for(j = 0; j < 20; ++j)
+			m_board[i][j] = -1;  
 }
 
 void Board::set_state(Point pos, int state)
