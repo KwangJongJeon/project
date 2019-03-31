@@ -114,12 +114,17 @@ void Character::move_character(const int key)
 };
 
 
-/*
-void Character::mark_pos_to_board(Point pos)
+void Character::mark_default(Point pos)
 {
-	m_board.set_state(pos, 1); // if state is 1, it's player.
+	m_board->set_state(pos, -1); // if state is -1, it's empty.
 }
-*/
+
+
+void Character::mark_unit(const Point &pos, const int& unit_type)
+{
+	m_board->set_state(pos, unit_type);
+}
+
 
 bool Character::check_valid_pos()
 {

@@ -23,7 +23,9 @@ class Character
 		void draw_something(Point ref_pos);
 		void erase(Point ref_pos);
 		void move_character(const int key);
-		void mark_pos_to_board(Point pos);
+		
+		void mark_default(Point pos);
+		void mark_unit(const Point &pos, const int& unit_type = -1 ); // -1 means the board pos is EMPTY
 		
 		
 		bool check_valid_pos();
