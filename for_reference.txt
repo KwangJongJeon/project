@@ -354,3 +354,13 @@ for( auto & element : list)
   ++count; 
 }
 이 구문은 initializer list 내부의 iterator를 이용하기 때문에 사용이 가능하다.
+
+
+객체들의 관계 
+프로그램이 수행하는 기능 -> 어떤 객체들이 어떻게 도움을 주고받을것인지 설계
+패턴들. 
+Composition, Part of - 구성(요소) - 연관관계가 강함
+Aggregation, Has a - 집합 - 두개가 약간 분리되있는 느낌
+Association, Uses a - 연계, 제휴 - 더 느슨함.
+Dependency, Depends-on 의존 - 더더욱 느슨함.
+// TODO: oveload operator =
