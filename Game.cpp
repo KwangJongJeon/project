@@ -17,7 +17,7 @@ void Game::draw_map()
 
 void Game::run()
 {
-	Character player;
+	Unit player;
 	
 	int key = 0;
 	
@@ -35,7 +35,7 @@ void Game::run()
 					key = getch();
 					
 					Point::gotoxy(player.get_cur_pos());	
-					player.move_character(key);			
+					player.move_character(key, g_PLAYER); // temporary include. after Polymorphism is implemented, this will deleted			
 				}
 		}
 	}

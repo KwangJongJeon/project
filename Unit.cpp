@@ -83,3 +83,146 @@ void Unit::set_status()
 	m_dodge_percentage += 1.0 * m_DEX;
 }
 
+
+
+
+
+void Unit::draw_something(Point ref_pos)
+{
+	Point::GetScrPosFromCurPos(ref_pos);
+	Point::gotoxy(ref_pos);
+	std::cout << "¡Ü";
+}
+
+
+void Unit::erase(Point ref_pos)
+{
+	Point::GetScrPosFromCurPos(ref_pos);
+	Point::gotoxy(ref_pos);
+	std::cout << " ";
+}
+
+
+void Unit::move_character(const int key, const int& unit_type)
+{
+	using namespace std;
+	
+	if(key == g_KEY_UP) // move up
+	{
+		m_cur_pos.setY(m_cur_pos.getY() + 1);
+	
+		if(check_valid_pos())
+		{
+			m_cur_pos.setY(m_cur_pos.getY() - 1);
+			erase(m_cur_pos);
+			
+			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
+			 m_board->get_state(m_cur_pos);
+			//mark_pos_to_board(m_cur_pos);
+			
+			m_cur_pos.setY(m_cur_pos.getY() + 1);
+			draw_something(m_cur_pos);
+		}
+		else
+		{
+			m_cur_pos.setY(m_cur_pos.getY() - 1);
+		}
+		
+	}
+	
+	if(key == g_KEY_DOWN) // move down 
+	{
+		m_cur_pos.setY(m_cur_pos.getY() - 1);
+	
+		if(check_valid_pos())
+		{
+			m_cur_pos.setY(m_cur_pos.getY() + 1);
+			erase(m_cur_pos);
+			
+			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
+			m_board->get_state(m_cur_pos);
+			//mark_pos_to_board(m_cur_pos);
+			
+			m_cur_pos.setY(m_cur_pos.getY() - 1);
+			draw_something(m_cur_pos);
+		}
+		else
+		{
+			m_cur_pos.setY(m_cur_pos.getY() + 1);
+		}	
+	}
+		
+	if(key == g_KEY_RIGHT) // move right
+	{
+		m_cur_pos.setX(m_cur_pos.getX() + 1);
+	
+		if(check_valid_pos())
+		{
+			m_cur_pos.setX(m_cur_pos.getX() - 1);
+			erase(m_cur_pos);
+			
+			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
+			m_board->get_state(m_cur_pos);
+			// mark_pos_to_board(m_cur_pos);
+			
+			m_cur_pos.setX(m_cur_pos.getX() + 1);
+			draw_something(m_cur_pos);
+		}
+		else
+		{
+			m_cur_pos.setX(m_cur_pos.getX() - 1);
+		}
+	}
+		
+	if(key == g_KEY_LEFT) // move left
+	{	
+		m_cur_pos.setX(m_cur_pos.getX() - 1);
+	
+		if(check_valid_pos())
+		{
+			m_cur_pos.setX(m_cur_pos.getX() + 1);
+			erase(m_cur_pos);
+			
+			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
+			m_board->get_state(m_cur_pos);
+			//mark_pos_to_board(m_cur_pos);
+			
+			m_cur_pos.setX(m_cur_pos.getX() - 1);
+			draw_something(m_cur_pos);
+		}
+		else
+		{
+			m_cur_pos.setX(m_cur_pos.getX() + 1);
+		}
+	}
+};
+
+
+void Unit::mark_default(Point pos)
+{
+	m_board->set_state(pos, -1); // if state is -1, it's empty.
+}
+
+
+void Unit::mark_unit(const Point &pos, const int& unit_type)
+{
+	m_board->set_state(pos, unit_type);
+}
+
+
+bool Unit::check_valid_pos()
+{
+	if(m_cur_pos.getX() < 0 || m_cur_pos.getX() > 29)
+	{
+		return false;
+	}
+	
+	
+	if(m_cur_pos.getY() < 0 || m_cur_pos.getY() > 19)
+	{
+		return false;
+	}		
+	
+	return true;
+}
+
