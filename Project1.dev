@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=3
 CompilerSettings=0000000100000000000000000
-UnitCount=17
+UnitCount=19
 
 [VersionInfo]
 Major=1
@@ -39,38 +39,18 @@ Build=0
 LanguageID=1033
 CharsetID=1252
 CompanyName=
-FileVersion=1.0.0.0
+FileVersion=
 FileDescription=Developed using the Dev-C++ IDE
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
 ProductName=
-ProductVersion=1.0.0.0
+ProductVersion=
 AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit2]
-FileName=Game.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit1]
-FileName=main.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit3]
 FileName=Game.cpp
 CompileCpp=1
 Folder=
@@ -80,7 +60,17 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit4]
+[Unit1]
+FileName=Game.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit3]
 FileName=Board.h
 CompileCpp=1
 Folder=
@@ -90,7 +80,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit5]
+[Unit4]
 FileName=Point.h
 CompileCpp=1
 Folder=
@@ -100,7 +90,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit6]
+[Unit5]
 FileName=Point.cpp
 CompileCpp=1
 Folder=
@@ -110,7 +100,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit7]
+[Unit6]
 FileName=Board.cpp
 CompileCpp=1
 Folder=
@@ -120,7 +110,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit8]
+[Unit7]
 FileName=Player.h
 CompileCpp=1
 Folder=
@@ -130,7 +120,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit9]
+[Unit8]
 FileName=Character.cpp
 CompileCpp=1
 Folder=
@@ -140,7 +130,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit10]
+[Unit9]
 FileName=Character.h
 CompileCpp=1
 Folder=
@@ -150,7 +140,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit11]
+[Unit10]
 FileName=values.h
 CompileCpp=1
 Folder=
@@ -160,7 +150,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit12]
+[Unit11]
 FileName=Slime.h
 CompileCpp=1
 Folder=
@@ -170,7 +160,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit13]
+[Unit12]
 FileName=Item.h
 CompileCpp=1
 Folder=
@@ -180,7 +170,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit14]
+[Unit13]
 FileName=Unit.h
 CompileCpp=1
 Folder=
@@ -190,7 +180,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit15]
+[Unit14]
 FileName=Unit.cpp
 CompileCpp=1
 Folder=
@@ -200,7 +190,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit16]
+[Unit15]
 FileName=Monster.h
 CompileCpp=1
 Folder=
@@ -210,8 +200,38 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit17]
+[Unit16]
 FileName=AIPrototype.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit17]
+FileName=Monster.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit18]
+FileName=Slime.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit19]
+FileName=main.cpp
 CompileCpp=1
 Folder=
 Compile=1

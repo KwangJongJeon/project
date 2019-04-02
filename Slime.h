@@ -9,7 +9,7 @@ class Slime : public Monster
 		Slime()
 		{
 			// set status
-			m_unit_id = 10;
+			m_unit_id = g_SLIME;
 
 			m_max_hp = 30;
 			m_hp = m_max_hp;
@@ -32,8 +32,8 @@ class Slime : public Monster
 			m_giveExp = 20;
 			
 			// 
-			m_cur_pos = set_monster_position()
-			draw_something();
+			m_cur_pos = set_monster_position();
+			draw_something(m_cur_pos, m_unit_id);
 		}
 		
 		

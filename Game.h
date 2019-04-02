@@ -9,6 +9,7 @@
 #include "Point.h"
 #include "Board.h"
 #include "values.h" // temporary include. after Polymorphism is implemented, this will deleted
+#include "Slime.h"
 
 class Game
 {
@@ -24,4 +25,5 @@ class Game
 	
 		void draw_map();	
 		void run();
+		void generate_slime(const int& count);
 };

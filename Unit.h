@@ -13,7 +13,7 @@ class Unit
 	// monster's id starts at 10. 
 	// item's id starts at 100.
 	  
-	private:
+	protected:
 		Point	m_cur_pos;
 		Board   *m_board;
 		

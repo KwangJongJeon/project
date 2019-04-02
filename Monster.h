@@ -3,7 +3,7 @@
 
 class Monster : public Unit
 {
-	private:
+	protected:
 		int m_giveExp; // if player kill monsters, take this exp from monster
 		
 	public:

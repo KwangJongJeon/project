@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o Game.o Point.o Board.o Character.o Unit.o AIPrototype.o Monster.o Slime.o
-LINKOBJ  = main.o Game.o Point.o Board.o Character.o Unit.o AIPrototype.o Monster.o Slime.o
+OBJ      = Game.o Point.o Board.o Character.o Unit.o AIPrototype.o Monster.o Slime.o main.o
+LINKOBJ  = Game.o Point.o Board.o Character.o Unit.o AIPrototype.o Monster.o Slime.o main.o
 LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
 INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -23,9 +23,6 @@ clean: clean-custom
 
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
-
-main.o: main.cpp
-	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
 
 Game.o: Game.cpp
 	$(CPP) -c Game.cpp -o Game.o $(CXXFLAGS)
@@ -50,3 +47,6 @@ Monster.o: Monster.cpp
 
 Slime.o: Slime.cpp
 	$(CPP) -c Slime.cpp -o Slime.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)

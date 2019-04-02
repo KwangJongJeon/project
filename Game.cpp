@@ -24,6 +24,7 @@ void Game::run()
 	draw_map();
 	Point::gotoxy(player.get_cur_pos());
 	player.draw_something(player.get_cur_pos(), g_PLAYER);
+	Slime slime();
 	
 	while(true)
 	{
@@ -39,5 +40,10 @@ void Game::run()
 				}
 		}
 	}
+}
+
+void Game::generate_slime(const int& count)
+{
+	
 }
 
