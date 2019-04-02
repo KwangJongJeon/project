@@ -3,6 +3,8 @@
 #include <iostream>
 #include <cstdlib> // std::rand(), std::srand()
 #include <ctime> // std::time()
+#include <vector>
+
 #include "Unit.h"
 #include "Point.h"
 #include "Board.h"
@@ -22,5 +24,4 @@ class Game
 	
 		void draw_map();	
 		void run();
-			
 };

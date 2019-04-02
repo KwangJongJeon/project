@@ -1,3 +1,5 @@
+#include "Monster.h"
+
 class Slime : public Monster
 {
 	private:
@@ -6,6 +8,7 @@ class Slime : public Monster
 	public:
 		Slime()
 		{
+			// set status
 			m_unit_id = 10;
 
 			m_max_hp = 30;
@@ -27,5 +30,12 @@ class Slime : public Monster
 			m_ATK = 0;
 			
 			m_giveExp = 20;
+			
+			// 
+			m_cur_pos = set_monster_position()
+			draw_something();
 		}
+		
+		
+		
 };

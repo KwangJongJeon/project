@@ -91,6 +91,7 @@ void Unit::draw_something(Point ref_pos, const int& unit_type)
 {
 	Point::GetScrPosFromCurPos(ref_pos);
 	Point::gotoxy(ref_pos);
+	m_board->mark_to_board(m_cur_pos, unit_type);
 	
 	switch(unit_type)
 	{
@@ -135,7 +136,6 @@ void Unit::move_character(const int key, const int& unit_type)
 			
 			
 			move(0, 1);
-			m_board->mark_to_board(m_cur_pos, unit_type);
 			draw_something(m_cur_pos, unit_type);
 		}
 		else
@@ -160,7 +160,6 @@ void Unit::move_character(const int key, const int& unit_type)
 			
 			
 			move(0, -1);
-			m_board->mark_to_board(m_cur_pos, unit_type);
 			draw_something(m_cur_pos, unit_type);
 		}
 		else
@@ -184,7 +183,6 @@ void Unit::move_character(const int key, const int& unit_type)
 			
 						
 			move(1, 0);
-			m_board->mark_to_board(m_cur_pos, unit_type);
 			draw_something(m_cur_pos, unit_type);
 		}
 		else
@@ -206,7 +204,6 @@ void Unit::move_character(const int key, const int& unit_type)
 			// cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
 			
 			move(-1, 0);
-			m_board->mark_to_board(m_cur_pos, unit_type);
 			draw_something(m_cur_pos, unit_type);
 		}
 		else

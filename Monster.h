@@ -1,3 +1,6 @@
+#pragma once
+#include "Unit.h"
+
 class Monster : public Unit
 {
 	private:
@@ -5,4 +8,9 @@ class Monster : public Unit
 		
 	public:
 		void attack(Unit& player);
-}
+		
+		
+		
+	Point set_monster_position();
+	
+};
