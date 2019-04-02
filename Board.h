@@ -10,6 +10,9 @@ class Board
 	public:
 		Board();
 		
-		void set_state(Point pos, int state);
+		void set_state(Point pos, const int& state);
 		int get_state(Point pos);
+		
+		void mark_to_board(const Point& pos, const int& unit_type = -1); // -1 means the board is EMPTY
 };
+

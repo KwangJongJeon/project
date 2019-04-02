@@ -9,7 +9,7 @@ Board::Board() // board initialization
 			m_board[i][j] = -1;  
 }
 
-void Board::set_state(Point pos, int state)
+void Board::set_state(Point pos, const int& state)
 {
 	m_board[pos.getX()][pos.getY()] = state;
 	
@@ -21,16 +21,8 @@ int Board::get_state(Point pos)
 	return m_board[pos.getX()][pos.getY()];
 }
 
-/*
-int Board::show_all_ingredients(Board board)
+void Board::mark_to_board(const Point &pos, const int& unit_type)
 {
-	for(i = 0; i < 20; ++i)
-		for(j = 0; j < 30; ++j)
-		{
-			cout << board[i][j];
-		}
-	
+	set_state(pos, unit_type);
 }
-*/
-
      

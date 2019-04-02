@@ -54,12 +54,14 @@ class Unit
 		
 		void draw_something(Point ref_pos);
 		void erase(Point ref_pos);
+		void move(const int& dx, const int& dy); // if move(0, 1), m_cur_pos.getY() = m_cur_pos.getY() + 1; 
 		void move_character(const int key, const int& unit_type);
 		
-		void mark_default(Point pos);
-		void mark_unit(const Point &pos, const int& unit_type = -1 ); // -1 means the board pos is EMPTY
+		// void mark_default(Point pos);
+		// void mark_unit(const Point &pos, const int& unit_type = -1 ); // -1 means the board pos is EMPTY
 		
 		bool check_valid_pos();
+
 		
 		~Unit()
 		{
