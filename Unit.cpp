@@ -87,13 +87,22 @@ void Unit::set_status()
 
 
 
-void Unit::draw_something(Point ref_pos)
+void Unit::draw_something(Point ref_pos, const int& unit_type)
 {
 	Point::GetScrPosFromCurPos(ref_pos);
 	Point::gotoxy(ref_pos);
-	std::cout << "¡Ü";
+	
+	switch(unit_type)
+	{
+		case g_PLAYER:
+			std::cout << "¡Ü";
+			break;
+		case g_SLIME:
+			std::cout << "¡â";
+			break;
+	}
+	
 }
-
 
 void Unit::move(const int& dx, const int& dy)
 {
@@ -107,105 +116,6 @@ void Unit::erase(Point ref_pos)
 	Point::gotoxy(ref_pos);
 	std::cout << " ";
 }
-
-
-/*
-void Unit::move_character(const int key, const int& unit_type)
-{
-	using namespace std;
-	
-	if(key == g_KEY_UP) // move up
-	{
-		m_cur_pos.setY(m_cur_pos.getY() + 1);
-	
-		if(check_valid_pos())
-		{
-			m_cur_pos.setY(m_cur_pos.getY() - 1);
-			erase(m_cur_pos);
-			
-			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
-			 m_board->get_state(m_cur_pos);
-			//mark_pos_to_board(m_cur_pos);
-			
-			m_cur_pos.setY(m_cur_pos.getY() + 1);
-			draw_something(m_cur_pos);
-		}
-		else
-		{
-			m_cur_pos.setY(m_cur_pos.getY() - 1);
-		}
-		
-	}
-	
-	if(key == g_KEY_DOWN) // move down 
-	{
-		
-		m_cur_pos.setY(m_cur_pos.getY() - 1);
-	
-		if(check_valid_pos())
-		{
-			m_cur_pos.setY(m_cur_pos.getY() + 1);
-			erase(m_cur_pos);
-			
-			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
-			m_board->get_state(m_cur_pos);
-			//mark_pos_to_board(m_cur_pos);
-			
-			m_cur_pos.setY(m_cur_pos.getY() - 1);
-			draw_something(m_cur_pos);
-		}
-		else
-		{
-			m_cur_pos.setY(m_cur_pos.getY() + 1);
-		}	
-	}
-		
-	if(key == g_KEY_RIGHT) // move right
-	{
-		m_cur_pos.setX(m_cur_pos.getX() + 1);
-	
-		if(check_valid_pos())
-		{
-			m_cur_pos.setX(m_cur_pos.getX() - 1);
-			erase(m_cur_pos);
-			
-			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
-			m_board->get_state(m_cur_pos);
-			// mark_pos_to_board(m_cur_pos);
-			
-			m_cur_pos.setX(m_cur_pos.getX() + 1);
-			draw_something(m_cur_pos);
-		}
-		else
-		{
-			m_cur_pos.setX(m_cur_pos.getX() - 1);
-		}
-	}
-		
-	if(key == g_KEY_LEFT) // move left
-	{	
-		m_cur_pos.setX(m_cur_pos.getX() - 1);
-	
-		if(check_valid_pos())
-		{
-			m_cur_pos.setX(m_cur_pos.getX() + 1);
-			erase(m_cur_pos);
-			
-			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
-			m_board->get_state(m_cur_pos);
-			//mark_pos_to_board(m_cur_pos);
-			
-			m_cur_pos.setX(m_cur_pos.getX() - 1);
-			draw_something(m_cur_pos);
-		}
-		else
-		{
-			m_cur_pos.setX(m_cur_pos.getX() + 1);
-		}
-	}
-};
-*/
-
 
 void Unit::move_character(const int key, const int& unit_type)
 {
@@ -221,12 +131,12 @@ void Unit::move_character(const int key, const int& unit_type)
 			m_board->mark_to_board(m_cur_pos);
 			erase(m_cur_pos);
 			
-			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
+			// cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
 			
 			
 			move(0, 1);
 			m_board->mark_to_board(m_cur_pos, unit_type);
-			draw_something(m_cur_pos);
+			draw_something(m_cur_pos, unit_type);
 		}
 		else
 		{
@@ -246,13 +156,12 @@ void Unit::move_character(const int key, const int& unit_type)
 			m_board->mark_to_board(m_cur_pos);
 			erase(m_cur_pos);
 			
-			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
+			//cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
 			
-			//mark_pos_to_board(m_cur_pos);
 			
 			move(0, -1);
 			m_board->mark_to_board(m_cur_pos, unit_type);
-			draw_something(m_cur_pos);
+			draw_something(m_cur_pos, unit_type);
 		}
 		else
 		{
@@ -271,12 +180,12 @@ void Unit::move_character(const int key, const int& unit_type)
 			erase(m_cur_pos);
 			
 			
-			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
+			// cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
 			
 						
 			move(1, 0);
 			m_board->mark_to_board(m_cur_pos, unit_type);
-			draw_something(m_cur_pos);
+			draw_something(m_cur_pos, unit_type);
 		}
 		else
 		{
@@ -294,12 +203,11 @@ void Unit::move_character(const int key, const int& unit_type)
 			m_board->mark_to_board(m_cur_pos);
 			erase(m_cur_pos);
 			
-			cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
+			// cout << "x: " << m_cur_pos.getX() << " y: " << m_cur_pos.getY();
 			
 			move(-1, 0);
 			m_board->mark_to_board(m_cur_pos, unit_type);
-			draw_something(m_cur_pos);
-			m_board->get_state(m_cur_pos);
+			draw_something(m_cur_pos, unit_type);
 		}
 		else
 		{

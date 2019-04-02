@@ -52,7 +52,7 @@ class Unit
 		Point get_cur_pos(){ return m_cur_pos;}
 		void set_cur_pos(Point ref_pos);
 		
-		void draw_something(Point ref_pos);
+		void draw_something(Point ref_pos, const int& unit_type);
 		void erase(Point ref_pos);
 		void move(const int& dx, const int& dy); // if move(0, 1), m_cur_pos.getY() = m_cur_pos.getY() + 1; 
 		void move_character(const int key, const int& unit_type);
