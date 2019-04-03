@@ -3,7 +3,6 @@
 #include <cstdlib>
 #include "Point.h"
 #include "Board.h"
-#include "Game.h"
 #include "values.h"
 
 
@@ -14,11 +13,11 @@ class Unit
 	
 	// item's id starts at 100.
 	  
-	protected:
+	private:
 		Point	m_cur_pos;
 		Board   *m_board;
 		
-		int		m_unit_id;
+		int		m_unit_type;
 		int 	m_max_hp;
 		int 	m_max_mp;
 		int 	m_hp;
@@ -49,26 +48,20 @@ class Unit
 			: m_cur_pos(ref_pos), m_board(board) 
 			{}
 			
-		Point get_cur_pos(){ return m_cur_pos;}
-		void set_cur_pos(Point ref_pos);
+			
+		Point 	get_cur_pos(){ return m_cur_pos;}
+		void 	set_cur_pos(Point ref_pos);
 		
-		void draw_something(Point ref_pos, const int& unit_type);
-		void erase(Point ref_pos);
-		void move(const int& dx, const int& dy); // if move(0, 1), m_cur_pos.getY() = m_cur_pos.getY() + 1; 
-		void move_character(const int key, const int& unit_type);
+		void 	draw_something(Point ref_pos, const int& unit_type);
+		void 	erase(Point ref_pos);
 		
-		// void mark_default(Point pos);
-		// void mark_unit(const Point &pos, const int& unit_type = -1 ); // -1 means the board pos is EMPTY
+		void 	move(const int& dx, const int& dy);  // if move(0, 1), m_cur_pos.getY() = m_cur_pos.getY() + 1; 
+		void 	move_character(const int key, const int& unit_type);
 		
-		bool check_valid_pos();
+		bool 	check_valid_pos();
 
-		
-		
-		bool dodge();
-		bool critical_hit(); // Damage to enemy Unit with 3*ATK damage
-		void attack(Unit& enemy_unit);
-		
-		
+
+		void set_unit_type(const int& input_type) { m_unit_type = input_type; }
 		void set_STR(const int& input_str) { m_STR = input_str; }
 		void set_INT(const int& input_int) { m_INT = input_int; }
 		void set_DEX(const int& input_dex) { m_DEX = input_dex; }
@@ -76,13 +69,29 @@ class Unit
 		void set_EXP(const int& input_exp) { m_EXP = input_exp; }
 		void set_LUK(const int& input_luk) { m_LUK = input_luk; }
 		
+		void set_pos(const Point& pos_in) { m_cur_pos = pos_in; }
+		
+		
+		const int& get_unit_type() { return m_unit_type;}
+		const int& get_STR() { return m_STR; }
+		const int& get_INT() { return m_INT; }
+		const int& get_DEX() { return m_DEX; }
+		const int& get_CON() { return m_CON; }
+		const int& get_EXP() { return m_EXP; }
+		const int& get_LUK() { return m_LUK; }
+		
+		const Point& get_pos() { return m_cur_pos; }
+
 		
 		void set_wearing_weapon(int input_weapon) { m_wearing_weapon = input_weapon; }
 		void set_wearing_armor(int input_armor) { m_wearing_armor = input_armor; }
 		void set_hunger(int input_hunger) { m_hunger = input_hunger; }
 		
+		void set_status();		
+		bool dodge();
+		bool critical_hit(); // Damage to enemy Unit with 3*ATK damage
+		void attack(Unit& enemy_unit);
 		
-		void set_status();
 		void level_up(); // if level up, player's status is rised 5 point randomly
 		
 		~Unit()

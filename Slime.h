@@ -6,34 +6,25 @@ class Slime : public Monster
 		
 		
 	public:
-		Slime()
+		Slime(Point ref_pos, Board *board)
+			: Monster(ref_pos, board)
 		{
 			// set status
-			m_unit_id = g_SLIME;
+			Unit::set_unit_type(g_SLIME);
 
-			m_max_hp = 30;
-			m_hp = m_max_hp;
-			
-			m_max_mp = 0;
-			m_mp = m_max_mp;
-			
-			m_ATK = 4;
-			m_DEF = 1;
-			m_level = 1;
-			
-			m_critical_percentage = 5;
-			m_dodge_percentage = 5;
+			Unit::set_STR(5);
+			Unit::set_INT(0);
+			Unit::set_DEX(5);
+			Unit::set_CON(6);
+			Unit::set_LUK(5);
 
-			m_STR = 0;
-			m_INT = 0;
-			m_CON = 0;
-			m_ATK = 0;
+			Monster::set_giveExp(20);
 			
-			m_giveExp = 20;
+			Unit::set_status();
 			
 			// 
-			m_cur_pos = set_monster_position();
-			draw_something(m_cur_pos, m_unit_id);
+			set_monster_position();
+			Unit::draw_something(Unit::get_pos(), Unit::get_unit_type());
 		}
 		
 		
