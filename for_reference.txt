@@ -364,3 +364,29 @@ Aggregation, Has a - 집합 - 두개가 약간 분리되있는 느낌
 Association, Uses a - 연계, 제휴 - 더 느슨함.
 Dependency, Depends-on 의존 - 더더욱 느슨함.
 // TODO: oveload operator =
+
+
+
+상속 (is-a relationship // Inheritance)
+상속받은 자식은 상속받은 모든걸 사용받을 수 있음. 
+child class is derived from mother class(generalized class)
+private 멤버클래스는 자식클래스에도 허용을 하지 않음.
+protected를 사용해야 자식클래스에게도 허용함. 
+constructor가 존재하는 이유는 메모리가 할당될 때 initialize를 이렇게 해주세요임. 
+Child class를 생성할 때 Mother class가 먼저 생성되어야 함.
+
+child class가 생성이 될때는 내부적으로 mother 클래스의 생성자를 같이 호출함.(default constructor)
+
+child class를 생성할때 Mother default constructor를 만들던지
+child 생성자측에 mother constructor를 만들면된다.
+
+
+상속2 
+학생도 사람이고, 선생도 사람이다. 이런측면에서 공통점이 있고
+일반화시키면 사람이라는 새로운 객체로 묶어서 생각할 수 있다.
+is-a 관계
+Student에서 Person을 호출해서 간접적으로 멤버를 초기화한다.
+중복되는것들은 왠만하면 부모클래스로, 중복되지 않는건 자식클래스로
+private access specifier를 사용하는것은 코드를 우아하고 간결하게 유지하기 위함이다.
+
+객체지향을 따르면, 중복되는 기능이 있을때 유지보수가 간결하다.

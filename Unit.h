@@ -10,7 +10,8 @@
 class Unit
 {
 	// player's id starts at 1.
-	// monster's id starts at 10. 
+	// monster's id starts at 10. tatus is 100, plus to m_Level, if level-up, player's 5 point will be distributed randomly
+	
 	// item's id starts at 100.
 	  
 	protected:
@@ -35,9 +36,8 @@ class Unit
 		int m_INT;  // Intelligence, affect to max_mp and magic ATK. +1 Int -> +5 max_mp
 		int m_DEX;  // Dexterity, affect to Dodge percentage -> maybe +1 Dex -> +1.0% Dodge percentage
 		int m_CON;  // Constitution, affect to DEF and max_hp. maybe +1 CON -> +5 max_hp and +1 DEF 
-		int m_EXP;  // Experience, if this status is 100, plus to m_Level, if level-up, player's 5 point will be distributed randomly
-		int m_LUK;  // LUCK, affect to Critical Hit percentage -> 1LUK -> ?
-		
+		int m_EXP;  // Experience, if this sical Hit percentage -> 1LUK -> ?
+		int m_LUK;  // LUCK, affect to Crit
 		
 		int m_wearing_weapon;
 		int m_wearing_armor;
@@ -63,13 +63,7 @@ class Unit
 		bool check_valid_pos();
 
 		
-		~Unit()
-		{
-			delete m_board;
-			m_board = 0;
-		}
-	
-	
+		
 		bool dodge();
 		bool critical_hit(); // Damage to enemy Unit with 3*ATK damage
 		void attack(Unit& enemy_unit);
@@ -90,4 +84,10 @@ class Unit
 		
 		void set_status();
 		void level_up(); // if level up, player's status is rised 5 point randomly
-	};
+		
+		~Unit()
+		{
+			delete m_board;
+			m_board = 0;
+		}
+};

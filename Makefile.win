@@ -4,14 +4,14 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = Game.o Point.o Board.o Character.o Unit.o AIPrototype.o Monster.o Slime.o main.o
-LINKOBJ  = Game.o Point.o Board.o Character.o Unit.o AIPrototype.o Monster.o Slime.o main.o
+OBJ      = Game.o Point.o Board.o Unit.o AIPrototype.o Monster.o Slime.o main.o
+LINKOBJ  = Game.o Point.o Board.o Unit.o AIPrototype.o Monster.o Slime.o main.o
 LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
 INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = Project1.exe
-CXXFLAGS = $(CXXINCS) -m32 -std=c++11
-CFLAGS   = $(INCS) -m32 -std=c++11
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -32,9 +32,6 @@ Point.o: Point.cpp
 
 Board.o: Board.cpp
 	$(CPP) -c Board.cpp -o Board.o $(CXXFLAGS)
-
-Character.o: Character.cpp
-	$(CPP) -c Character.cpp -o Character.o $(CXXFLAGS)
 
 Unit.o: Unit.cpp
 	$(CPP) -c Unit.cpp -o Unit.o $(CXXFLAGS)
