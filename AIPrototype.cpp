@@ -1,3 +1,0 @@
-// ATTACK, MOVE, STANCE, LOOK
-
-
