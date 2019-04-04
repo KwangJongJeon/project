@@ -6,14 +6,18 @@ void Game::draw_map()
 	
 	int i;
 	
-	cout << "�̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢�" << endl;
-	for (i = 0; i < 20; i++)
+	cout << "�̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢�" << endl;
+	for (i = 0; i < 20; ++i)
 	{
-		cout << "��                                                            ��" << endl;
+		if(i == 2) cout << "��                                                            �� HP:        ��" << endl;
+		if(i == 3) cout << "��                                                            �� MP:        ��" << endl;
+		cout << "��                                                            ��            ��" << endl;
 	}
-	cout << "�̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢�" << endl;
+	cout << "�̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢�" << endl;
+	cout << endl;
+	
+	cout << "Dialog Frame" << endl; 
 }
-
 
 void Game::run()
 {
@@ -24,8 +28,7 @@ void Game::run()
 	draw_map();
 	Point::gotoxy(player.get_cur_pos());
 	player.draw_something(player.get_cur_pos(), g_PLAYER);
-	Slime slime();
-	Slime slime2();
+
 	
 	while(true)
 	{
