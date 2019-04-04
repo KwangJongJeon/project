@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = Game.o Point.o Board.o Unit.o AIPrototype.o Monster.o Slime.o main.o
-LINKOBJ  = Game.o Point.o Board.o Unit.o AIPrototype.o Monster.o Slime.o main.o
+OBJ      = src/AIPrototype.o src/Board.o src/Game.o src/main.o src/Point.o src/random.o src/Unit/Monster.o src/Unit/Slime.o src/Unit/Unit.o
+LINKOBJ  = src/AIPrototype.o src/Board.o src/Game.o src/main.o src/Point.o src/random.o src/Unit/Monster.o src/Unit/Slime.o src/Unit/Unit.o
 LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32 -g3
 INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -24,26 +24,29 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-Game.o: Game.cpp
-	$(CPP) -c Game.cpp -o Game.o $(CXXFLAGS)
+src/AIPrototype.o: src/AIPrototype.cpp
+	$(CPP) -c src/AIPrototype.cpp -o src/AIPrototype.o $(CXXFLAGS)
 
-Point.o: Point.cpp
-	$(CPP) -c Point.cpp -o Point.o $(CXXFLAGS)
+src/Board.o: src/Board.cpp
+	$(CPP) -c src/Board.cpp -o src/Board.o $(CXXFLAGS)
 
-Board.o: Board.cpp
-	$(CPP) -c Board.cpp -o Board.o $(CXXFLAGS)
+src/Game.o: src/Game.cpp
+	$(CPP) -c src/Game.cpp -o src/Game.o $(CXXFLAGS)
 
-Unit.o: Unit.cpp
-	$(CPP) -c Unit.cpp -o Unit.o $(CXXFLAGS)
+src/main.o: src/main.cpp
+	$(CPP) -c src/main.cpp -o src/main.o $(CXXFLAGS)
 
-AIPrototype.o: AIPrototype.cpp
-	$(CPP) -c AIPrototype.cpp -o AIPrototype.o $(CXXFLAGS)
+src/Point.o: src/Point.cpp
+	$(CPP) -c src/Point.cpp -o src/Point.o $(CXXFLAGS)
 
-Monster.o: Monster.cpp
-	$(CPP) -c Monster.cpp -o Monster.o $(CXXFLAGS)
+src/random.o: src/random.cpp
+	$(CPP) -c src/random.cpp -o src/random.o $(CXXFLAGS)
 
-Slime.o: Slime.cpp
-	$(CPP) -c Slime.cpp -o Slime.o $(CXXFLAGS)
+src/Unit/Monster.o: src/Unit/Monster.cpp
+	$(CPP) -c src/Unit/Monster.cpp -o src/Unit/Monster.o $(CXXFLAGS)
 
-main.o: main.cpp
-	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+src/Unit/Slime.o: src/Unit/Slime.cpp
+	$(CPP) -c src/Unit/Slime.cpp -o src/Unit/Slime.o $(CXXFLAGS)
+
+src/Unit/Unit.o: src/Unit/Unit.cpp
+	$(CPP) -c src/Unit/Unit.cpp -o src/Unit/Unit.o $(CXXFLAGS)

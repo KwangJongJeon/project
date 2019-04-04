@@ -390,3 +390,9 @@ Student에서 Person을 호출해서 간접적으로 멤버를 초기화한다.
 private access specifier를 사용하는것은 코드를 우아하고 간결하게 유지하기 위함이다.
 
 객체지향을 따르면, 중복되는 기능이 있을때 유지보수가 간결하다.
+
+유도된 클래스들의 생성순서.
+constructor가 언제 호출되는지를 보면 편하다.
+Mother construction -> child construction
+mother class의 컨스트럭터를 호출하지 않아도 자동으로 호출한다.
+Mother를 전부 초기화한다음에 child를 초기화한다.

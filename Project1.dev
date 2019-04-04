@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=3
 CompilerSettings=0000000100000000001000000
-UnitCount=17
+UnitCount=11
 
 [VersionInfo]
 Major=1
@@ -51,7 +51,7 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit2]
-FileName=Game.cpp
+FileName=src\Board.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -61,7 +61,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit1]
-FileName=Game.h
+FileName=src\AIPrototype.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -71,7 +71,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit3]
-FileName=Board.h
+FileName=src\Board.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -81,7 +81,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit4]
-FileName=Point.h
+FileName=src\Game.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -91,7 +91,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit5]
-FileName=Point.cpp
+FileName=src\Game.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -101,7 +101,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit6]
-FileName=Board.cpp
+FileName=src\Item.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -111,7 +111,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit7]
-FileName=Player.h
+FileName=src\main.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -121,7 +121,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit8]
-FileName=values.h
+FileName=src\Point.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -131,7 +131,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit9]
-FileName=Slime.h
+FileName=src\Point.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -141,7 +141,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit10]
-FileName=Item.h
+FileName=src\random.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -151,7 +151,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit11]
-FileName=Unit.h
+FileName=src\values.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -161,7 +161,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit12]
-FileName=Unit.cpp
+FileName=src\Unit\Monster.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -171,7 +171,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit13]
-FileName=Monster.h
+FileName=src\Unit\Monster.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -181,7 +181,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit14]
-FileName=AIPrototype.cpp
+FileName=src\Unit\Player.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -191,7 +191,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit15]
-FileName=Monster.cpp
+FileName=src\Unit\Slime.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -201,7 +201,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit16]
-FileName=Slime.cpp
+FileName=src\Unit\Slime.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -211,7 +211,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit17]
-FileName=main.cpp
+FileName=src\Unit\Unit.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -221,7 +221,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit18]
-FileName=Slime.cpp
+FileName=src\Unit\Unit.h
 CompileCpp=1
 Folder=
 Compile=1
