@@ -24,7 +24,7 @@ class Slime : public Monster
 			
 			// 
 			set_monster_position();
-			Point::gotoxy(Unit::get_cur_pos());
+			Point::gotoxy(get_cur_pos());
 			Unit::draw_something(Unit::get_pos(), Unit::get_unit_type());
 		}
 		

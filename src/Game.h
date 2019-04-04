@@ -25,5 +25,4 @@ class Game
 	
 		void draw_map();	
 		void run();
-		void generate_slime(const int& count);
 };
