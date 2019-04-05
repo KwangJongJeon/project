@@ -396,3 +396,10 @@ constructor가 언제 호출되는지를 보면 편하다.
 Mother construction -> child construction
 mother class의 컨스트럭터를 호출하지 않아도 자동으로 호출한다.
 Mother를 전부 초기화한다음에 child를 초기화한다.
+
+접근 지정자 
+class Derived : public Base -> 밑에서 상속을 받을때 접근지정자의 효과가 나온다.
+
+유도된클래스에 새로운 기능 추가하기
+// do some work with this variables defined in Derived
+통해서 접근하면 상위 클래스의 함수를 거쳐야하기때문에 퍼포먼스가 떨어질 수 있다.
