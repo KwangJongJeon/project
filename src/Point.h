@@ -2,6 +2,7 @@
 
 #include <conio.h>
 #include <windows.h>
+#include <iostream>
 
 
 class Point
@@ -25,4 +26,10 @@ class Point
 		static void gotoxy(Point pos);
 		
 		static Point GetScrPosFromCurPos(Point &pos);
+		
+		friend std::ostream& operator << (std::ostream &out,  const Point &point)
+		{
+			out << "( " << point.m_x << " " << point.m_y <<  " )";
+			return out;
+		}
 };

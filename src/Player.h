@@ -1,29 +1,37 @@
+#include "Unit.h"
 class Player : public Unit
 {
 	private:
 		
 	public:
-		Player()
+		Player(Point ref_pos = Point(0, 0), Board *board = new Board)
+			: Unit(ref_pos, board)
 		{
-			m_unit_id = 1;
-			
-			m_max_hp = 50;
-			m_hp = m_max_hp;
-			
-			m_max_mp = 10;
-			m_mp = m_max_mp;
-			
-			m_ATK = 7;
-			m_DEF = 2;
-			m_level = 1;
-			
-			m_critical_percentage = 10;
-			m_dodge_percentage = 10;
+			// set status
+			Unit::set_unit_type(g_PLAYER);
 
-			m_STR = 0;
-			m_INT = 0;
-			m_CON = 0;
-			m_ATK = 0;
+			Unit::set_STR(10);
+			Unit::set_INT(2);
+			Unit::set_DEX(5);
+			Unit::set_CON(10);
+			Unit::set_LUK(5);
+
+			Unit::set_EXP(0);
+			
+			Unit::set_status();
+			
+			// std::cout << Unit::get_pos() << std::endl;
+			Unit::set_pos(Point(2, 2)); // 2, 2 is player's start position
+			Point::gotoxy(get_pos());
+			Unit::draw_something(Unit::get_pos(), g_PLAYER);
+			
 		}
 
+/*
+		~Player()
+		{
+			delete m_board;
+			m_board = 0;
+		}
+*/
 };

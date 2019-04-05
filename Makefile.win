@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = src/AIPrototype.o src/Board.o src/Game.o src/main.o src/Point.o src/random.o src/Unit/Monster.o src/Unit/Slime.o src/Unit/Unit.o
-LINKOBJ  = src/AIPrototype.o src/Board.o src/Game.o src/main.o src/Point.o src/random.o src/Unit/Monster.o src/Unit/Slime.o src/Unit/Unit.o
+OBJ      = src/AIPrototype.o src/Board.o src/Game.o src/main.o src/Point.o src/random.o src/Monster.o src/Slime.o src/Unit.o
+LINKOBJ  = src/AIPrototype.o src/Board.o src/Game.o src/main.o src/Point.o src/random.o src/Monster.o src/Slime.o src/Unit.o
 LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32 -g3
 INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -42,11 +42,11 @@ src/Point.o: src/Point.cpp
 src/random.o: src/random.cpp
 	$(CPP) -c src/random.cpp -o src/random.o $(CXXFLAGS)
 
-src/Unit/Monster.o: src/Unit/Monster.cpp
-	$(CPP) -c src/Unit/Monster.cpp -o src/Unit/Monster.o $(CXXFLAGS)
+src/Monster.o: src/Monster.cpp
+	$(CPP) -c src/Monster.cpp -o src/Monster.o $(CXXFLAGS)
 
-src/Unit/Slime.o: src/Unit/Slime.cpp
-	$(CPP) -c src/Unit/Slime.cpp -o src/Unit/Slime.o $(CXXFLAGS)
+src/Slime.o: src/Slime.cpp
+	$(CPP) -c src/Slime.cpp -o src/Slime.o $(CXXFLAGS)
 
-src/Unit/Unit.o: src/Unit/Unit.cpp
-	$(CPP) -c src/Unit/Unit.cpp -o src/Unit/Unit.o $(CXXFLAGS)
+src/Unit.o: src/Unit.cpp
+	$(CPP) -c src/Unit.cpp -o src/Unit.o $(CXXFLAGS)

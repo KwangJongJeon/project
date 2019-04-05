@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <cstdlib>
 #include "Point.h"
 #include "Board.h"
@@ -14,9 +15,7 @@ class Unit
 	// item's id starts at 100.
 	  
 	private:
-		Point	m_cur_pos;
-		Board   *m_board;
-		
+
 		int		m_unit_type;
 		int 	m_max_hp;
 		int 	m_max_mp;
@@ -42,16 +41,20 @@ class Unit
 		int m_wearing_armor;
 		int m_hunger;
 		
+	protected:
+		Point	m_cur_pos;
+		Board   *m_board;
+			
 		
 	public:
-		Unit(Point ref_pos = Point(g_init_x, g_init_y), Board *board = new Board)
+		Unit(Point ref_pos = Point(0, 0), Board *board = new Board)
 			: m_cur_pos(ref_pos), m_board(board) 
-			{}
-			
-			
-		Point 	get_cur_pos(){ return m_cur_pos;}
-		void 	set_cur_pos(Point ref_pos);
+		{}
 		
+			
+		// Point get_cur_pos() { return m_cur_pos; }
+		// void set_cur_pos(Point pos_in) { m_cur_pos = pos_in; }
+
 		void 	draw_something(Point ref_pos, const int& unit_type);
 		void 	erase(Point ref_pos);
 		

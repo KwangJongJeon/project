@@ -7,7 +7,7 @@ void Game::draw_map()
 	int i;
 	
 	cout << "�̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢�" << endl;
-	for (i = 0; i < 20; ++i)
+	for (i = 0; i < 18; ++i)
 	{
 		if(i == 2) cout << "��                                                            �� HP:        ��" << endl;
 		if(i == 3) cout << "��                                                            �� MP:        ��" << endl;
@@ -19,16 +19,15 @@ void Game::draw_map()
 	cout << "Dialog Frame" << endl; 
 }
 
+
 void Game::run()
 {
-	Unit player;
+	draw_map();
+	Player player;
+	
+	// Slime slime2;
 	
 	int key = 0;
-	
-	draw_map();
-	Point::gotoxy(player.get_cur_pos());
-	player.draw_something(player.get_cur_pos(), g_PLAYER);
-
 	
 	while(true)
 	{
@@ -39,7 +38,7 @@ void Game::run()
 				{
 					key = getch();
 					
-					Point::gotoxy(player.get_cur_pos());	
+					Point::gotoxy(player.get_pos());	
 					player.move_character(key, g_PLAYER); // temporary include. after Polymorphism is implemented, this will deleted			
 				}
 		}

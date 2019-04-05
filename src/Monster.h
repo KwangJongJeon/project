@@ -8,7 +8,7 @@ class Monster : public Unit
 	int m_giveExp; // if player kill monsters, take this exp from monster
 		
 	public:
-		Monster(Point ref_pos, Board *board)
+		Monster(Point ref_pos = Point(0, 0), Board *board = new Board)
 			: Unit(ref_pos, board)
 		{}
 		
@@ -17,5 +17,7 @@ class Monster : public Unit
 		
 		// void attack(Unit& player);
 		void set_monster_position();
+	
+	
 	
 };

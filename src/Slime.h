@@ -6,9 +6,10 @@ class Slime : public Monster
 		
 		
 	public:
-		Slime(Point ref_pos, Board *board)
+		Slime(Point ref_pos = Point(0, 0), Board *board = new Board)
 			: Monster(ref_pos, board)
 		{
+			
 			// set status
 			Unit::set_unit_type(g_SLIME);
 
@@ -22,10 +23,14 @@ class Slime : public Monster
 			
 			Unit::set_status();
 			
-			// 
-			set_monster_position();
-			Point::gotoxy(get_cur_pos());
+			 
+			std::cout << "Slime : " <<  Unit::get_pos() << std::endl;
+
+			Monster::set_monster_position();
+
+			Point::gotoxy(get_pos());
 			Unit::draw_something(Unit::get_pos(), Unit::get_unit_type());
+			
 		}
 		
 		
