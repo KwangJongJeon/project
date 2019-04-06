@@ -27,11 +27,11 @@ class Player : public Unit
 			
 		}
 
-/*
+
 		~Player()
 		{
 			delete m_board;
 			m_board = 0;
 		}
-*/
+
 };

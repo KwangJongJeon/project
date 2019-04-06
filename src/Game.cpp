@@ -26,7 +26,6 @@ void Game::run()
 	Player player;
 	
 	// Slime slime2;
-	
 	int key = 0;
 	
 	while(true)

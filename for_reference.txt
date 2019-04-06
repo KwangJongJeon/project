@@ -83,6 +83,12 @@ ex) friend void doSomething(A& a);
 ex.1) friend class B
 ex.2) friend void B::doSomething(A& a)
 
+상속받은 함수를 감추기.
+derived class에서 using Base::m_i;를 하면 m_i를 퍼블릭처럼 사용하게된다.
+private:
+ using Base::print; // do not add () // print의 access specifier를 private로 바꾼다.
+아니면 아예 delete를 하면된다.
+
 전방선언을 피하기 위해
 
 선언만 class안에 넣어두고 함수는 밖으로 빼면 좋다.
