@@ -5,6 +5,11 @@
 #include <ctime> // std::time()
 #include <vector>
 
+
+#include "UserInput.h"
+#include "Terminal.h"
+
+
 #include "Unit.h"
 #include "Point.h"
 #include "Board.h"
@@ -16,15 +21,27 @@
 class Game
 {
 	private:
-		
+		int input;
+		Board board;
+		UserInput userInput;
+		Terminal terminal;
 
 		
 	public:
 		Game()
 		{
-			run();
+			UserInput userInput;
 		}
 	
-		void draw_map();	
-		void run();
+		void loop()
+		{
+			render();
+			getInput();
+			update(); 
+		}
+	
+		// void draw_map();	
+		void getInput(); 
+		void update(input);
+		void render();
 };

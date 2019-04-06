@@ -1,18 +1,29 @@
 #pragma once
-#include "Point.h"
-#include <iostream>
 
-class Board
-{
-	private:
-		int m_board[20][30];
-		
-	public:
-		Board();
-		
-		void set_state(Point pos, const int& state);
-		int get_state(Point pos);
-		
-		void mark_to_board(const Point& pos, const int& unit_type = -1); // -1 means the board is EMPTY
-};
+#include <string>
+#include <vector>
+#include "Player.h"
+#include "Monster.h"
 
+/**
+Simple databag to hold objects in game.
+Can transform itself to printable string form
+
+@author Laurant Jo
+**/
+class Board {
+public:
+	Player* playerPtr();
+	std::vector<Monster>& monsters();
+	std::string stringForm() const;
+
+	Board(int width, int height, Player* player)
+		: width(width), height(height), player(player) 
+		{}
+	
+private:
+	const int width;
+	const int height;
+	const Player* player;
+	const std::vector<Monster> monsters;	
+}
