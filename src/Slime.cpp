@@ -1,5 +1,6 @@
 #include "Slime.h"
 
+
 Slime::Slime(Point ref_pos, Board *board)
 	:Monster(ref_pos, board)
 {
@@ -22,3 +23,4 @@ Slime::Slime(Point ref_pos, Board *board)
 		Unit::draw_something(Unit::get_pos(), Unit::get_unit_type());
 			
 }
+
