@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <map>
+#include <string>
 #include "Point.h"
 #include "Board.h"
 #include "values.h"
@@ -16,16 +18,16 @@ class Unit
 	  
 	private:
 
-		int		m_unit_type;
-		int 	m_max_hp;
-		int 	m_max_mp;
-		int 	m_hp;
-		int 	m_mp;
-		int 	m_ATK;
-		int 	m_DEF;
-		int 	m_level;
-		double 	m_critical_percentage;
-		double 	m_dodge_percentage;
+		int			m_unit_type;
+		int 		m_max_hp;
+		int 		m_max_mp;
+		int 		m_hp;
+		int 		m_mp;
+		int 		m_ATK;
+		int 		m_DEF;
+		int 		m_level;
+		double 		m_critical_percentage;
+		double 	 	m_dodge_percentage;
 		
 
 				
@@ -97,7 +99,7 @@ class Unit
 		
 		void level_up(); // if level up, player's status is rised 5 point randomly
 		
-		~Unit()
+		virtual ~Unit()
 		{
 			delete m_board;
 			m_board = 0;
