@@ -88,6 +88,8 @@ class Unit
 		const int& get_LUK() { return m_LUK; }
 		
 		const Point& get_pos() { return m_cur_pos; }
+	
+		string stringForm() const;
 
 		
 		void set_wearing_weapon(int input_weapon) { m_wearing_weapon = input_weapon; }
