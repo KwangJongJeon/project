@@ -28,12 +28,27 @@ vector<Monster>& Board::monsters() {
 }
 
 string Board::stringForm() const {
+	string result;
+	vector<string> rowStrings = rowStrings();
+	string ceiling(width + 2, '#');
+	result += ceiling;
+	result += "\n";
+	vector<string>::const_iterator iter = rowStrings.begin();
+	while(iter != rowStrings.end()) {
+		result += "#";
+		result += *iter;
+		result += "#\n";
+	}
+	result += ceiling;
+	return result;
+}
+
+vector<string> Board::rowStrings() const {
 	vector<string> rowStrings;
 	for(int y = 0; y < height; ++y) {
 		rowStrings.push_back(nthRowString(y));
 	}
-	//need to collaborate with border character;
-	return "test";
+	return rowStrings;
 }
 
 string Board::nthRowString(int n) const {
