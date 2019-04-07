@@ -1,38 +1,62 @@
+#pragma once
+
+#include <vector>
+
 #include "Unit.h"
+#include "Equipment"
+#include "Item.h"
+
+
 class Player : public Unit
 {
 	private:
+		// 20190407 - 객체잘림 안일어나나??? 
+		Equipment* m_wearing_weapon;
+		Equipment* m_wearing_armor;
+		
+		vector<Item*> m_inventory;
+		
+		int m_hunger;
 		
 	public:
 		Player(Point ref_pos = Point(0, 0), Board *board = new Board);
-		/*
-			: Unit(ref_pos, board)
-		{
-			// set status
-			Unit::set_unit_type(g_PLAYER);
-
-			Unit::set_STR(10);
-			Unit::set_INT(2);
-			Unit::set_DEX(5);
-			Unit::set_CON(10);
-			Unit::set_LUK(5);
-
-			Unit::set_EXP(0);
-			
-			Unit::set_status();
-			
-			// std::cout << Unit::get_pos() << std::endl;
-			Unit::set_pos(Point(2, 2)); // 2, 2 is player's start position
-			Point::gotoxy(get_pos());
-			Unit::draw_something(Unit::get_pos(), g_PLAYER);
-			
-		}
-		*/
-
+		
+		
+		virtual string stringForm() const override;
+		
+		
+		void set_wearing_weapon(const Equipment& input_weapon);
+		void set_wearing_armor(const Equipment& input_armor);
+		void set_hunger(const int& input_hunger) { m_hunger = input_hunger; }
+		
+		
+		const Equipment& get_wearing_weapon() { return m_wearing_weapon; }
+		const Equipment& set_wearing_armor() { return m_wearing_armor; }
+		const int get_hunger() { return m_hunger; }
+		
+		
 		virtual ~Player() override
 		{
 			delete m_board;
 			m_board = 0;
 		}
+		
+		/* 
+		 * 2019-04-07 
+		 * TODO: if Player Press k(Equipment Status), print like this
+		 * Head: HeadItemName
+		 * Armor: ArmorItemName
+		 * 
+		 * maybe use Polymorphism?
+		  
+		  virtual friend std::ostream& operator << (std::ostream &out, const Item &item) override
+		 {
+			out << ... << ... ;
+			return out;
+		 }
+	
+		 */
+		
+		
 
 };

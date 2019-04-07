@@ -12,8 +12,11 @@ class Monster : public Unit
 			: Unit(ref_pos, board)
 		{}
 		
+		virtual string stringForm() const override;
+
+
 		void set_giveExp(const int& exp_in) { m_giveExp = exp_in;}
-		const int& get_giveExp() { return m_giveExp; }
+		const int& get_giveExp() { return m_giveExp; }		
 		
 		// void attack(Unit& player);
 		void set_monster_position();

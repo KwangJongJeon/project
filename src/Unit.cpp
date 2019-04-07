@@ -88,7 +88,7 @@ void Unit::set_status()
 
 
 
-
+/*
 void Unit::draw_something(Point ref_pos, const int& unit_type)
 {
 	Point::GetScrPosFromCurPos(ref_pos);
@@ -106,6 +106,7 @@ void Unit::draw_something(Point ref_pos, const int& unit_type)
 	}
 	
 }
+
 
 void Unit::move(const int& dx, const int& dy)
 {
@@ -232,4 +233,4 @@ bool Unit::check_valid_pos()
 	
 	return true;
 }
-
+*/

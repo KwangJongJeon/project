@@ -24,12 +24,11 @@ public:
 private:
 	const int width;
 	const int height;
-	const std::vector<Monster> monsters;
+	const std::vector<Monster> monsters;	
 	
-	std::string nthRowString(int n) const;
-	std::vector<std::string> rowStrings() const; 
-	std::string stringFor(int x, int y) const;
-	std::string monsterString(int x, int y) const;
+	string Board::nthRowString(int n) const;
+	string Board::stringFor(int x, int y) const;
+	string Board::monsterString(int x, int y) const;
 	
 	Player player;
 }

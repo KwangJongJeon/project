@@ -24,3 +24,8 @@ Slime::Slime(Point ref_pos, Board *board)
 			
 }
 
+std::string Slime::stringForm()
+{
+	return "s";
+}
+
