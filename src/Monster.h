@@ -18,6 +18,10 @@ class Monster : public Unit
 		// void attack(Unit& player);
 		void set_monster_position();
 	
-	
+		virtual ~Monster() override
+		{
+			delete m_board;
+			m_board = null;
+		}
 	
 };

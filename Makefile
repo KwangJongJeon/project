@@ -1,6 +1,7 @@
 #Makefile to build in linux
 
 CC=i586-mingw32msvc-g++
+TEST_CC=g++
 
 SRCDIR=src
 OBJDIR=build

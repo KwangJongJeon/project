@@ -4,7 +4,8 @@ class Player : public Unit
 	private:
 		
 	public:
-		Player(Point ref_pos = Point(0, 0), Board *board = new Board)
+		Player(Point ref_pos = Point(0, 0), Board *board = new Board);
+		/*
 			: Unit(ref_pos, board)
 		{
 			// set status
@@ -26,9 +27,9 @@ class Player : public Unit
 			Unit::draw_something(Unit::get_pos(), g_PLAYER);
 			
 		}
+		*/
 
-
-		~Player()
+		virtual ~Player() override
 		{
 			delete m_board;
 			m_board = 0;

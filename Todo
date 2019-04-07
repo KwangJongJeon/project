@@ -1,0 +1,47 @@
+class Game { 
+    public:
+    void loop() {
+        while(true) {
+            render();
+            Input input = getInput();
+            update(input);
+        }
+    }
+    
+    private:
+	
+	Board board;
+	Terminal terminal;
+	
+    void render() {
+        terminal.render(board.toString())
+    }
+    
+    Input getInput() {
+		int key = getcher();
+		return new Input(key);이런식??? 나 몰라 ㅇㅇ
+        getchar같은걸로 니가 잘하니까 니가 알아서해서 적당한 형태로 돌려주면 될듯
+    }
+    
+    void update(Input input) {
+		updateUser(input);
+		doComputerUpdateThing();
+        input가지고 지지고 복고해서 게임 상태 업데이트
+            당연히 Board에도 반영되어있어야함
+    }
+	
+	void updateUser(Input input) {
+		board.updateUser(input)
+	}
+	
+	void doComputerUpdateThing() {
+		AI.analyzeAndDoAiThing(board);
+		Trivial.computeDotDamageOrElse(board);
+	}
+}
+
+
+//!!!! map
+map<string, string> myMap;
+myMap.add("babo", "bbaga");
+myMap.getKey("babo") == "bbaga"

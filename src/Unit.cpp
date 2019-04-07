@@ -2,8 +2,10 @@
 
 void Unit::attack(Unit& enemy_unit)
 {	
-	if(dodge())
-	{}
+	if(dodge()) 
+	{
+		return; 
+	}
 	else if(critical_hit())
 	{
 		enemy_unit.m_hp - 3*( m_ATK - enemy_unit.m_DEF );
@@ -96,10 +98,10 @@ void Unit::draw_something(Point ref_pos, const int& unit_type)
 	switch(unit_type)
 	{
 		case g_PLAYER:
-			std::cout << "¡Ü";
+			std::cout << "ï¿½ï¿½";
 			break;
 		case g_SLIME:
-			std::cout << "¡â";
+			std::cout << "ï¿½ï¿½";
 			break;
 	}
 	

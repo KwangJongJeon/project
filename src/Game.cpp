@@ -1,47 +1,27 @@
 #include "Game.h"
 
-void Game::draw_map()
+
+
+
+
+void Game::getInput()
 {
-	using namespace std;
-	
-	int i;
-	
-	cout << "�̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢�" << endl;
-	for (i = 0; i < 18; ++i)
-	{
-		if(i == 2) cout << "��                                                            �� HP:        ��" << endl;
-		if(i == 3) cout << "��                                                            �� MP:        ��" << endl;
-		cout << "��                                                            ��            ��" << endl;
-	}
-	cout << "�̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢�" << endl;
-	cout << endl;
-	
-	cout << "Dialog Frame" << endl; 
+	key = userInput.getInput();
 }
 
 
-void Game::run()
+// move to Unit.cpp later
+void Game::update()
 {
-	draw_map();
-	Player player;
-	
-	// Slime slime2;
-	int key = 0;
-	
-	while(true)
-	{
-		if(kbhit())
-			{
-				key = getch();
-				if(key == 224 || key == 0)
-				{
-					key = getch();
-					
-					Point::gotoxy(player.get_pos());	
-					player.move_character(key, g_PLAYER); // temporary include. after Polymorphism is implemented, this will deleted			
-				}
-		}
-	}
+	updateUser(input);
 }
 
+void Game::updateUser()
+{
+	board.updateUser(input);
+}
 
+void Game::render()
+{
+	terminal.render();
+}

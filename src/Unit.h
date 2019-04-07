@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <map>
+#include <string>
 #include "Point.h"
 #include "Board.h"
 #include "values.h"
@@ -16,16 +18,16 @@ class Unit
 	  
 	private:
 
-		int		m_unit_type;
-		int 	m_max_hp;
-		int 	m_max_mp;
-		int 	m_hp;
-		int 	m_mp;
-		int 	m_ATK;
-		int 	m_DEF;
-		int 	m_level;
-		double 	m_critical_percentage;
-		double 	m_dodge_percentage;
+		int			m_unit_type;
+		int 		m_max_hp;
+		int 		m_max_mp;
+		int 		m_hp;
+		int 		m_mp;
+		int 		m_ATK;
+		int 		m_DEF;
+		int 		m_level;
+		double 		m_critical_percentage;
+		double 	 	m_dodge_percentage;
 		
 
 				
@@ -55,6 +57,8 @@ class Unit
 		// Point get_cur_pos() { return m_cur_pos; }
 		// void set_cur_pos(Point pos_in) { m_cur_pos = pos_in; }
 
+		/*
+		 * // this will be implemented in Board class
 		void 	draw_something(Point ref_pos, const int& unit_type);
 		void 	erase(Point ref_pos);
 		
@@ -62,20 +66,20 @@ class Unit
 		void 	move_character(const int key, const int& unit_type);
 		
 		bool 	check_valid_pos();
+		*/ 
 
-
-		void set_unit_type(const int& input_type) { m_unit_type = input_type; }
-		void set_STR(const int& input_str) { m_STR = input_str; }
-		void set_INT(const int& input_int) { m_INT = input_int; }
-		void set_DEX(const int& input_dex) { m_DEX = input_dex; }
-		void set_CON(const int& input_con) { m_CON = input_con; }
-		void set_EXP(const int& input_exp) { m_EXP = input_exp; }
-		void set_LUK(const int& input_luk) { m_LUK = input_luk; }
+		void set_unit_type(const int& input_type)  { m_unit_type = input_type; }
+		void set_STR(const int& input_str)  { m_STR = input_str; }
+		void set_INT(const int& input_int)  { m_INT = input_int; }
+		void set_DEX(const int& input_dex)  { m_DEX = input_dex; }
+		void set_CON(const int& input_con)  { m_CON = input_con; }
+		void set_EXP(const int& input_exp)  { m_EXP = input_exp; }
+		void set_LUK(const int& input_luk)  { m_LUK = input_luk; }
 		
 		void set_pos(const Point& pos_in) { m_cur_pos = pos_in; }
 		
 		
-		const int& get_unit_type() { return m_unit_type;}
+		const int& get_unit_type()  { return m_unit_type;}
 		const int& get_STR() { return m_STR; }
 		const int& get_INT() { return m_INT; }
 		const int& get_DEX() { return m_DEX; }
@@ -97,7 +101,7 @@ class Unit
 		
 		void level_up(); // if level up, player's status is rised 5 point randomly
 		
-		~Unit()
+		virtual ~Unit()
 		{
 			delete m_board;
 			m_board = 0;
