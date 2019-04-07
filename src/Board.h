@@ -13,7 +13,7 @@ Can transform itself to printable string form
 **/
 class Board {
 public:
-	Player* playerPtr();
+	Player& player();
 	std::vector<Monster>& monsters();
 	std::string stringForm() const;
 
@@ -24,6 +24,7 @@ public:
 private:
 	const int width;
 	const int height;
-	const Player* player;
 	const std::vector<Monster> monsters;	
+	
+	Player player;
 }
