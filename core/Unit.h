@@ -85,17 +85,17 @@ class Unit
 		void set_pos(const Point& pos_in) { m_cur_pos = pos_in; }
 		
 		
-		const int& get_unit_type()  { return m_unit_type;}
-		const int& get_STR() { return m_STR; }
-		const int& get_INT() { return m_INT; }
-		const int& get_DEX() { return m_DEX; }
-		const int& get_CON() { return m_CON; }
-		const int& get_EXP() { return m_EXP; }
-		const int& get_LUK() { return m_LUK; }
-		const int& get_ATK() { return m_ATK; }
-		const int& get_DEF() { return m_DEF; }
+		const int& get_unit_type() const { return m_unit_type;}
+		const int& get_STR() const { return m_STR; }
+		const int& get_INT() const { return m_INT; }
+		const int& get_DEX() const { return m_DEX; }
+		const int& get_CON() const { return m_CON; }
+		const int& get_EXP() const { return m_EXP; }
+		const int& get_LUK() const { return m_LUK; }
+		const int& get_ATK() const { return m_ATK; }
+		const int& get_DEF() const { return m_DEF; }
 		
-		const Point& get_pos() { return m_cur_pos; }
+		const Point& get_pos() const { return m_cur_pos; }
 	
 
 		void set_status();		

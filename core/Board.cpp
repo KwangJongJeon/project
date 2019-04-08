@@ -1,22 +1,5 @@
 #include "Board.h"
 
-// class Board {
-// public:
-// 	Player& player();
-// 	std::vector<Monster>& monsters();
-// 	std::string stringForm() const;
-
-// 	Board(int width, int height, Player* player)
-// 		: width(width), height(height), player(player) 
-// 		{}
-	
-// private:
-// 	const int width;
-// 	const int height;
-// 	const std::vector<Monster> monsters;	
-	
-// 	Player player;
-// }
 using namespace std;
 
 Player& Board::getPlayer() {
@@ -75,7 +58,7 @@ string Board::monsterString(int x, int y) const {
 	string result = " ";
 	vector<Monster>::const_iterator iter = monsters.begin();
 	
-	while(iter != mosters.end()) {
+	while(iter != monsters.end()) {
 		Point point = iter->get_pos();
 		if((point.getX() == x) && (point.getY() == y)) {
 			result = iter->stringForm();
@@ -86,7 +69,7 @@ string Board::monsterString(int x, int y) const {
 }
 
 string Board::playerString(int x, int y) const {
-	string result = = " ";
+	string result = " ";
 	Point playerPoint = player.get_pos();
 	if((playerPoint.getX() == x) && (playerPoint.getY() == y)) {
 		result = player.stringForm();

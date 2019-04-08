@@ -27,7 +27,8 @@ private:
 	Player player;
 	
 	std::vector<std::string> rowStrings() const;
-	std::string nthRowString(int n) const;
-	std::string stringFor(int x, int y) const;
-	std::string monsterString(int x, int y) const;
+	std::string nthRowString(int) const;
+	std::string stringFor(int, int) const;
+	std::string monsterString(int, int) const;
+	std::string playerString(int, int) const;
 };
