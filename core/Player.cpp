@@ -22,3 +22,23 @@ Player::Player(Point ref_pos, Board *board)
 	Unit::draw_something(Unit::get_pos(), g_PLAYER);
 			
 }
+
+std::string Player::stringForm()
+{
+	return "@"
+}
+
+void Player::set_wearing_weapon(const Equipment& input_weapon)
+{
+	m_wearing_weapon = input_weapon;
+	m_wearing_weapon->set_equipment_ATK(set_equipment_ATK);
+	m_wearing_weapon->set_equipment_DEF(set_equipment_DEF);
+}
+
+
+void Player::set_wearing_armor(const Equipment& input_weapon)
+{
+	m_wearing_armor = input_weapon;
+	m_wearing_weapon->set_equipment_ATK(set_equipment_ATK);
+	m_wearing_weapon->set_equipment_DEF(set_equipment_DEF);
+}

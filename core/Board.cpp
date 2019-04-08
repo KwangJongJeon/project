@@ -34,28 +34,34 @@ string Board::stringForm() const {
 	result += ceiling;
 	result += "\n";
 	vector<string>::const_iterator iter = rowStrings.begin();
+	
 	while(iter != rowStrings.end()) {
 		result += "#";
 		result += *iter;
 		result += "#\n";
 	}
+	
 	result += ceiling;
 	return result;
 }
 
 vector<string> Board::rowStrings() const {
 	vector<string> rowStrings;
+	
 	for(int y = 0; y < height; ++y) {
 		rowStrings.push_back(nthRowString(y));
 	}
+	
 	return rowStrings;
 }
 
 string Board::nthRowString(int n) const {
 	string result;
+	
 	for(int x = 0; x < width; ++x) {
 		result += stringFor(x, n);
 	}
+	
 	return result;
 }
 
@@ -68,12 +74,14 @@ string Board::stringFor(int x, int y) const {
 string Board::monsterString(int x, int y) const {
 	string result = " ";
 	vector<Monster>::const_iterator iter = monsters.begin();
+	
 	while(iter != mosters.end()) {
 		Point point = iter->get_pos();
 		if((point.getX() == x) && (point.getY() == y)) {
 			result = iter->stringForm();
 		}
 	}
+	
 	return result;
 }
 

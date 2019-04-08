@@ -1,3 +1,9 @@
+/*
+ *  Unit image on board
+ *  @ - player
+ *  s - slime
+ */ 
+
 #pragma once
 
 #include <iostream>
@@ -38,11 +44,8 @@ class Unit
 		int m_CON;  // Constitution, affect to DEF and max_hp. maybe +1 CON -> +5 max_hp and +1 DEF 
 		int m_EXP;  // Experience, if this sical Hit percentage -> 1LUK -> ?
 		int m_LUK;  // LUCK, affect to Crit
-		
-		int m_wearing_weapon;
-		int m_wearing_armor;
-		int m_hunger;
-		
+
+	
 	protected:
 		Point	m_cur_pos;
 		Board   *m_board;
@@ -53,11 +56,13 @@ class Unit
 			: m_cur_pos(ref_pos), m_board(board) 
 		{}
 		
-			
+		virtual std::string stringForm() const;
+
+	/*
 		// Point get_cur_pos() { return m_cur_pos; }
 		// void set_cur_pos(Point pos_in) { m_cur_pos = pos_in; }
 
-		/*
+		
 		 * // this will be implemented in Board class
 		void 	draw_something(Point ref_pos, const int& unit_type);
 		void 	erase(Point ref_pos);
@@ -66,7 +71,7 @@ class Unit
 		void 	move_character(const int key, const int& unit_type);
 		
 		bool 	check_valid_pos();
-		*/ 
+	*/	 
 
 		void set_unit_type(const int& input_type)  { m_unit_type = input_type; }
 		void set_STR(const int& input_str)  { m_STR = input_str; }
@@ -75,6 +80,8 @@ class Unit
 		void set_CON(const int& input_con)  { m_CON = input_con; }
 		void set_EXP(const int& input_exp)  { m_EXP = input_exp; }
 		void set_LUK(const int& input_luk)  { m_LUK = input_luk; }
+		void set_ATK(const int& input_ATK)  { m_ATK = input_ATK; }
+		void set_DEF(const int& input_DEF)  { m_DEF = input_DEF; }
 		
 		void set_pos(const Point& pos_in) { m_cur_pos = pos_in; }
 		
@@ -86,16 +93,12 @@ class Unit
 		const int& get_CON() { return m_CON; }
 		const int& get_EXP() { return m_EXP; }
 		const int& get_LUK() { return m_LUK; }
+		const int& get_ATK() { return m_ATK; }
+		const int& get_DEF() { return m_DEF; }
 		
 		const Point& get_pos() { return m_cur_pos; }
 	
-		string stringForm() const;
 
-		
-		void set_wearing_weapon(int input_weapon) { m_wearing_weapon = input_weapon; }
-		void set_wearing_armor(int input_armor) { m_wearing_armor = input_armor; }
-		void set_hunger(int input_hunger) { m_hunger = input_hunger; }
-		
 		void set_status();		
 		bool dodge();
 		bool critical_hit(); // Damage to enemy Unit with 3*ATK damage
