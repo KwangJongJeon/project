@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "Unit.h"
-#include "Equipment"
+#include "Equipment.h"
 #include "Item.h"
 
 
