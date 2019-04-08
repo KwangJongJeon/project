@@ -19,23 +19,23 @@
 // }
 using namespace std;
 
-Player& Board::player() {
+Player& Board::getPlayer() {
 	return player;
 }
 
-vector<Monster>& Board::monsters() {
+vector<Monster>& Board::getMonsters() {
 	return monsters;
 }
 
 string Board::stringForm() const {
 	string result;
-	vector<string> rowStrings = rowStrings();
+	vector<string> rowStrs = rowStrings();
 	string ceiling(width + 2, '#');
 	result += ceiling;
 	result += "\n";
-	vector<string>::const_iterator iter = rowStrings.begin();
+	vector<string>::const_iterator iter = rowStrs.begin();
 	
-	while(iter != rowStrings.end()) {
+	while(iter != rowStrs.end()) {
 		result += "#";
 		result += *iter;
 		result += "#\n";
