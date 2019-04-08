@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 2.8.12)
-set(CMAKE_CXX_STANDARD 11)
 
-#include_directories( ${MY_SOURCE_DIR}/src )
+set(CMAKE_CXX_STANDARD 11)
+set(LINUXLIB "../linux/liblinux.a")
+set(INCLUDE "../include")
+include_directories(${INCLUDE})
 file(GLOB SOURCES "*.cpp")
 
-add_library(core ${SOURCES})
+add_library(linuxcore STATIC ${SOURCES} ${LINUXLIB})

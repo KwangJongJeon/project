@@ -1,5 +1,8 @@
 #pragma once
 
+/**
+UserInput header for linux compatibility
+**/
 class UserInput
 {
 	private:
@@ -17,4 +20,5 @@ class UserInput
 		// Inventory, ..., etc.
 
 		int getInput();
-;
+
+};
