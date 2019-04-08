@@ -12,7 +12,7 @@ class Monster : public Unit
 			: Unit(ref_pos)
 		{}
 		
-		virtual string stringForm() const override;
+		virtual std::string stringForm() const override;
 
 
 		void set_giveExp(const int& exp_in) { m_giveExp = exp_in;}

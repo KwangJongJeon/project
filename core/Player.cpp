@@ -21,22 +21,18 @@ Player::Player(Point ref_pos)
 		
 }
 
-std::string Player::stringForm()
+std::string Player::stringForm() const
 {
-	return "@"
+	return "@";
 }
 
 void Player::set_wearing_weapon(Equipment& input_weapon)
 {
 	m_wearing_weapon = &input_weapon;
-	m_wearing_weapon->set_equipment_ATK(set_equipment_ATK);
-	m_wearing_weapon->set_equipment_DEF(set_equipment_DEF);
 }
 
 
-void Player::set_wearing_armor(Equipment& input_weapon)
+void Player::set_wearing_armor(Equipment& input_armor)
 {
-	m_wearing_armor = &input_weapon;
-	m_wearing_weapon->set_equipment_ATK(m_wearing_weapon->get_equipment_ATK);
-	m_wearing_weapon->set_equipment_DEF(set_equipment_DEF);
+	m_wearing_armor = &input_armor;
 }

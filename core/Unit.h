@@ -11,7 +11,7 @@
 #include <map>
 #include <string>
 #include "Point.h"
-#include "Board.h"
+// #include "Board.h"
 #include "values.h"
 
 
@@ -107,7 +107,5 @@ class Unit
 		
 		virtual ~Unit()
 		{
-			delete m_board;
-			m_board = 0;
 		}
 };

@@ -18,8 +18,7 @@ public:
 	std::string stringForm() const;
 
 	Board(int width, int height, Player& player)
-		: width(width), height(height), player(player) 
-		{}
+		: width(width), height(height), player(player) {}
 	
 private:
 	const int width;

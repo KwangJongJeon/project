@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream> 
+#include <string>
 #include "Board.h"
 
 class Terminal
@@ -14,5 +15,5 @@ class Terminal
 	
 		// void drawMap() const;
 
-		void render();
+		void render(std::string stringForm);
 };

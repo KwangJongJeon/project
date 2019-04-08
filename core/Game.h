@@ -22,16 +22,18 @@ class Game
 {
 	private:
 		int input;
+		Player player;
 		Board board;
 		UserInput userInput;
 		Terminal terminal;
 
-		
+		// void draw_map();	
+		void getInput(); 
+		void update();
+		void render();
 	public:
-		Game()
-		{
-			UserInput userInput;
-		}
+		Game(Point& point, int width, int height, Player& player)
+			: player(point), board(20, 30, player)	{}
 	
 		void loop()
 		{
@@ -39,9 +41,4 @@ class Game
 			getInput();
 			update(); 
 		}
-	
-		// void draw_map();	
-		void getInput(); 
-		void update(input);
-		void render();
 };

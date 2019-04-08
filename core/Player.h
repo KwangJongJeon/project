@@ -14,7 +14,7 @@ class Player : public Unit
 		Equipment* m_wearing_weapon;
 		Equipment* m_wearing_armor;
 		
-		vector<Item*> m_inventory;
+		std::vector<Item*> m_inventory;
 		
 		int m_hunger;
 		
@@ -30,15 +30,13 @@ class Player : public Unit
 		void set_hunger(const int& input_hunger) { m_hunger = input_hunger; }
 		
 		
-		const Equipment& get_wearing_weapon() { return m_wearing_weapon; }
-		const Equipment& set_wearing_armor() { return m_wearing_armor; }
+		Equipment* get_wearing_weapon() { return m_wearing_weapon; }
+		Equipment* set_wearing_armor() { return m_wearing_armor; }
 		const int get_hunger() { return m_hunger; }
 		
 		
 		virtual ~Player() override
 		{
-			delete m_board;
-			m_board = 0;
 		}
 		
 		/* 
