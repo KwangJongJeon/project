@@ -8,8 +8,8 @@ class Monster : public Unit
 	int m_giveExp; // if player kill monsters, take this exp from monster
 		
 	public:
-		Monster(Point ref_pos = Point(0, 0), Board *board = new Board)
-			: Unit(ref_pos, board)
+		Monster(Point ref_pos = Point(0, 0))
+			: Unit(ref_pos)
 		{}
 		
 		virtual string stringForm() const override;
@@ -23,8 +23,7 @@ class Monster : public Unit
 	
 		virtual ~Monster() override
 		{
-			delete m_board;
-			m_board = null;
+
 		}
 	
 };

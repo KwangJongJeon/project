@@ -1,8 +1,8 @@
 #include "Slime.h"
 
 
-Slime::Slime(Point ref_pos, Board *board)
-	:Monster(ref_pos, board)
+Slime::Slime(Point ref_pos)
+	:Monster(ref_pos)
 {
 		
 		// set status
@@ -17,14 +17,11 @@ Slime::Slime(Point ref_pos, Board *board)
 		Unit::set_status();
 	
 		 
-		std::cout << "Slime : " <<  Unit::get_pos() << std::endl;
 		// Monster::set_monster_position();
-		Point::gotoxy(get_pos());
-		Unit::draw_something(Unit::get_pos(), Unit::get_unit_type());
-			
+
 }
 
-std::string Slime::stringForm()
+std::string Slime::stringForm() const
 {
 	return "s";
 }

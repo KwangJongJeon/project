@@ -1,5 +1,9 @@
 #pragma once
 
+#include <windows.h>
+#include <conio.h>
+
+
 class UserInput
 {
 	private:
@@ -17,4 +21,5 @@ class UserInput
 		// Inventory, ..., etc.
 
 		int getInput();
-;
+		int getKey();
+};

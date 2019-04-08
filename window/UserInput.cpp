@@ -2,8 +2,8 @@
 
 int UserInput::getInput()
 {
-	int key;
-	while(true){
+	while(true)
+	{
 		if(kbhit()) 
 		{
 			key = getch();
@@ -11,9 +11,12 @@ int UserInput::getInput()
 			if(key == 224 || key == 0)
 			{
 				key = getch();
+				return key;
 			}
-			
-			return UserInput.getKey();
+			else
+			{
+				continue;
+			}
 		}
 	}
 }

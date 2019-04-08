@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "Unit.h"
-#include "Equipment"
+#include "Equipment.h"
 #include "Item.h"
 
 
@@ -19,14 +19,14 @@ class Player : public Unit
 		int m_hunger;
 		
 	public:
-		Player(Point ref_pos = Point(0, 0), Board *board = new Board);
+		Player(Point ref_pos = Point(0, 0));
 		
 		
-		virtual string stringForm() const override;
+		virtual std::string stringForm() const override;
 		
 		
-		void set_wearing_weapon(const Equipment& input_weapon);
-		void set_wearing_armor(const Equipment& input_armor);
+		void set_wearing_weapon(Equipment& input_weapon);
+		void set_wearing_armor(Equipment& input_armor);
 		void set_hunger(const int& input_hunger) { m_hunger = input_hunger; }
 		
 		

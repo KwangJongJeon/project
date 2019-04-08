@@ -48,12 +48,11 @@ class Unit
 	
 	protected:
 		Point	m_cur_pos;
-		Board   *m_board;
 			
 		
 	public:
-		Unit(Point ref_pos = Point(0, 0), Board *board = new Board)
-			: m_cur_pos(ref_pos), m_board(board) 
+		Unit(Point ref_pos = Point(0, 0))
+			: m_cur_pos(ref_pos) 
 		{}
 		
 		virtual std::string stringForm() const;
