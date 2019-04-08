@@ -1,7 +1,8 @@
 *.o
+*.a
 *.exe
 
-
+#ignores for cmake
 **/CMakeCache.txt
 **/Makefile
 *.cmake

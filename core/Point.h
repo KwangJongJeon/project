@@ -1,7 +1,5 @@
 #pragma once
 
-#include <conio.h>
-#include <windows.h>
 #include <iostream>
 
 
@@ -20,16 +18,4 @@ class Point
 		int getY(){ return m_y; }
 		void setX(int x){ m_x = x; }
 		void setY(int y){ m_y = y; }
-				
-				
-		static void gotoxy(int x, int y);
-		static void gotoxy(Point pos);
-		
-		static Point GetScrPosFromCurPos(Point &pos);
-		
-		friend std::ostream& operator << (std::ostream &out,  const Point &point)
-		{
-			out << "( " << point.m_x << " " << point.m_y <<  " )";
-			return out;
-		}
 };
