@@ -1,6 +1,6 @@
-#include "Weapon.h"
+#include "Hand.h"
 
-class Shortsword : public Weapon
+class Shortsword : public Hand
 {
 	private:
 	

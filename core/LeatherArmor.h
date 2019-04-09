@@ -17,4 +17,4 @@ class LeatherArmor : public Armor
 			return out;
 		}
 	
-}
+};

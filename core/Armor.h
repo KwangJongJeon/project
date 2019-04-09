@@ -10,7 +10,7 @@ class Armor : public Equipment
 	public:
 		Armor() {}
 		
-		virtual std:ostream& print(std::ostream& out) const override
+		virtual std::ostream& print(std::ostream& out) const override
 		{
 			std::cout << "Armor" << std::endl;
 			return out;

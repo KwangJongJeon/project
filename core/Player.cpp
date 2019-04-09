@@ -15,10 +15,24 @@ Player::Player(Point ref_pos)
 	Unit::set_EXP(0);
 		
 	Unit::set_status();
-			
-	Unit::set_pos(Point(2, 2)); // 2, 2 is player's start position
+	
 		
+	// set equipment
+	init_equipment();
+	
+	Unit::set_pos(Point(2, 2)); // 2, 2 is player's start position		
 }
+
+void Player::init_equipment()
+{
+	Shortsword short_sword;
+	LeatherArmor leather_armor;
+	set_wearing_weapon(short_sword);
+	set_wearing_armor(leather_armor);
+	m_player_equipment.push_back(&short_sword);
+	m_player_equipment.push_back(&leather_armor);
+}
+
 
 std::string Player::stringForm() const
 {
@@ -29,12 +43,14 @@ std::string Player::stringForm() const
 void Player::set_wearing_weapon(Equipment& input_weapon)
 {
 	exchange_equipment(m_wearing_weapon, input_weapon);
+	m_player_equipment.at(0) = &m_wearing_weapon;
 }
 
 
 void Player::set_wearing_armor(Equipment& input_armor)
 {
 	exchange_equipment(m_wearing_armor, input_armor);
+	m_player_equipment.at(1) = &m_wearing_weapon;
 }
 
 
@@ -57,3 +73,5 @@ void Player::exchange_equipment(Equipment& cur_equip, Equipment& equip_in)
 		set_DEF(get_DEF() + cur_equip.get_equipment_DEF());
 	}
 }
+
+

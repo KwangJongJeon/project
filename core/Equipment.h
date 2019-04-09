@@ -29,9 +29,9 @@ class Equipment : public Item
 		
 		
 		
-		friend bool operator == (const Equipemnt& e1, const Equipment& e.2)
+		friend bool operator == (const Equipment& e1, const Equipment& e2)
 		{
-			return e1.get_item_name == e2.get_item_name;
+			return e1.get_item_name() == e2.get_item_name();
 		}
 		
 		
