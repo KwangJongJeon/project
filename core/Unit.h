@@ -55,7 +55,7 @@ class Unit
 			: m_cur_pos(ref_pos) 
 		{}
 		
-		virtual std::string stringForm() const;
+		virtual std::string stringForm() const = 0; // pure abstract func
 
 	/*
 		// Point get_cur_pos() { return m_cur_pos; }

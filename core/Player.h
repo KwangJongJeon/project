@@ -10,7 +10,7 @@
 class Player : public Unit
 {
 	private:
-		// 20190407 - 객체잘림 안일어나나??? 
+		
 		Equipment* m_wearing_weapon;
 		Equipment* m_wearing_armor;
 		

@@ -23,5 +23,14 @@ class Equipment : public Item
 	
 		const int& get_equipment_ATK()  { return m_equipment_ATK; }
 		const int& get_equipment_DEF()  { return m_equipment_DEF; }
+		
+		
+		virtual std::ostream& print(std::ostream& out) const override
+		{
+			std::cout << "Equipment" << std::endl;
+			return out;
+		}
+		
+		
 
 };
