@@ -11,9 +11,9 @@ class Player : public Unit
 {
 	private:
 		
-		Equipment* m_wearing_weapon;
-		Equipment* m_wearing_armor;
-		
+		Equipment m_wearing_weapon;
+		Equipment m_wearing_armor;
+		std::vector<Equipment*> m_player_equipment;
 		std::vector<Item*> m_inventory;
 		
 		int m_hunger;
@@ -24,15 +24,17 @@ class Player : public Unit
 		
 		virtual std::string stringForm() const override;
 		
+		void exchange_equipment(Equipment& cur_equip, Equipment& equip_in);
 		
 		void set_wearing_weapon(Equipment& input_weapon);
 		void set_wearing_armor(Equipment& input_armor);
 		void set_hunger(const int& input_hunger) { m_hunger = input_hunger; }
+
+		
+		const Equipment& get_wearing_weapon() const { return m_wearing_weapon; }
+		const int& get_hunger() { return m_hunger; }
 		
 		
-		Equipment* get_wearing_weapon() { return m_wearing_weapon; }
-		Equipment* set_wearing_armor() { return m_wearing_armor; }
-		const int get_hunger() { return m_hunger; }
 		
 		
 		virtual ~Player() override
@@ -52,7 +54,10 @@ class Player : public Unit
 			out << ... << ... ;
 			return out;
 		 }
-	
+		 * 2019-04-09 implemented. maybe ..... works well???
+		 * if you want to see equipment status. 
+		 * do like this.
+		 * std::cout << m_player_equipment << std::endl;
 		 */
 		
 		

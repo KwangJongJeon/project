@@ -11,7 +11,7 @@ class Item
 	
 	
 	public:
-		Item(const std::string& name_in = "MissingNo.")
+		Item(const std::string& name_in = "MissingNo")
 			:m_item_name(name_in)
 		{}
 	
