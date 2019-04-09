@@ -3,10 +3,16 @@
 
 // This class do nothing.
 // for Category of Equipment
-class Weapon : public Equipment
+class Hand : public Equipment
 {
 	private:
 		
 	public:
-		Weapon() {}
+		Hand() {}
+		
+		virtual std::ostream& print(std::ostream& out) const override
+		{
+			std::cout << "Hand" << std::endl;
+			return out;
+		}
 };

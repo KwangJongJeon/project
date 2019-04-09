@@ -86,6 +86,14 @@ void Unit::set_status()
 }
 
 
+void Unit::set_cur_hp(const int& hp_in)
+{
+	if(hp_in < m_max_hp)
+		m_hp = hp_in;
+	else
+		m_hp = m_max_hp;
+}
+
 
 
 /*
