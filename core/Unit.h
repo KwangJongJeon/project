@@ -56,7 +56,7 @@ class Unit
 		{}
 		
 		// virtual std::string stringForm() const = 0; // pure abstract func
-		virtual std::string stringForm() const; // pure abstract func
+		virtual std::string stringForm() const = 0; // pure abstract func
 
 	/*
 		// Point get_cur_pos() { return m_cur_pos; }
@@ -110,7 +110,7 @@ class Unit
 		
 		void level_up(); // if level up, player's status is rised 5 point randomly
 		
-		virtual ~Unit()
+		~Unit()
 		{
 		}
 };

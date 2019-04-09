@@ -1,0 +1,2 @@
+/*{Monster name, STR, INT, DEX, CON, LUK, giveExp, return String Form}*/
+{Slime, 5, 0, 5, 6, 5, 20, s}

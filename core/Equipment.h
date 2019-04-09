@@ -34,8 +34,6 @@ class Equipment : public Item
 			return e1.get_item_name() == e2.get_item_name();
 		}
 		
-		
-		
 		friend std::ostream& operator << (std::ostream & out, Equipment& e)
 		{
 			return e.print(out);

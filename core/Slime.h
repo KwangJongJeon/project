@@ -10,7 +10,7 @@ class Slime : public Monster
 		
 		virtual std::string stringForm() const override;
 		
-		virtual ~Slime()  override
+		~Slime()
 		{
 			
 		}
