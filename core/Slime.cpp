@@ -16,7 +16,6 @@ Slime::Slime(Point ref_pos)
 	
 		Unit::set_status();
 		
-		set_giveExp(15);
 		// Monster::set_monster_position();
 
 }

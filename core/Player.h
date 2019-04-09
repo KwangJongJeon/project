@@ -16,7 +16,7 @@ class Player : public Unit
 		Equipment m_wearing_weapon;
 		Equipment m_wearing_armor;
 		
-		// weapon in m_player_equipment[0]
+		// weapon in m_playger_equipment[0]
 		// armor in m_player_equipment[1]
 		std::vector<Equipment*> m_player_equipment;
 		std::vector<Item*> m_inventory;

@@ -2,18 +2,28 @@
 
 void Unit::attack(Unit& enemy_unit)
 {	
-	if(dodge()) 
+	if(enemy_unit.get_cur_hp() != 0)
 	{
-		return; 
+		if(dodge()) 
+		{
+			return; 
+		}
+		else if(critical_hit())
+		{
+			enemy_unit.m_hp - 3*( m_ATK - enemy_unit.m_DEF );
+		}
+		else
+		{
+			enemy_unit.m_hp - ( m_ATK - enemy_unit.m_DEF );
+		}
 	}
-	else if(critical_hit())
-	{
-		enemy_unit.m_hp - 3*( m_ATK - enemy_unit.m_DEF );
-	}
+	/*
 	else
 	{
-		enemy_unit.m_hp - ( m_ATK - enemy_unit.m_DEF );
+		enemy_unit = null;
+		return;
 	}
+	*/
 	
 	// need implement after combat condition 
 }
