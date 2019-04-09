@@ -55,7 +55,8 @@ class Unit
 			: m_cur_pos(ref_pos) 
 		{}
 		
-		virtual std::string stringForm() const;
+		// virtual std::string stringForm() const = 0; // pure abstract func
+		virtual std::string stringForm() const = 0; // pure abstract func
 
 	/*
 		// Point get_cur_pos() { return m_cur_pos; }
@@ -81,7 +82,9 @@ class Unit
 		void set_LUK(const int& input_luk)  { m_LUK = input_luk; }
 		void set_ATK(const int& input_ATK)  { m_ATK = input_ATK; }
 		void set_DEF(const int& input_DEF)  { m_DEF = input_DEF; }
-		
+		void set_max_hp(const int& hp_in)   { m_max_hp = hp_in; }
+		void set_cur_hp(const int& hp_in);
+	
 		void set_pos(const Point& pos_in) { m_cur_pos = pos_in; }
 		
 		
@@ -94,6 +97,8 @@ class Unit
 		const int& get_LUK() const { return m_LUK; }
 		const int& get_ATK() const { return m_ATK; }
 		const int& get_DEF() const { return m_DEF; }
+		const int& get_max_hp() const { return m_max_hp; }
+		const int& get_cur_hp() const { return m_hp; }
 		
 		const Point& get_pos() const { return m_cur_pos; }
 	
@@ -105,7 +110,7 @@ class Unit
 		
 		void level_up(); // if level up, player's status is rised 5 point randomly
 		
-		virtual ~Unit()
+		~Unit()
 		{
 		}
 };

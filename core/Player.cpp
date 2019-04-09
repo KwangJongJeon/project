@@ -34,11 +34,12 @@ void Player::init_equipment()
 }
 
 
+/*
 std::string Player::stringForm() const
 {
 	return "@";
 }
-
+*/
 
 void Player::set_wearing_weapon(Equipment& input_weapon)
 {

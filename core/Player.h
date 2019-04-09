@@ -3,8 +3,8 @@
 #include <vector>
 
 #include "Unit.h"
-#include "Equipment.h"
 #include "Item.h"
+#include "Equipment.h"
 #include "Shortsword.h"
 #include "LeatherArmor.h"
 
@@ -28,7 +28,11 @@ class Player : public Unit
 		void init_equipment();
 		
 		
-		virtual std::string stringForm() const override;
+		// virtual std::string stringForm() const override = 0;
+		virtual std::string stringForm() const override
+		{
+			return "@";
+		}
 		
 		
 		void exchange_equipment(Equipment& cur_equip, Equipment& equip_in);
@@ -44,7 +48,7 @@ class Player : public Unit
 		
 		
 		
-		virtual ~Player() override
+		~Player() 
 		{
 		}
 		

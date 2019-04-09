@@ -28,5 +28,5 @@ class Item
 			return i.print(out);
 		}
 	
-		virtual std::ostream& print(std::ostream& out) const;
+		virtual std::ostream& print(std::ostream& out) const = 0;
 };
