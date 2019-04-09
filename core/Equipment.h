@@ -23,5 +23,29 @@ class Equipment : public Item
 	
 		const int& get_equipment_ATK()  { return m_equipment_ATK; }
 		const int& get_equipment_DEF()  { return m_equipment_DEF; }
+		
+		
+		
+		
+		
+		
+		friend bool operator == (const Equipment& e1, const Equipment& e2)
+		{
+			return e1.get_item_name() == e2.get_item_name();
+		}
+		
+		
+		
+		friend std::ostream& operator << (std::ostream & out, Equipment& e)
+		{
+			return e.print(out);
+		}
+		
+		virtual std::ostream& print(std::ostream& out) const override
+		{
+			std::cout << "Equipment" << std::endl;
+			return out;
+		}
+		
 
 };
