@@ -32,9 +32,11 @@ class Game
 		void update();
 		void render();
 	public:
-		Game(Point& point, int width, int height, Player& player)
-			: player(point), board(20, 30, player)	{}
 	
+		Game(Point& point, int width, int height)
+			: player(point), board(width, height, player)	
+			{}
+
 		void loop()
 		{
 			render();

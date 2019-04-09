@@ -16,14 +16,33 @@ class Monster : public Unit
 
 
 		void set_giveExp(const int& exp_in) { m_giveExp = exp_in;}
+		void set_monster_position();
+		
+		
 		const int& get_giveExp() { return m_giveExp; }		
 		
 		// void attack(Unit& player);
-		void set_monster_position();
+		
 	
 		virtual ~Monster() override
 		{
 
+		}
+		
+		void attck(Player& player)
+		{
+			if(dodge()) 
+			{
+				return; 
+			}
+			else if(critical_hit())
+			{
+				enemy_unit.m_hp - 3*( m_ATK - enemy_unit.m_DEF );
+			}
+			else
+			{
+				enemy_unit.m_hp - ( m_ATK - enemy_unit.m_DEF );
+			}
 		}
 	
 };

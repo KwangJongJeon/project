@@ -69,7 +69,7 @@ class Player : public Unit
 		
 		/*
 		 * 2019-04-09
-		 * need implement print equipment status maybe like this?
+		 * need implement print equipment status. maybe like this?
 		 * void print_equipment_status(const Player& player)
 		 * {
 		 *		for(...) cout << player.m_player_equipment << endl;
