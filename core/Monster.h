@@ -15,7 +15,7 @@ class Monster : public Unit
 		// virtual std::string stringForm() const override = 0;
 		virtual std::string stringForm() const override
 		{
-			return "M"
+			return "M";
 		}
 		
 
@@ -34,7 +34,7 @@ class Monster : public Unit
 
 		}
 		
-		
+		/*
 		void attack(Player& player)
 		{
 			if(dodge()) 
@@ -50,5 +50,5 @@ class Monster : public Unit
 				enemy_unit.m_hp - ( m_ATK - enemy_unit.m_DEF );
 			}
 		}
-		
+		*/
 };

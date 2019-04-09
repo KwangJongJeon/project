@@ -12,7 +12,12 @@ class Monster : public Unit
 			: Unit(ref_pos)
 		{}
 		
-		virtual std::string stringForm() const override = 0;
+		// virtual std::string stringForm() const override = 0;
+		virtual std::string stringForm() const override
+		{
+			return "M";
+		}
+		
 
 
 		void set_giveExp(const int& exp_in) { m_giveExp = exp_in;}
@@ -29,10 +34,9 @@ class Monster : public Unit
 
 		}
 		
-		/* later. 
+		/*
 		void attack(Player& player)
 		{
-			if(player.get_cur_hp  == 0)
 			if(dodge()) 
 			{
 				return; 
