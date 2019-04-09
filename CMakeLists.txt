@@ -3,7 +3,8 @@ set(CMAKE_CXX_STANDARD 11)
 
 project(intothedungeon)
 
-add_subdirectory(core)
-#add_subdirectory(main)
-#add_subdirectory(test)
 add_subdirectory(linux)
+add_subdirectory(window)
+add_subdirectory(core)
+#add_subdirectory(test)
+#add_subdirectory(main)
