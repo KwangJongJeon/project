@@ -1,9 +1,7 @@
-cmake_minimum_required(VERSION 2.8.12)
-set(CMAKE_CXX_STANDARD 11)
-
-project(testPrj)
-
-#include_directories( ${MY_SOURCE_DIR}/src )
 file(GLOB SOURCES "*.cpp")
+set(LIBS "../lib/libcore.a")
+include_directories(INCLUDE "../core" "../linux")
 
-add_executable(hihi ${SOURCES})
+find_library(${LIBRARY_OUTPUT_PATH} core linux)
+add_executable(tests ${SOURCES})
+target_link_libraries(tests core linux)
