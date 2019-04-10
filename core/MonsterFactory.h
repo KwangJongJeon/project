@@ -8,11 +8,11 @@
 
 // TODO 
 // createMonst(string name) --> return to monster class, monster
-class MonstFactory
+class MonsterFactory
 {
 	private:
 		
 	public:
-		Monster createMonst(std::string name);
-		
+		Monster createMonster(std::string name);
+		std::string IOControl(std::string filename);
 };
