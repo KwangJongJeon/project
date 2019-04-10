@@ -1,7 +1,9 @@
-file(GLOB SOURCES "*.cpp")
-set(LIBS "../lib/libcore.a")
-include_directories(INCLUDE "../core" "../linux")
+cmake_minimum_required(VERSION 3.5.1)
 
-find_library(${LIBRARY_OUTPUT_PATH} core linux)
-add_executable(tests ${SOURCES})
-target_link_libraries(tests core linux)
+set(CMAKE_CXX_STANDARD 11)
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+include_directories(INCLUDE "../linux" "../core")
+file(GLOB SOURCES "*.cpp" "../linux/*.cpp" "../core/*.cpp")
+
+add_executable (tests ${SOURCES})
