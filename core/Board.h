@@ -11,20 +11,19 @@ Can transform itself to printable string form
 
 @author Laurant Jo
 **/
-class Board {
+class Board final {
 public:
-	Player& getPlayer();
-	std::vector<Monster>& getMonsters();
+	Player& player();
+	std::vector<Monster>& monsters();
 	std::string stringForm() const;
 
-	Board(int width, int height, Player& player)
-		: width(width), height(height), player(player) {}
+	Board(int width, int height, Player& player);
 	
 private:
-	const int width;
-	const int height;
-	std::vector<Monster> monsters;	
-	Player player;
+	const int _width;
+	const int _height;
+	std::vector<Monster> _monsters;	
+	Player _player;
 	
 	std::vector<std::string> rowStrings() const;
 	std::string nthRowString(int) const;

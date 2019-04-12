@@ -8,8 +8,8 @@ class Monster : public Unit
 	int m_giveExp; // if player kill monsters, take this exp from monster
 		
 	public:
-		Monster(Point ref_pos = Point(0, 0))
-			: Unit(ref_pos)
+		Monster(std::map<Stat, int> status_in, Point ref_pos = Point(0, 0))
+			: Unit(status_in, ref_pos)
 		{}
 		
 		// virtual std::string stringForm() const override = 0;
@@ -26,29 +26,26 @@ class Monster : public Unit
 		
 		const int& get_giveExp() { return m_giveExp; }		
 		
-		// void attack(Unit& player);
-		
+		friend bool operator == (const Monster& mon1, const Monster& mon2)
+		{
+			return (
+			mon1.getStat(Stat::UNIT_TYPE) == mon2.getStat(Stat::UNIT_TYPE) && 
+			mon1.getStat(Stat::BASIC_ATK) == mon2.getStat(Stat::BASIC_ATK) &&
+			mon1.getStat(Stat::BASIC_DEF) == mon2.getStat(Stat::BASIC_DEF) &&
+			mon1.getStat(Stat::LEVEL) == mon2.getStat(Stat::LEVEL) &&
+			mon1.getStat(Stat::STR) == mon2.getStat(Stat::STR) &&
+			mon1.getStat(Stat::INT) == mon2.getStat(Stat::INT) &&
+			mon1.getStat(Stat::DEX) == mon2.getStat(Stat::DEX) &&
+			mon1.getStat(Stat::CON) == mon2.getStat(Stat::CON) &&
+			mon1.getStat(Stat::LUK) == mon2.getStat(Stat::LUK) &&
+			mon1.getStat(Stat::EXP) == mon2.getStat(Stat::EXP)
+			);
+		}
 	
 		~Monster()
 		{
 
 		}
 		
-		/*
-		void attack(Player& player)
-		{
-			if(dodge()) 
-			{
-				return; 
-			}
-			else if(critical_hit())
-			{
-				enemy_unit.m_hp - 3*( m_ATK - enemy_unit.m_DEF );
-			}
-			else
-			{
-				enemy_unit.m_hp - ( m_ATK - enemy_unit.m_DEF );
-			}
-		}
-		*/
+		
 };

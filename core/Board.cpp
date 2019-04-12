@@ -2,18 +2,21 @@
 
 using namespace std;
 
-Player& Board::getPlayer() {
-	return player;
+Board::Board(int width, int height, Player& player)
+	: _width(width), _height(height), _player(player) {}
+
+Player& Board::player() {
+	return _player;
 }
 
-vector<Monster>& Board::getMonsters() {
-	return monsters;
+vector<Monster>& Board::monsters() {
+	return _monsters;
 }
 
 string Board::stringForm() const {
 	string result;
 	vector<string> rowStrs = rowStrings();
-	string ceiling(width + 2, '#');
+	string ceiling(_width + 2, '#');
 	result += ceiling;
 	result += "\n";
 	vector<string>::const_iterator iter = rowStrs.begin();
@@ -31,7 +34,7 @@ string Board::stringForm() const {
 vector<string> Board::rowStrings() const {
 	vector<string> rowStrings;
 	
-	for(int y = 0; y < height; ++y) {
+	for(int y = 0; y < _height; ++y) {
 		rowStrings.push_back(nthRowString(y));
 	}
 	
@@ -41,7 +44,7 @@ vector<string> Board::rowStrings() const {
 string Board::nthRowString(int n) const {
 	string result;
 	
-	for(int x = 0; x < width; ++x) {
+	for(int x = 0; x < _width; ++x) {
 		result += stringFor(x, n);
 	}
 	
@@ -56,9 +59,9 @@ string Board::stringFor(int x, int y) const {
 
 string Board::monsterString(int x, int y) const {
 	string result = " ";
-	vector<Monster>::const_iterator iter = monsters.begin();
+	vector<Monster>::const_iterator iter = _monsters.begin();
 	
-	while(iter != monsters.end()) {
+	while(iter != _monsters.end()) {
 		Point point = iter->get_pos();
 		if((point.getX() == x) && (point.getY() == y)) {
 			result = iter->stringForm();
@@ -70,9 +73,9 @@ string Board::monsterString(int x, int y) const {
 
 string Board::playerString(int x, int y) const {
 	string result = " ";
-	Point playerPoint = player.get_pos();
+	Point playerPoint = _player.get_pos();
 	if((playerPoint.getX() == x) && (playerPoint.getY() == y)) {
-		result = player.stringForm();
+		result = _player.stringForm();
 	}
 	return result;
 }
