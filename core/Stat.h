@@ -13,27 +13,21 @@ enum class Stat {
 	STR, INT, DEX, CON, LUK, EXP, LAST
 };
 
-// void Unit::set_status()
-// {
-// 	m_max_hp +=  m_CON * 5;
-// 	m_hp = m_max_hp;
-	
-// 	m_max_mp += m_INT * 5;
-// 	m_mp = m_max_mp;
-	
-// 	m_ATK += m_STR * 3;
-// 	m_DEF += m_CON * 1;
-	
-// 	m_critical_percentage += 0.8 * m_LUK;
-// 	m_dodge_percentage += 1.0 * m_DEX;
-// }
-
-
-// void Unit::set_cur_hp(const int& hp_in)
-// {
-// 	if(hp_in < m_max_hp)
-// 		m_hp = hp_in;
-// 	else
-// 		m_hp = m_max_hp;
-// }
+Stat& operator ++(Stat& s)
+{
+	switch(s)
+	{
+		case Stat::UNIT_TYPE: return s = Stat::BASIC_ATK;
+		case Stat::BASIC_ATK: return s =Stat::BASIC_DEF;
+		case Stat::BASIC_DEF: return s = Stat::LEVEL;
+		case Stat::LEVEL: return s = Stat::STR;
+		case Stat::STR: return s = Stat::INT;
+		case Stat::INT: return s = Stat::DEX;
+		case Stat::DEX: return s = Stat::CON;
+		case Stat::CON: return s = Stat::LUK;
+		case Stat::LUK: return s = Stat::EXP;
+		case Stat::EXP : return s = Stat::LAST;
+		case Stat::LAST : return s = Stat::UNIT_TYPE;
+	}
+}
 

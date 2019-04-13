@@ -105,6 +105,12 @@ void Unit::set_cur_hp(const int& hp_in)
 }
 
 
+// 20190413 - 추후에 move이용해서 구현.
+void Unit::setStatAll(std::map<Stat, int> stat_in)
+{
+	m_status = stat_in;
+}
+
 
 /*
 void Unit::draw_something(Point ref_pos, const int& unit_type)

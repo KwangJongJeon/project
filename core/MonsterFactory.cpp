@@ -22,20 +22,18 @@ Monster MonsterFactory::createMonster(std::string name)
 	auto status_monster_vec_in = m_monsters.at(name); 
 	// for (Stat stat = Stat::UNIT_TYPE; stat < (Stat::EXP + 1) ;++stat);
 	
-	int status_iterator = static_cast<int>(Stat::UNIT_TYPE);
-	
-	// ele == status_in(string)
-	for(auto & ele : status_monster_vec_in)
+	// 02:03int status_iterator = static_cast<int>(Stat::UNIT_TYPE);
+	Stat status_iterator = Stat::UNIT_TYPE;
+	for(auto &ele : status_monster_vec_in)
 	{
-		if(status_iterator != static_cast<int>(Stat::LAST))
-		{	
-			status[static_cast<Stat>(status_iterator)] = stoi(ele);
+		if(status_iterator != Stat::LAST)
+		{
+			status[status_iterator] = stoi(ele);
 		}
 		++status_iterator;
 	}
 
 	Monster created_monster(status);
-	
 	return created_monster;
 	
 	// string file = MonsterFactory::IOControl(filename);

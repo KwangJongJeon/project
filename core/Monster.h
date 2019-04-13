@@ -8,6 +8,10 @@ class Monster : public Unit
 	int m_giveExp; // if player kill monsters, take this exp from monster
 		
 	public:
+		Monster(Point ref_pos = Point(0, 0))
+			: Unit(ref_pos)
+		{}
+		
 		Monster(std::map<Stat, int> status_in, Point ref_pos = Point(0, 0))
 			: Unit(status_in, ref_pos)
 		{}
@@ -41,7 +45,6 @@ class Monster : public Unit
 			mon1.getStat(Stat::EXP) == mon2.getStat(Stat::EXP)
 			);
 		}
-	
 		~Monster()
 		{
 
