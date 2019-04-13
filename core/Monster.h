@@ -30,6 +30,7 @@ class Monster : public Unit
 		
 		const int& get_giveExp() { return m_giveExp; }		
 		
+		
 		friend bool operator == (const Monster& mon1, const Monster& mon2)
 		{
 			return (

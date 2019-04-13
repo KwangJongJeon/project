@@ -25,7 +25,7 @@ class Unit
 	  
 	private:
 	
-		std::map<Stat, int> m_status;
+		// std::map<Stat, int> m_status;
 		std::map<Stat, int> m_secondary_status;
 		// TODO: 크리티컬 퍼센트 뽑아서 쓰는식으로 함수 구현
 
@@ -54,13 +54,17 @@ class Unit
 		const std::map<Stat, int>& getStatAll() const { return m_status; }
 		const Point& get_pos() const { return m_cur_pos; }
 	
-
+	TODO:
+		move; // Where am i?
+	attack;
+	curPostion;
+	
 		void set_status();		
-		bool dodge();
-		bool critical_hit(); // Damage to enemy Unit with 3*ATK damage
+		// bool dodge();
+		// bool critical_hit(); // Damage to enemy Unit with 3*ATK damage
 		void attack(Unit& enemy_unit);
 		
-		void level_up(); // if level up, player's status is rised 5 point randomly
+		// void level_up(); // if level up, player's status is rised 5 point randomly
 		
 		~Unit()
 		{

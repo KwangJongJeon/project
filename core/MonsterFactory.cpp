@@ -12,7 +12,7 @@ using std::cout;
 using std::stoi;
 
 // Data form in file 
-// Monster name, Unit_Type, BASIC_ATK, BASIC_DEF, LEVEL, STR, INT, DEX, CON, LUK, giveExp, StringForm
+// Monster name, Unit_Type, BASIC_ATK, BASIC_DEF, LEVEL, STR, INT, DEX, CON, LUK, giveExp, StringForm //
 Monster MonsterFactory::createMonster(std::string name)
 {	
 	//(Stirng, vector<string>) -> (String, int(status))
@@ -20,9 +20,6 @@ Monster MonsterFactory::createMonster(std::string name)
 	map<Stat, int> status;
 	
 	auto status_monster_vec_in = m_monsters.at(name); 
-	// for (Stat stat = Stat::UNIT_TYPE; stat < (Stat::EXP + 1) ;++stat);
-	
-	// 02:03int status_iterator = static_cast<int>(Stat::UNIT_TYPE);
 	Stat status_iterator = Stat::UNIT_TYPE;
 	for(auto &ele : status_monster_vec_in)
 	{
@@ -35,16 +32,8 @@ Monster MonsterFactory::createMonster(std::string name)
 
 	Monster created_monster(status);
 	return created_monster;
-	
-	// string file = MonsterFactory::IOControl(filename);
-	
-	// auto monsters = IOControl(filename);
-	
-	// for(auto &ele : monsters)
-	// {
-		
-	// }
 }
+
 
 void MonsterFactory::initMapUsing(const char* filename)
 {
@@ -61,15 +50,14 @@ void MonsterFactory::initMapUsing(const char* filename)
 	}
 }
 
+
 void MonsterFactory::parseMonsterFrom(string str)
 {
 	string delimiter = ",";
 	string value;
 	string key;
 	vector<string> monster_status;
-	
-// 	map<string, vector<string>> monster;
-	
+		
 	size_t pos = 0;
 	
 	if((pos = str.find(delimiter)) != string::npos)
