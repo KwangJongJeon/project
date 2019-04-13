@@ -13,6 +13,14 @@ enum class Stat {
 	STR, INT, DEX, CON, LUK, EXP, LAST
 };
 
+// SecondaryStat is calculated by Stat
+enum class SeconaryStat
+{
+	MAX_HP, MAX_MP, HP, MP, 
+	ATK, DEF
+};
+
+
 Stat& operator ++(Stat& s)
 {
 	switch(s)

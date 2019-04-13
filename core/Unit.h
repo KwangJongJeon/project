@@ -26,6 +26,7 @@ class Unit
 	private:
 	
 		std::map<Stat, int> m_status;
+		std::map<Stat, int> m_secondary_status;
 		// TODO: 크리티컬 퍼센트 뽑아서 쓰는식으로 함수 구현
 
 	protected:

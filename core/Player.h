@@ -13,45 +13,50 @@ class Player : public Unit
 {
 	private:
 		
-// 		Equipment m_wearing_weapon;
-// 		Equipment m_wearing_armor;
+		Equipment m_wearing_weapon;
+		Equipment m_wearing_armor;
 		
-// 		// weapon in m_playger_equipment[0]
-// 		// armor in m_player_equipment[1]
-// 		std::vector<Equipment*> m_player_equipment;
-// 		std::vector<Item*> m_inventory;
+		// weapon in m_playger_equipment[0]
+		// armor in m_player_equipment[1]
+		std::vector<Equipment*> m_player_equipment;
+		std::vector<Item*> m_inventory;
 		
-// 		int m_hunger;
+		int m_hunger;
 		
 	public:
-		Player(){}
-		// Player(std::map<Stat, int> status_in, Point ref_pos = Point(0, 0));
-		// void init_equipment();
+		Player(Point ref_pos);
+		
+		Player(std::map<Stat, int> status_in, Point ref_pos = Point(0, 0))
+			: Unit(status_in, ref_pos)
+		{}
 		
 		
-// 		// virtual std::string stringForm() const override = 0;
-// 		virtual std::string stringForm() const override
-// 		{
-// 			return "@";
-// 		}
+		void init_equipment();
 		
 		
-// 		void exchange_equipment(Equipment& cur_equip, Equipment& equip_in);
+		// virtual std::string stringForm() const override = 0;
+		virtual std::string stringForm() const override
+		{
+			return "@";
+		}
 		
-// 		void set_wearing_weapon(Equipment& input_weapon);
-// 		void set_wearing_armor(Equipment& input_armor);
-// 		void set_hunger(const int& input_hunger) { m_hunger = input_hunger; }
+		
+		void exchange_equipment(Equipment& cur_equip, Equipment& equip_in);
+		
+		void set_wearing_weapon(Equipment& input_weapon);
+		void set_wearing_armor(Equipment& input_armor);
+		void set_hunger(const int& input_hunger) { m_hunger = input_hunger; }
 
 		
-// 		const Equipment& get_wearing_weapon() const { return m_wearing_weapon; }
-// 		const int& get_hunger() { return m_hunger; }
+		const Equipment& get_wearing_weapon() const { return m_wearing_weapon; }
+		const int& get_hunger() { return m_hunger; }
 		
 		
 		
 		
-// 		~Player() 
-// 		{
-// 		}
+		~Player() 
+		{
+		}
 		
 // 		/* 
 // 		 * 2019-04-07 

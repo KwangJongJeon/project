@@ -1,84 +1,86 @@
 #include "Unit.h"
 
-void Unit::attack(Unit& enemy_unit)
-{	
-	if(enemy_unit.get_cur_hp() != 0)
-	{
-		if(dodge()) 
-		{
-			return; 
-		}
-		else if(critical_hit())
-		{
-			enemy_unit.m_hp - 3*( m_ATK - enemy_unit.m_DEF );
-		}
-		else
-		{
-			enemy_unit.m_hp - ( m_ATK - enemy_unit.m_DEF );
-		}
-	}
-	/*
-	else
-	{
-		enemy_unit = null;
-		return;
-	}
-	*/
+/*
+// 2019-04-13 need renewal
+// void Unit::attack(Unit& enemy_unit)
+// {	
+// 	if(enemy_unit.get_cur_hp() != 0)
+// 	{
+// 		if(dodge()) 
+// 		{
+// 			return; 
+// 		}
+// 		else if(critical_hit())
+// 		{
+// 			enemy_unit.m_hp - 3*( m_ATK - enemy_unit.m_DEF );
+// 		}
+// 		else
+// 		{
+// 			enemy_unit.m_hp - ( m_ATK - enemy_unit.m_DEF );
+// 		}
+// 	}
+// 	
+// 	else
+// 	{
+// 		enemy_unit = null;
+// 		return;
+// 	}
+// 	
 	
-	// need implement after combat condition 
-}
+// 	// need implement after combat condition 
+// }
 
 
-bool Unit::dodge()
-{
-	if(rand() % 100 < m_dodge_percentage)
-		return true; 
+// bool Unit::dodge()
+// {
+// 	if(rand() % 100 < m_dodge_percentage)
+// 		return true; 
 	
-	return false;
-}
+// 	return false;
+// }
 
 
-bool Unit::critical_hit()
-{
-	if(rand() % 100 < m_critical_percentage)
-		return true; 
+// bool Unit::critical_hit()
+// {
+// 	if(rand() % 100 < m_critical_percentage)
+// 		return true; 
 	
-	return false;
-}
+// 	return false;
+// }
 
 
-void Unit::level_up()
-{
-	if(m_EXP >= 100)
-	{
-		for(int count = 0; count < 5; ++count)
-		{
-			switch(rand() % 4)	// randomly rise player's status.
-			{
-				case 0:
-					set_STR(m_STR + 1);
-					break;
-				case 1:
-					set_INT(m_INT + 1);
-					break;
-				case 2:
-					set_DEX(m_DEX + 1);
-					break;
-				case 3: 
-					set_CON(m_CON + 1);
-					break;
-				case 4:
-					set_LUK(m_LUK + 1);
-					break;
-			}
-		}
+// void Unit::level_up()
+// {
+// 	if(m_EXP >= 100)
+// 	{
+// 		for(int count = 0; count < 5; ++count)
+// 		{
+// 			switch(rand() % 4)	// randomly rise player's status.
+// 			{
+// 				case 0:
+// 					set_STR(m_STR + 1);
+// 					break;
+// 				case 1:
+// 					set_INT(m_INT + 1);
+// 					break;
+// 				case 2:
+// 					set_DEX(m_DEX + 1);
+// 					break;
+// 				case 3: 
+// 					set_CON(m_CON + 1);
+// 					break;
+// 				case 4:
+// 					set_LUK(m_LUK + 1);
+// 					break;
+// 			}
+// 		}
 		
-		set_status();
+// 		set_status();
 		
-		m_level += 1;
-	}
-}
-
+// 		m_level += 1;
+// 	}
+// }
+*/
 
 void Unit::set_status()
 {
@@ -105,11 +107,6 @@ void Unit::set_cur_hp(const int& hp_in)
 }
 
 
-// 20190413 - 추후에 move이용해서 구현.
-void Unit::setStatAll(std::map<Stat, int> stat_in)
-{
-	m_status = stat_in;
-}
 
 
 /*
