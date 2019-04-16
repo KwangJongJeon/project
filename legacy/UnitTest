@@ -2,27 +2,20 @@
 
 SCENARIO("Unit can move around board") {
 	GIVEN("Unit is in somewhere middle of board") {
-		여기서 주어진 상황이니까
-		유닛을 생성해서 주면 됨
 		MovableUnit unit(1,1);
 		아 컨스트럭터 안썻는데 알아서 페어로 하는게 더좋을듯
 		WHEN("Unit moves upward") {
 			unit.move(0,1)
 			THEN("Unit moved up") {
-			사실 ... 유닛 무브드업 이거 체크하기가 좀 어렵긴한데
-			편의상 curpos같은거 만들어도됨
 			REQUIRE(잘 체크한다);
 			}
-			다시 아래로
 			
 		}
 		WHEN("Unit moves upward")
 		WHEN("Unit moves upward")
 		WHEN("Unit moves upward")
 	}
-	봐바 ㅏ그럼 이런 특수한 상황이 있을수 있는데 
 	GIVEN("Unit is at edge of board") {
-		여기에 대해서도 적고
 	}
 	
 	GIVEN("Theres another unit next to unit") {
@@ -119,21 +112,37 @@ BoundUnit::move(pair value) {
 지금 요렇게 작은 기능단위로 클래스쪼개는게 
 실제로 구현이 이렇게되는거임 아니면 테스트 끝나면 전부 합침?
 ㅇㅎ ㅇㅋㅇㅋ 함 해봄
-class AttackingUnit: public I_Unit {
+class AttackableUnit: public I_Unit, public I_Attackable{
 public:
-	move
-private:
+	move() {
+		if no unit
+		move
+		else unit
+		redueTheirHp
+	}
+	redueceHp(int) {
+		attackable.redueHp(int)
+	}
+private
 	boundunit
-	ATK
-	HP
+	attackable
 }
+ㅇㅎ ㅇㅋㅇㅋ
+public I_Attackable
 공격이니까 hp를 가지고잇어야되겟네 공격력이랑
 이제 소스에서 움직일때 옆에 몬스터가 있는지 판단이 가능해야되는데
 그러면 보드의 상태에대한 정보도 있어야되니까
 관련한걸 또 멤버로 들고있으면되고
 그걸로 판단해서 움직일지 안안움직이고 공격하게 할지 하며됨
 실제로 구현을 이런식으로함
-
+마마지막 어태킹 유닛닛에는 인터페이스 하나 더 필요하겟다
+어태커블 구현은 클래스가 또 따로하고
+어태킹 유닛은 움직일지 공격할지만 판단하고
+공격은 어태커블의 구현에 맡기면됨그럼 어태킹 유닛의 테스트전에 어태커블에대한 테스트랑 구현이 
+전제되긴하네
+ㅇㅇ 머이런식으로
+하면댐
+이정도?
 SENARIO("Attackable can attack to redue hp") {
 	그러명이제 상황에서
 	hp가 0이상으로 남는공격일때
