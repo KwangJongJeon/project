@@ -1,10 +1,7 @@
 #include <iostream>
 #include <string>
 #include <catch2/catch.hpp>
-
-#include <iostream>
 #include "MonsterFactory.h"
-#include "Stat.h"
 
 using namespace std;
 
@@ -116,10 +113,27 @@ TEST_CASE( "monster factory can generate monsters properly") {
 // 	expected_status[Stat::STR] = 5;
 // 	expected_status[Stat::INT] = 0;
 // 	expected_status[Stat::DEX] = 5;
-// 	expected_status[Stat::CON] = 6;
-// 	expected_status[Stat::LUK] = 5;
 // 	expected_status[Stat::EXP] = 20;
 // 	//expected_status[Stat::STRINGFORM] = "s"; 
 // 	Monster expected(expected_status);
 // 	REQUIRE(real == expected);
 // }
+
+
+SCENARIO("Factory can generate properly") {
+	
+	GIVEN("Slime can generate with proper") {
+		
+		MonsterFactory monFac;
+		
+		auto slime = monFac.createMonster("Slime");
+	}
+	
+	GIVEN("Slime can attack another unit") {
+		MonsterFactory monFac;
+		auto slime1 = monFac.createMonster("Slime");
+		auto slime2 = monFac.createMonster("Slime");
+		
+		slime1.attack(slime2);
+	}
+}

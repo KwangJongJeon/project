@@ -3,21 +3,29 @@
 using namespace std;
 
 MovableUnit::MovableUnit(const int& x_in, const int& y_in, pair<int, int> board_in)
-			: _cur_pos(x_in, y_in), _board(board_in)
+	: _cur_pos(x_in, y_in), _board(board_in)
 	{
-			_hp = 50;
-			_ATK = 5;
+		_status = Status();
 	}
 
 MovableUnit::MovableUnit(vector<MovableUnit*>& units_in, const int& x_in, const int& y_in, pair<int, int> board_in)
 	: _cur_pos(x_in, y_in), _board(board_in), _units(units_in)
 	{
-		_hp = 50;
-		_ATK = 5;
+		_status = Status(); 
 	}
+
+MovableUnit::MovableUnit(Status status_in, const int& x_in, const int& y_in, pair<int, int> board_in)
+	: _cur_pos(x_in, y_in), _board(board_in), _status(status_in)
+	{}
 
 std::vector<MovableUnit*> MovableUnit::get_enemies()
 {
+// MovableUnit::MovableUnit(vector<MovableUnit*>& units_in, const int& x_in, const int& y_in, pair<int, int> board_in)
+// 	: _cur_pos(x_in, y_in), _board(board_in), _units(units_in)
+// 	{
+// 		_status = Status(); 
+// 	}
+
 	vector<MovableUnit*> enemies;
 	
 	//  set enemy_pos
@@ -32,12 +40,7 @@ std::vector<MovableUnit*> MovableUnit::get_enemies()
 
 void MovableUnit::move(const int& dx_in, const int& dy_in)
 {
-	// for(unit in vector) {
-	// 	if (unit.pos == expectedPos) {
-	// 		attack(unit)
-	// 	}
-	// }
-
+	
 	auto expected_pos = this->_cur_pos;
 	
 	if (expected_pos.first + dx_in >= _board.first && 
@@ -71,26 +74,35 @@ void MovableUnit::move(const int& dx_in, const int& dy_in)
 
 
 void MovableUnit::attack(I_Attackable& enemy)
-{
-	// 2019-04-15 TODO: implement status class and improve it use status class to arguments
-	enemy.reduceHP(5);
+{	
+	// damage = Attackter's ATK - target's DEF
+	int damage = calculate_damage(_status.get_status(Stat::ATK));
+	
+	enemy.reduceHP(damage);
 } 
-// ?
-// 아 이거 damage 들어가는곳이없는데 정의된곳이업음
-// 이렇게 하면 지금 그냥 상수로 넣어도되고 아 그네
-// 나중에 스테이터스 만들면 함수 안에만 바꾸면 되잖아
-// void attack(I_Attackable& attackable) {
-// 	attackable.reduceHp(_status.damage());
-// }
 
 void MovableUnit::reduceHP(int damage)
 {
-	// damage = damage - _status.deffence();
-	this->_hp -= damage;
-
+	_status.set_status(Stat::CUR_HP, get_status(Stat::CUR_HP) - damage);
 }
 
-const int& MovableUnit::get_hp() const
+int MovableUnit::calculate_damage(const int& damage)
 {
-	return _hp;
+	return (damage - _status.get_status(Stat::DEF));
 }
+
+int MovableUnit::get_hp() const
+{
+	return _status.get_status(Stat::CUR_HP);
+}
+
+int MovableUnit::get_status(const Stat& s) const
+{
+	return _status.get_status(s);
+}
+
+Status MovableUnit::get_status_all() const
+{
+	return _status;
+}
+

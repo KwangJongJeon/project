@@ -5,6 +5,7 @@
 #include <memory>
 #include "I_Unit.h"
 #include "I_Attackable.h"
+#include "Status.h"
 // #include "Stat.h" later.
 
 class MovableUnit : public I_Unit, public I_Attackable
@@ -15,11 +16,19 @@ class MovableUnit : public I_Unit, public I_Attackable
 		
 		MovableUnit(std::vector<MovableUnit*>& units_in, const int& x_in = 0, const int& y_in = 0, std::pair<int, int> board_in = std::make_pair(0, 0));
 		
+		MovableUnit(Status status_in, const int& x_in = 0, const int& y_in = 0, std::pair<int, int> board_in = std::make_pair(0, 0));
+			
+		// MovableUnit(Status status_in, std::vector<MovableUnit*>& units_in, const int& x_in = 0, const int& y_in = 0, std::pair<int, int> board_in = std::make_pair(0, 0));
+		
 		virtual void move(const int& dx_in, const int& dy_in) override;
 		virtual void attack(I_Attackable& enemy) override;
 		virtual void reduceHP(int damage) override;
-	
-		const int& get_hp() const;
+		
+		int get_hp() const;
+		
+		int get_status(const Stat& s) const;
+		int calculate_damage(const int& damage);
+		Status get_status_all() const; // get status all
 	
 	
 	
@@ -30,12 +39,11 @@ class MovableUnit : public I_Unit, public I_Attackable
 		
 		friend std::ostream& operator << (std::ostream& out, MovableUnit &m)
 		{
-			out << "(" << m._cur_pos.first << ", " <<  m._cur_pos.second << ")" << std::endl;
+			// out << m._status << std::endl;
 			return out;
 		}
 		
-		virtual ~MovableUnit() 
-		{}
+		virtual ~MovableUnit(){}
 	
 	private:
 	 	std::vector<MovableUnit*> get_enemies();
@@ -45,6 +53,6 @@ class MovableUnit : public I_Unit, public I_Attackable
 		std::pair<int, int> _cur_move;
 	
 		std::vector<MovableUnit*> _units;
-		int _hp; 
-		int _ATK;
+		Status _status;
+		
 };
