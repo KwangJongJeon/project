@@ -106,3 +106,19 @@ Status MovableUnit::get_status_all() const
 	return _status;
 }
 
+void MovableUnit::set_board(std::vector<MovableUnit*>& board_in) {
+	_units = board_in;
+}
+
+
+string MovableUnit::get_string_form() const {
+	return _status.get_string_form();
+}
+
+pair<int, int> MovableUnit::get_pos() const {
+	return _cur_pos;
+}
+
+string MovableUnit::get_unit_type() const {
+	return _status.get_unit_type();
+}

@@ -1,33 +1,34 @@
-// #pragma once
+#pragma once
 
-// #include <string>
-// #include <vector>
-// #include "Player.h"
-// #include "Monster.h"
+#include <string>
+#include <vector>
+#include "MovableUnit.h"
+/**
+Simple databag to hold objects in game.
+Can transform itself to printable string form
 
-// /**
-// Simple databag to hold objects in game.
-// Can transform itself to printable string form
-
-// @author Laurant Jo
-// **/
-// class Board final {
-// public:
-// 	Player& player();
-// 	std::vector<Monster>& monsters();
-// 	std::string stringForm() const;
-
-// 	Board(int width, int height, Player& player);
+@author Laurant Jo
+**/
+class Board final {
+public:
+	Board(std::vector<MovableUnit*>& units_in, const int& width_in, const int& height);
+	// Player& player();
+	std::vector<MovableUnit*>& units();
+	std::string stringForm() const;
 	
-// private:
-// 	const int _width;
-// 	const int _height;
-// 	std::vector<Monster> _monsters;	
-// 	Player _player;
+private:
 	
-// 	std::vector<std::string> rowStrings() const;
-// 	std::string nthRowString(int) const;
-// 	std::string stringFor(int, int) const;
-// 	std::string monsterString(int, int) const;
-// 	std::string playerString(int, int) const;
-// };
+	
+	int _width;
+	int _height;
+	std::vector<MovableUnit*> _units;	
+	// Player _player;
+	
+	std::vector<std::string> rowStrings() const;
+	std::string nthRowString(int) const;
+	std::string stringForm(int, int) const;
+	std::string unitString(int, int) const;
+	std::string playerString(int, int) const;
+	std::string stringFor(int x, int y) const;
+	MovableUnit findPlayer();
+};

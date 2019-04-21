@@ -14,27 +14,36 @@ MonsterFactory::MonsterFactory()
 }
 // Data form in file 
 // Monster name, Unit_Type, BASIC_ATK, BASIC_DEF, LEVEL, STR, INT, DEX, CON, LUK, giveExp, StringForm //
-MovableUnit MonsterFactory::createMonster(std::string name)
+MovableUnit MonsterFactory::createMonster(std::string name, const int& pos_x, const int& pos_y)
 {	
-	//(Stirng, vector<string>) -> (String, int(status))
+	//(String, vector<string>) -> (String, int(status))
 	// (vector<string>) -> (string)m_status
 	map<Stat, int> status;
+	string string_form;
 	
 	auto status_monster_vec_in = m_monsters.at(name); 
-	Stat status_iterator = Stat::UNIT_TYPE;
+	Stat status_iterator = Stat::CUR_HP;
+	
 	
 	for(auto &ele : status_monster_vec_in)
 	{
-		if(status_iterator != Stat::LAST)
+		if(status_iterator != Stat::STRINGFORM)
 		{
 			status[status_iterator] = stoi(ele);
 		}
+		if(status_iterator == Stat::STRINGFORM)
+		{
+			string_form = ele;
+		}
 		++status_iterator;
 	}
-	Status monster_status(status);
 	
-	// Monster created_monster(status);
-	MovableUnit created_monster(monster_status);
+	
+	Status monster_status(status);
+	monster_status.set_string_form(string_form);
+	monster_status.set_unit_type(name);
+	//Monster created_monster(status);
+	MovableUnit created_monster(monster_status, pos_x, pos_y);
 	return created_monster;
 }
 

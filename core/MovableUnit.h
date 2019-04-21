@@ -24,12 +24,19 @@ class MovableUnit : public I_Unit, public I_Attackable
 		virtual void attack(I_Attackable& enemy) override;
 		virtual void reduceHP(int damage) override;
 		
-		int get_hp() const;
+		std::pair<int, int> get_pos() const;
+		std::string 		get_string_form() const;
+		int 				get_hp() const;
+		int 				get_status(const Stat& s) const;
+		Status 				get_status_all() const; // get status all
+		std::string			get_unit_type() const;
 		
-		int get_status(const Stat& s) const;
 		int calculate_damage(const int& damage);
-		Status get_status_all() const; // get status all
-	
+		
+		// board will be managed from game class
+		void set_board(std::vector<MovableUnit*>& board_in);
+		
+		
 	
 	
 		friend bool operator == (const MovableUnit& m1,const MovableUnit& m2)

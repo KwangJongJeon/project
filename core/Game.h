@@ -5,38 +5,33 @@
 #include <ctime> // std::time()
 #include <vector>
 
-
+#include "values.h"
 #include "UserInput.h"
 #include "Terminal.h"
 
 
-// #include "Unit.h"
-#include "Point.h"
 #include "Board.h"
-// #include "values.h" // temporary include. after Polymorphism is implemented, this will deleted
-
 #include "MovableUnit.h"
-#include "Slime.h"
-
+#include "MonsterFactory.h"
 // cp core/*.h include
 class Game
 {
 	private:
-		int input;
-		vector<MovableUnit*> _units;
+		int _input;
+		std::vector<MovableUnit*> _units;
 		MovableUnit player;
-		Board board;
-		UserInput userInput;
-		Terminal terminal;
+		Board _board;
+		UserInput _userInput;
+		Terminal _terminal;
 
 		// void draw_map();	
 		void getInput(); 
 		void update();
 		void render();
+		std::pair<int, int> convertInputToUnitMove();
+
 	public:
-		Game(Point& point, int width, int height)
-			: player(point), board(width, height, player)	
-			{}
+		Game();
 
 	
 		void loop()

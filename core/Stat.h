@@ -7,23 +7,7 @@
 // Experience, if this sical Hit percentage -> 1LUK -> ?
 // LUCK, affect to Crit
 enum class Stat {
-	UNIT_TYPE, CUR_HP, ATK, DEF, LEVEL, EXP, LAST
+	UNIT_TYPE, CUR_HP, ATK, DEF, LEVEL, EXP, STRINGFORM
 };
 
 Stat& operator++(Stat& s);
-// {
-// 	switch(s)
-// 	{
-// 		case Stat::UNIT_TYPE: return s = Stat::BASIC_ATK;
-// 		case Stat::BASIC_ATK: return s =Stat::BASIC_DEF;
-// 		case Stat::BASIC_DEF: return s = Stat::LEVEL;
-// 		case Stat::LEVEL: return s = Stat::STR;
-// 		case Stat::STR: return s = Stat::INT;
-// 		case Stat::INT: return s = Stat::DEX;
-// 		case Stat::DEX: return s = Stat::CON;
-// 		case Stat::CON: return s = Stat::LUK;
-// 		case Stat::LUK: return s = Stat::EXP;
-// 		case Stat::EXP : return s = Stat::LAST;
-// 		case Stat::LAST : return s = Stat::UNIT_TYPE;
-// 	}	
-// }

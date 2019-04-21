@@ -9,7 +9,7 @@ Stat& operator++(Stat& s)
 		case Stat::ATK: return s = Stat::DEF;
 		case Stat::DEF: return s = Stat::LEVEL;
 		case Stat::LEVEL: return s = Stat::EXP;
-		case Stat::EXP: return s = Stat::LAST;
-		case Stat::LAST: return s = Stat::UNIT_TYPE;
+		case Stat::EXP: return s = Stat::STRINGFORM;
+		case Stat::STRINGFORM: return s = Stat::UNIT_TYPE;
 	}	
 }

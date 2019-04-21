@@ -7,13 +7,14 @@
 class Terminal
 {
 	private:
+		Board _board;
 	
 	public:
-		Terminal()
-		{
-		}
+		Terminal(Board& board);
+		
+		
 	
 		// void drawMap() const;
 
-		void render(std::string stringForm);
+		void render(const Board& board);
 };

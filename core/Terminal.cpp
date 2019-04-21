@@ -1,27 +1,14 @@
 #include "Terminal.h"
 
-/*
-void Terminal::drawMap() const
-{
-	using namespace std;
-	
-	int i;
-	
-	cout << "�̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢�" << endl;
-	for (i = 0; i < 18; ++i)
-	{
-		if(i == 2) cout << "��                                                            �� HP:        ��" << endl;
-		if(i == 3) cout << "��                                                            �� MP:        ��" << endl;
-		cout << "��                                                            ��            ��" << endl;
-	}
-	cout << "�̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢̢�" << endl;
-	cout << endl;
-	
-	cout << "Dialog Frame" << endl; 
-}
-*/
+using std::cout; 
+using std::endl;
 
-void Terminal::render(std::string stringForm)
+Terminal::Terminal(Board& board_in)
+	: _board(board_in) 
+{}
+
+
+void Terminal::render(const Board& board)
 {
-	std::cout << stringForm << std::endl;
+	cout << _board.stringForm() << endl;
 }

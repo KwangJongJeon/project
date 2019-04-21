@@ -21,10 +21,10 @@ const int WHITE = 15;
 
 
 // keys and init position
-const int g_KEY_UP = 80;
-const int g_KEY_LEFT = 75;
-const int g_KEY_RIGHT = 77;
-const int g_KEY_DOWN = 72;
+// const int UP = 80; 
+// const int LEFT = 75;
+// const int RIGHT = 77;
+// const int DOWN = 72;
 const int g_init_x = 2;
 const int g_init_y = 2;
 
