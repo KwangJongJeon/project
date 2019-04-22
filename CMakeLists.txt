@@ -7,3 +7,4 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 #add_subdirectory(test)
 add_subdirectory(main)
+add_subdirectory(linux)

@@ -6,6 +6,7 @@ using std::map;
 using std::ifstream;
 using std::cout;
 using std::stoi;
+using std::endl;
 
 MonsterFactory::MonsterFactory()
 {
@@ -20,31 +21,37 @@ MovableUnit MonsterFactory::createMonster(std::string name, const int& pos_x, co
 	// (vector<string>) -> (string)m_status
 	map<Stat, int> status;
 	string string_form;
-	
-	auto status_monster_vec_in = m_monsters.at(name); 
-	Stat status_iterator = Stat::CUR_HP;
-	
-	
-	for(auto &ele : status_monster_vec_in)
-	{
-		if(status_iterator != Stat::STRINGFORM)
+	if(name == "Slime" || name == "Player"){
+		
+		// for logging func.
+		auto status_monster_vec_in = m_monsters.at(name); 
+		Stat status_iterator = Stat::CUR_HP;
+
+
+		for(auto &ele : status_monster_vec_in)
 		{
-			status[status_iterator] = stoi(ele);
+			if(status_iterator != Stat::STRINGFORM)
+			{
+				status[status_iterator] = stoi(ele);
+			}
+			if(status_iterator == Stat::STRINGFORM)
+			{
+				string_form = ele;
+			}
+			++status_iterator;
 		}
-		if(status_iterator == Stat::STRINGFORM)
-		{
-			string_form = ele;
-		}
-		++status_iterator;
+
+
+		Status monster_status(status);
+		monster_status.set_string_form(string_form);
+		monster_status.set_unit_type(name);
+		//Monster created_monster(status);
+		MovableUnit created_monster(monster_status, pos_x, pos_y);
+		return created_monster;
 	}
-	
-	
-	Status monster_status(status);
-	monster_status.set_string_form(string_form);
-	monster_status.set_unit_type(name);
-	//Monster created_monster(status);
-	MovableUnit created_monster(monster_status, pos_x, pos_y);
-	return created_monster;
+	else {
+		std::cout << "Monster Factory Error! Wrong name is inputed" << std::endl;
+	}
 }
 
 

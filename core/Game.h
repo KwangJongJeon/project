@@ -19,10 +19,10 @@ class Game
 	private:
 		int _input;
 		std::vector<MovableUnit*> _units;
-		MovableUnit player;
+		MovableUnit _player;
 		Board _board;
 		UserInput _userInput;
-		Terminal _terminal;
+		// Terminal _terminal;
 
 		// void draw_map();	
 		void getInput(); 
@@ -36,8 +36,12 @@ class Game
 	
 		void loop()
 		{
-			render();
 			getInput();
-			update(); 
+			std::cout << "getInput is completed, update is ready" << std::endl;
+			update();
+			std::cout << "update is completed, render is ready" << std::endl;
+
+			render();
+			std::cout << "render is completed" << std::endl;
 		}
 };

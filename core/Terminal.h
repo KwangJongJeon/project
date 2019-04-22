@@ -10,8 +10,9 @@ class Terminal
 		Board _board;
 	
 	public:
-		Terminal(Board& board);
+		Terminal(Board& board_in);
 		
+		void set_board(Board& board);
 		
 	
 		// void drawMap() const;
