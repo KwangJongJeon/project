@@ -46,7 +46,8 @@ class MovableUnit : public I_Unit, public I_Attackable
 		
 		friend std::ostream& operator << (std::ostream& out, MovableUnit &m)
 		{
-			// out << m._status << std::endl;
+			out << "x: " <<  m.get_pos().first << 
+				   "y: " << m.get_pos().second << std::endl;
 			return out;
 		}
 		

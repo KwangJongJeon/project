@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include <typeinfo> // for logging
 #include "MovableUnit.h"
 /**
 Simple databag to hold objects in game.
@@ -15,13 +16,13 @@ public:
 	// Player& player();
 	std::vector<MovableUnit*>& units();
 	std::string stringForm() const;
+	void set_board(std::vector<MovableUnit*>& units_in);
 	
 private:
 	
-	
+	std::vector<MovableUnit*>& _units;	
 	int _width;
 	int _height;
-	std::vector<MovableUnit*> _units;	
 	// Player _player;
 	
 	std::vector<std::string> rowStrings() const;

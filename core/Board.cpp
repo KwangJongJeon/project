@@ -11,8 +11,8 @@ vector<MovableUnit*>& Board::units() {
 	return _units;
 }
 
+
 string Board::stringForm() const {
-	cout << "stringForm called" << endl;
 	string result;
 	vector<string> rowStrs = rowStrings();
 	//여기가 문제네 여기부터가 망함
@@ -22,7 +22,6 @@ string Board::stringForm() const {
 	string ceiling(_width + 2, '#');
 	result += ceiling;
 	result += "\n";
-	cout << "ceiling done" << endl;
 	auto iter = rowStrs.begin();
 	
 	while(iter != rowStrs.end()) {
@@ -33,39 +32,47 @@ string Board::stringForm() const {
 	}
 	
 	result += ceiling;
-	cout << "stringForm done" << endl;
 	return result;
 }
 
+
+void Board::set_board(std::vector<MovableUnit*>& units_in) {
+	_units = units_in;
+	cout << "set_board is called " << endl;
+	
+	cout << "------------------" << endl;
+	cout << "units input value:" << endl;
+	for(auto &ele : _units) {
+		cout << *ele << endl; 
+	}
+	cout << "------------------" << endl;
+	
+	cout << "set_board is done " << endl;
+	}
+
 vector<string> Board::rowStrings() const {
-	cout << "rowStrings called" << endl;
 	vector<string> rowStrings;
 	
 	for(int y = 0; y < _height; ++y) {
 		rowStrings.push_back(nthRowString(y));
 	}
-	cout << "rowStrings done" << endl;
 	return rowStrings;
 }
 
 string Board::nthRowString(int n) const {
-	cout << "nthRowString is called" << endl;
 
 	string result;
 	
 	for(int x = 0; x < _width; ++x) {
 		result += stringFor(x, n);
 	}
-	cout << "nthRowString is completed" << endl;
 	return result;
 }
 
 //Returns string representation for position x, y
 string Board::stringFor(int x, int y) const {
-	cout << "StringFor is called" << endl;
 
 	string result = unitString(x, y);
-	cout << "StringFor is completed" << endl;
 	return result;
 }
 
@@ -81,18 +88,46 @@ string Board::stringFor(int x, int y) const {
 
 
 string Board::unitString(int x, int y) const {
-	cout << "unitString is called" << endl;
 	string result = " ";
-		
+	cout << "x_in: " << x << " y_in: " << y << endl;
+	
+	// A ver. 
+	// for(auto iter = _units.begin(); iter != _units.end(); ++iter) {
+	// 	auto pos = (*iter)->get_pos();
+	// 	cout << "pos_x: " << pos.first << " pos_y: " << pos.second << endl;
+	// 	if((pos.first == x) && (pos.second == y)) {
+	// 		cout << "found someone at " << x << "/" << y << endl;
+
+	// 		result = (*iter)->get_string_form();
+	// 	}
+	// }
+	
+	// // B ver.
+	// for(int i = 0; i != 3; ++i) {
+	// 	pair<int, int> pos = _units[i]->get_pos();
+	// 	cout << "pos_x: " << pos.first << " pos_y: " << pos.second << endl;
+	// }
+	
+	
+	// C ver.
 	for(auto &ele : _units) {
 		auto pos = ele->get_pos();
+		cout << ele->get_string_form() << endl;
+		
+		cout << "pos_x: " << pos.first << " pos_y: " << pos.second << endl;
+		cout << "pos_type: " << typeid(pos).name() << endl;
 		if((pos.first == x) && (pos.second == y)) {
+			
+			cout << "found someone at " << x << "/" << y << endl;
+			cout << (*ele) << endl;
 			result = ele->get_string_form();
 		}
-		
-		return result;
 	}
-	cout << "unitString is completed" << endl;
+	
+	cout << "unitString for position " << x << "/" << y <<endl;
+	cout << result << endl; // error
+	cout << "result" << endl;
+	return result;
 }
 
 // string Board::monsterString(int x, int y) const {

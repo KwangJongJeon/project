@@ -36,12 +36,8 @@ class Game
 	
 		void loop()
 		{
-			getInput();
-			std::cout << "getInput is completed, update is ready" << std::endl;
-			update();
-			std::cout << "update is completed, render is ready" << std::endl;
-
 			render();
-			std::cout << "render is completed" << std::endl;
+			getInput();
+			update();
 		}
 };

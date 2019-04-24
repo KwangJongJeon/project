@@ -25,8 +25,8 @@ MovableUnit MonsterFactory::createMonster(std::string name, const int& pos_x, co
 		
 		// for logging func.
 		auto status_monster_vec_in = m_monsters.at(name); 
+		
 		Stat status_iterator = Stat::CUR_HP;
-
 
 		for(auto &ele : status_monster_vec_in)
 		{
