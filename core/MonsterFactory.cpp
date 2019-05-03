@@ -15,7 +15,7 @@ MonsterFactory::MonsterFactory()
 }
 // Data form in file 
 // Monster name, Unit_Type, BASIC_ATK, BASIC_DEF, LEVEL, STR, INT, DEX, CON, LUK, giveExp, StringForm //
-MovableUnit MonsterFactory::createMonster(std::string name, const int& pos_x, const int& pos_y)
+MovableUnit MonsterFactory::createMonster(std::string name, const int& pos_x, const int& pos_y, std::pair<int, int> board_in)
 {	
 	//(String, vector<string>) -> (String, int(status))
 	// (vector<string>) -> (string)m_status
@@ -41,12 +41,11 @@ MovableUnit MonsterFactory::createMonster(std::string name, const int& pos_x, co
 			++status_iterator;
 		}
 
-
 		Status monster_status(status);
 		monster_status.set_string_form(string_form);
 		monster_status.set_unit_type(name);
 		//Monster created_monster(status);
-		MovableUnit created_monster(monster_status, pos_x, pos_y);
+		MovableUnit created_monster(monster_status, pos_x, pos_y, board_in);
 		return created_monster;
 	}
 	else {

@@ -38,16 +38,16 @@ string Board::stringForm() const {
 
 void Board::set_board(std::vector<MovableUnit*>& units_in) {
 	_units = units_in;
-	cout << "set_board is called " << endl;
+	// cout << "set_board is called " << endl;
 	
-	cout << "------------------" << endl;
-	cout << "units input value:" << endl;
+	// cout << "------------------" << endl;
+	// cout << "units input value:" << endl;
 	for(auto &ele : _units) {
 		cout << *ele << endl; 
 	}
-	cout << "------------------" << endl;
+	// cout << "------------------" << endl;
 	
-	cout << "set_board is done " << endl;
+	// cout << "set_board is done " << endl;
 	}
 
 vector<string> Board::rowStrings() const {
@@ -76,80 +76,22 @@ string Board::stringFor(int x, int y) const {
 	return result;
 }
 
-// string Board::playerString(int x, int y) const {
-// 	string result = " ";
-// 	auto player = findPlayer();
-// 	auto playerPoint = player.get_pos();
-// 	if((playerPoint.first == x) && (playerPoint.second == y)) {
-// 		result = player.get_string_form();
-// 	}
-// 	return result;
-// }
 
 
 string Board::unitString(int x, int y) const {
 	string result = " ";
-	cout << "x_in: " << x << " y_in: " << y << endl;
-	
-	// A ver. 
-	// for(auto iter = _units.begin(); iter != _units.end(); ++iter) {
-	// 	auto pos = (*iter)->get_pos();
-	// 	cout << "pos_x: " << pos.first << " pos_y: " << pos.second << endl;
-	// 	if((pos.first == x) && (pos.second == y)) {
-	// 		cout << "found someone at " << x << "/" << y << endl;
-
-	// 		result = (*iter)->get_string_form();
-	// 	}
-	// }
-	
-	// // B ver.
-	// for(int i = 0; i != 3; ++i) {
-	// 	pair<int, int> pos = _units[i]->get_pos();
-	// 	cout << "pos_x: " << pos.first << " pos_y: " << pos.second << endl;
-	// }
-	
-	
-	// C ver.
 	for(auto &ele : _units) {
 		auto pos = ele->get_pos();
-		cout << ele->get_string_form() << endl;
-		
-		cout << "pos_x: " << pos.first << " pos_y: " << pos.second << endl;
-		cout << "pos_type: " << typeid(pos).name() << endl;
 		if((pos.first == x) && (pos.second == y)) {
-			
-			cout << "found someone at " << x << "/" << y << endl;
-			cout << (*ele) << endl;
+			cout << *ele << endl;
 			result = ele->get_string_form();
 		}
 	}
-	
-	cout << "unitString for position " << x << "/" << y <<endl;
-	cout << result << endl; // error
-	cout << "result" << endl;
 	return result;
 }
 
-// string Board::monsterString(int x, int y) const {
-// 	string result = " ";
-// 	vector<Monster>::const_iterator iter = _monsters.begin();
-	
-// 	while(iter != _monsters.end()) {
-// 		Point point = iter->get_pos();
-// 		if((point.getX() == x) && (point.getY() == y)) {
-// 			result = iter->stringForm();
-// 		}
-// 	}
-	
-// 	return result;
-// }
 
-// string Board::playerString(int x, int y) const {
-// 	string result = " ";
-// 	auto player = findPlayer();
-// 	auto playerPoint = player.get_pos();
-// 	if((playerPoint.first == x) && (playerPoint.second == y)) {
-// 		result = player.get_string_form();
-// 	}
-// 	return result;
-// }
+std::pair<int, int> Board::get_board() {
+	std::pair<int, int> board = make_pair(_width, _height);
+	return board;
+}

@@ -20,7 +20,7 @@ Game::Game()
 		createMonster("Player", pos)로 생성 가능하도록 monFac 수정
 		몬스터일경우("Slime", rand(pos))로 생성 가능하도록.
 	*/
-	_player = monFac.createMonster("Player", g_init_x, g_init_y);
+	_player = monFac.createMonster("Player", g_init_x, g_init_y, _board.get_board());
 	_monster1 = monFac.createMonster("Slime", rand()%10, rand()%10);
 	_monster2 = monFac.createMonster("Slime", rand()%10, rand()%10);
 		
@@ -69,17 +69,26 @@ void Game::update()
 	 */
 	
 	auto input = convertInputToUnitMove();
+	cout << "input: " << input.first << ", " << input.second << endl;
 	_player.move(input.first, input.second);
 
 	
 
+
 	// delete dead monsters from units
 	// 20190422 11:19 
-	// for (auto iter = _units.begin(); iter != _units.end(); ++iter) {
-	// 	if((*iter)->get_status(Stat::CUR_HP) == 0)
-	// 		_units.erase(iter);
-	// }
+	for (auto iter = _units.begin(); iter != _units.end(); ++iter) {
+
+		if((*iter)->get_status(Stat::CUR_HP) == 0)
+			_units.erase(iter);
+		
+		 cout << "Unit's HP: " <<
+		(*iter)->get_status(Stat::CUR_HP) << endl;
+		
+	}
 	
+
+
 	// for (auto &ele : _units) {
 	// 	if(ele->get_status(Stat::CUR_HP) == 0)
 	// 		_units.erase(ele);
@@ -105,10 +114,10 @@ pair<int, int> Game::convertInputToUnitMove() {
 	pair<int, int> result; 
 	switch(_input) {
 		case UserInput::UP:
-			result = std::make_pair(0, 1);
+			result = std::make_pair(0, -1);
 			break;
 		case UserInput::DOWN:
-			result = std::make_pair(0, -1);
+			result = std::make_pair(0, 1);
 			break;
 		case UserInput::RIGHT:
 			result = std::make_pair(1, 0);
@@ -119,4 +128,12 @@ pair<int, int> Game::convertInputToUnitMove() {
 	}
 	
 	return result;
+}
+
+bool Game::victory() {
+	cout << "units_no: " << _units.size() << endl;
+	if(_units.size() == 1)
+		return true;
+	else false;
+
 }

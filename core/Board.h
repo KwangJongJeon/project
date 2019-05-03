@@ -17,6 +17,7 @@ public:
 	std::vector<MovableUnit*>& units();
 	std::string stringForm() const;
 	void set_board(std::vector<MovableUnit*>& units_in);
+	std::pair<int, int> get_board();
 	
 private:
 	
@@ -32,4 +33,5 @@ private:
 	std::string playerString(int, int) const;
 	std::string stringFor(int x, int y) const;
 	MovableUnit findPlayer();
+	bool victory();
 };

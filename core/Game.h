@@ -25,13 +25,16 @@ class Game
 		MovableUnit _player;
 		MovableUnit _monster1;
 		MovableUnit _monster2;
+		
 		// Terminal _terminal;
 
 		// void draw_map();	
 		void getInput(); 
 		void update();
 		void render();
+	
 		std::pair<int, int> convertInputToUnitMove();
+		bool victory();
 
 	public:
 		Game();

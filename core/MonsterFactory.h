@@ -19,7 +19,7 @@ class MonsterFactory
 		
 	public:
 		MonsterFactory();
-		MovableUnit createMonster(std::string name, const int& pos_x = 0, const int& pos_y = 0);
+		MovableUnit createMonster(std::string name, const int& pos_x = 0, const int& pos_y = 0, std::pair<int, int> board_in = std::make_pair(10, 10));
 	
 		
 		
