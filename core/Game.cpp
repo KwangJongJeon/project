@@ -20,29 +20,28 @@ Game::Game()
 		createMonster("Player", pos)로 생성 가능하도록 monFac 수정
 		몬스터일경우("Slime", rand(pos))로 생성 가능하도록.
 	*/
-	MovableUnit player = monFac.createMonster("Player", g_init_x, g_init_y);
-	MovableUnit monster1 = monFac.createMonster("Slime", rand()%10, rand()%10);
-	MovableUnit monster2 = monFac.createMonster("Slime", rand()%10, rand()%10);
+	_player = monFac.createMonster("Player", g_init_x, g_init_y);
+	_monster1 = monFac.createMonster("Slime", rand()%10, rand()%10);
+	_monster2 = monFac.createMonster("Slime", rand()%10, rand()%10);
 		
 		
-	cout << monster1 << endl;
-	cout << monster2 << endl;
+	cout << _monster1 << endl;
+	cout << _monster2 << endl;
 	
 	// 벡터가 l-value를 필요로 하기 
 	// 떄문에 for문을 이용해 push_back(createMonster...) 사용 불가.
 	// 다른방법 존재?
-	_units.push_back(&player);
-	_units.push_back(&monster1);
-	_units.push_back(&monster2);
+	_units.push_back(&_player);
+	_units.push_back(&_monster1);
+	_units.push_back(&_monster2);
 		
 	cout << *_units[0] << endl;
 
 	
-	player.set_board(_units);
-	monster1.set_board(_units);
-	monster2.set_board(_units);
+	_player.set_board(_units);
+	_monster1.set_board(_units);
+	_monster2.set_board(_units);
 	_board.set_board(_units);
-	_player = player;
 	cout << "Game.cpp Constructor is called successfully" << endl;
 
 	// _board(_units, 10, 10);

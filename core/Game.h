@@ -19,9 +19,12 @@ class Game
 	private:
 		int _input;
 		std::vector<MovableUnit*> _units;
-		MovableUnit _player;
 		Board _board;
 		UserInput _userInput;
+	
+		MovableUnit _player;
+		MovableUnit _monster1;
+		MovableUnit _monster2;
 		// Terminal _terminal;
 
 		// void draw_map();	
