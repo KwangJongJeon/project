@@ -63,4 +63,6 @@ class MovableUnit : public I_Unit, public I_Attackable
 		std::vector<MovableUnit*> _units;
 		Status _status;
 		
+		bool check_unit_in_valid_pos(std::pair<int, int> pos);
+		
 };

@@ -84,48 +84,13 @@ void Game::update()
 	while(itr != _units.end()) {
 		if((*itr)->get_status(Stat::CUR_HP) <= 0) {
 			
-			cout << "deleted" << endl;
 			_units.erase(itr);
-			
 		} 
 		else {
 			++itr;
 		}
 		
 	}
-	// for (auto iter = _units.begin(); iter != _units.end(); ++iter) {
-
-	// 	if((*iter)->get_status(Stat::CUR_HP) <= 0) {
-			
-	// 		cout << "deleted" << endl;
-	// 		// segmentation error occured
-	// 		try{
-	// 			_units.erase(iter);
-	// 		}
-	// 		catch(exception& e) {
-	// 			cout << e.what() << endl;
-	// 		}
-	// 	}
-		
-	// 	cout << "update done" << endl;
-	// 	 cout << "Unit's HP: " <<
-	// 	(*iter)->get_status(Stat::CUR_HP) << endl;
-		
-	// }
-	
-
-
-	// for (auto &ele : _units) {
-	// 	if(ele->get_status(Stat::CUR_HP) == 0)
-	// 		_units.erase(ele);
-	// }
-	
-	// for(auto &ele : _units) {
-	// 	if(*ele.get_status(Stat::UNIT_TYPE) != "Player")
-	// 	{
-	// 		ele->AI_move();
-	// 	}
-	cout << "update done" << endl;
 }
 
 

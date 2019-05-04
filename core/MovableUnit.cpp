@@ -33,14 +33,20 @@ std::vector<MovableUnit*> MovableUnit::get_enemies()
 	return enemies;
 }
 
-void MovableUnit::move(const int& dx_in, const int& dy_in)
-{
+void MovableUnit::move(const int& dx_in, const int& dy_in) {
 	
-	auto expected_pos = this->_cur_pos;
+	// auto expected_pos = _cur_pos;
+	pair<int, int> expected_pos = make_pair(_cur_pos.first + dx_in, _cur_pos.second + dy_in);
 	
-	if ((expected_pos.first + dx_in) > _board.first && 
-	    (expected_pos.second + dy_in) > _board.second)
+	// check unit in valid position
+	// if ((expected_pos.first + dx_in) > _board.first - 1 || 
+	//     (expected_pos.second + dy_in) > _board.second - 1 ||
+	//      (expected_pos.first + dx_in) < 0 || 
+	//      (expected_pos.second + dy_in) < 0)
+	if(check_unit_in_valid_pos(expected_pos))
 	{
+		cout << "cur_pos: " << _cur_pos.first << ", " << _cur_pos.second << endl;
+		cout << "expected_pos: " << expected_pos.first << ", " << expected_pos.second << endl;
 		cout << "not move!" << endl;
 		cout << "This pos is : " << *this << endl;
 		return;
@@ -94,6 +100,13 @@ int MovableUnit::calculate_damage(const int& damage, I_Attackable& enemy)
 {
 	cout << "ATK:  " << _status.get_status(Stat::ATK) << endl;
 	return (damage - enemy.get_status(Stat::DEF));
+}
+
+bool MovableUnit::check_unit_in_valid_pos(pair<int, int> pos) {
+	return	pos.first > _board.first - 1 || 
+			pos.second > _board.second - 1 ||
+	    	pos.first < 0 || 
+	    	pos.second < 0;
 }
 
 int MovableUnit::get_hp() const
