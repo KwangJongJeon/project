@@ -21,8 +21,8 @@ Game::Game()
 		몬스터일경우("Slime", rand(pos))로 생성 가능하도록.
 	*/
 	_player = monFac.createMonster("Player", g_init_x, g_init_y, _board.get_board());
-	_monster1 = monFac.createMonster("Slime", rand()%10, rand()%10);
-	_monster2 = monFac.createMonster("Slime", rand()%10, rand()%10);
+	_monster1 = monFac.createMonster("Slime", rand()%10, rand()%10, _board.get_board());
+	_monster2 = monFac.createMonster("Slime", rand()%10, rand()%10, _board.get_board());
 		
 		
 	cout << _monster1 << endl;
