@@ -82,6 +82,8 @@ void Game::update()
 	// 20190422 11:19 
 	auto itr = _units.begin();
 	while(itr != _units.end()) {
+		cout << (*itr)->get_unit_type() << "'s HP: " << (*itr)->get_status(Stat::CUR_HP) << endl;
+
 		if((*itr)->get_status(Stat::CUR_HP) <= 0) {
 			
 			_units.erase(itr);
@@ -89,6 +91,7 @@ void Game::update()
 		else {
 			++itr;
 		}
+		
 		
 	}
 }

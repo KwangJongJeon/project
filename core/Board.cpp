@@ -15,10 +15,7 @@ vector<MovableUnit*>& Board::units() {
 string Board::stringForm() const {
 	string result;
 	vector<string> rowStrs = rowStrings();
-	//여기가 문제네 여기부터가 망함
-	//테두리 만드는 부분인데
 	
-    //버리자 zzzzzzzzzzz
 	string ceiling(_width + 2, '#');
 	result += ceiling;
 	result += "\n";
@@ -38,17 +35,11 @@ string Board::stringForm() const {
 
 void Board::set_board(std::vector<MovableUnit*>& units_in) {
 	_units = units_in;
-	// cout << "set_board is called " << endl;
 	
-	// cout << "------------------" << endl;
-	// cout << "units input value:" << endl;
 	for(auto &ele : _units) {
 		cout << *ele << endl; 
 	}
-	// cout << "------------------" << endl;
-	
-	// cout << "set_board is done " << endl;
-	}
+}
 
 vector<string> Board::rowStrings() const {
 	vector<string> rowStrings;

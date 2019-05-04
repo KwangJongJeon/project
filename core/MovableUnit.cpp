@@ -35,28 +35,23 @@ std::vector<MovableUnit*> MovableUnit::get_enemies()
 
 void MovableUnit::move(const int& dx_in, const int& dy_in) {
 	
-	// auto expected_pos = _cur_pos;
 	pair<int, int> expected_pos = make_pair(_cur_pos.first + dx_in, _cur_pos.second + dy_in);
 	
 	// check unit in valid position
-	// if ((expected_pos.first + dx_in) > _board.first - 1 || 
-	//     (expected_pos.second + dy_in) > _board.second - 1 ||
-	//      (expected_pos.first + dx_in) < 0 || 
-	//      (expected_pos.second + dy_in) < 0)
 	if(check_unit_in_valid_pos(expected_pos))
 	{
-		cout << "cur_pos: " << _cur_pos.first << ", " << _cur_pos.second << endl;
-		cout << "expected_pos: " << expected_pos.first << ", " << expected_pos.second << endl;
-		cout << "not move!" << endl;
-		cout << "This pos is : " << *this << endl;
+		// cout << "cur_pos: " << _cur_pos.first << ", " << _cur_pos.second << endl;
+		// cout << "expected_pos: " << expected_pos.first << ", " << expected_pos.second << endl;
+		// cout << "not move!" << endl;
+		// cout << "This pos is : " << *this << endl;
 		return;
 	} 
 	else {
 		
-		cout << "move!" << endl;
-		cout << "cur_pos: " << _cur_pos.first << ", " << _cur_pos.second << endl;
-		cout << "expected_pos: " << expected_pos.first << ", " << expected_pos.second << endl;
-		cout << "board_size" << _board.first << ", " << _board.second << endl;
+		// cout << "move!" << endl;
+		// cout << "cur_pos: " << _cur_pos.first << ", " << _cur_pos.second << endl;
+		// cout << "expected_pos: " << expected_pos.first << ", " << expected_pos.second << endl;
+		// cout << "board_size" << _board.first << ", " << _board.second << endl;
 		
 		expected_pos.first += dx_in;
 		expected_pos.second += dy_in; 
@@ -69,7 +64,7 @@ void MovableUnit::move(const int& dx_in, const int& dy_in) {
 			
 			if(expected_pos == enemy->_cur_pos) 
 			{
-				cout << "for loop is done" << endl;
+				// cout << "for loop is done" << endl;
 				attack(*enemy);
 				return;
 			} 
@@ -83,10 +78,10 @@ void MovableUnit::move(const int& dx_in, const int& dy_in) {
 
 void MovableUnit::attack(I_Attackable& enemy)
 {	
-	cout << "Attack done" << endl;
-	// damage = Attackter's ATK - target's DEF
+	// cout << "Attack done" << endl;
+	
 	int damage = calculate_damage(_status.get_status(Stat::ATK), enemy);
-	cout << "Damage : " << damage << endl;
+	// cout << "Damage : " << damage << endl;
 	
 	enemy.reduceHP(damage);
 } 
@@ -140,22 +135,3 @@ pair<int, int> MovableUnit::get_pos() const {
 string MovableUnit::get_unit_type() const {
 	return _status.get_unit_type();
 }
-
-
-//  class vector <Record<value> >::iterator itr = records.begin();
-
-//       for (; itr != records.end(); ++itr) {
-//         if (itr->isSelected()) {
-//           itr = records.erase(itr);
-//           recordSize--;
-//         }
-//       }
-
-// while (itr != records.end()) {
-//     if (itr->isSelected()) {
-//       itr = records.erase(itr);
-//       recordSize--;
-//     } else {
-//       ++itr;
-//     }
-//   }

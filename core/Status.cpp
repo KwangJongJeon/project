@@ -39,10 +39,10 @@ void Status::set_unit_type(string type_in) {
 }
 
 string Status::get_unit_type() const {
-	if(_units_string_form == "") {
+	if(_units_type == "") {
 		std::cout << "error!";
 	}
 	else {
-		return _units_string_form;
+		return _units_type;
 	}
 }
