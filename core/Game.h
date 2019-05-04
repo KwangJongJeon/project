@@ -4,10 +4,12 @@
 #include <cstdlib> // std::rand(), std::srand()
 #include <ctime> // std::time()
 #include <vector>
+#include <exception>
 
 #include "values.h"
 #include "UserInput.h"
 #include "Terminal.h"
+
 
 
 #include "Board.h"

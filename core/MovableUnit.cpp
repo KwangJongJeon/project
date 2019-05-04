@@ -60,9 +60,10 @@ void MovableUnit::move(const int& dx_in, const int& dy_in)
 		
 		for(auto & enemy : enemies) 
 		{
-			cout << "for loop is done" << endl;
+			
 			if(expected_pos == enemy->_cur_pos) 
 			{
+				cout << "for loop is done" << endl;
 				attack(*enemy);
 				return;
 			} 
@@ -78,7 +79,7 @@ void MovableUnit::attack(I_Attackable& enemy)
 {	
 	cout << "Attack done" << endl;
 	// damage = Attackter's ATK - target's DEF
-	int damage = calculate_damage(_status.get_status(Stat::ATK));
+	int damage = calculate_damage(_status.get_status(Stat::ATK), enemy);
 	cout << "Damage : " << damage << endl;
 	
 	enemy.reduceHP(damage);
@@ -89,10 +90,10 @@ void MovableUnit::reduceHP(int damage)
 	_status.set_status(Stat::CUR_HP, (get_status(Stat::CUR_HP) - damage));
 }
 
-int MovableUnit::calculate_damage(const int& damage)
+int MovableUnit::calculate_damage(const int& damage, I_Attackable& enemy)
 {
 	cout << "ATK:  " << _status.get_status(Stat::ATK) << endl;
-	return (damage - _status.get_status(Stat::DEF));
+	return (damage - enemy.get_status(Stat::DEF));
 }
 
 int MovableUnit::get_hp() const
@@ -126,3 +127,22 @@ pair<int, int> MovableUnit::get_pos() const {
 string MovableUnit::get_unit_type() const {
 	return _status.get_unit_type();
 }
+
+
+//  class vector <Record<value> >::iterator itr = records.begin();
+
+//       for (; itr != records.end(); ++itr) {
+//         if (itr->isSelected()) {
+//           itr = records.erase(itr);
+//           recordSize--;
+//         }
+//       }
+
+// while (itr != records.end()) {
+//     if (itr->isSelected()) {
+//       itr = records.erase(itr);
+//       recordSize--;
+//     } else {
+//       ++itr;
+//     }
+//   }

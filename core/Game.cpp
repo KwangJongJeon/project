@@ -1,11 +1,14 @@
 #include "Game.h"
-#include "UserInput.h"
+
+
+
 
 
 using std::vector;
 using std::pair;
 using std::cout;
 using std::endl;
+using std::exception;
 
 Game::Game()
 	: _board(_units, 10, 10)
@@ -75,17 +78,40 @@ void Game::update()
 	
 
 
-	// delete dead monsters from units
+	// delete dead monsters from _units
 	// 20190422 11:19 
-	for (auto iter = _units.begin(); iter != _units.end(); ++iter) {
-
-		if((*iter)->get_status(Stat::CUR_HP) == 0)
-			_units.erase(iter);
-		
-		 cout << "Unit's HP: " <<
-		(*iter)->get_status(Stat::CUR_HP) << endl;
+	auto itr = _units.begin();
+	while(itr != _units.end()) {
+		if((*itr)->get_status(Stat::CUR_HP) <= 0) {
+			
+			cout << "deleted" << endl;
+			_units.erase(itr);
+			
+		} 
+		else {
+			++itr;
+		}
 		
 	}
+	// for (auto iter = _units.begin(); iter != _units.end(); ++iter) {
+
+	// 	if((*iter)->get_status(Stat::CUR_HP) <= 0) {
+			
+	// 		cout << "deleted" << endl;
+	// 		// segmentation error occured
+	// 		try{
+	// 			_units.erase(iter);
+	// 		}
+	// 		catch(exception& e) {
+	// 			cout << e.what() << endl;
+	// 		}
+	// 	}
+		
+	// 	cout << "update done" << endl;
+	// 	 cout << "Unit's HP: " <<
+	// 	(*iter)->get_status(Stat::CUR_HP) << endl;
+		
+	// }
 	
 
 
@@ -99,6 +125,7 @@ void Game::update()
 	// 	{
 	// 		ele->AI_move();
 	// 	}
+	cout << "update done" << endl;
 }
 
 

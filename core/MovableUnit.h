@@ -31,7 +31,7 @@ class MovableUnit : public I_Unit, public I_Attackable
 		Status 				get_status_all() const; // get status all
 		std::string			get_unit_type() const;
 		
-		int calculate_damage(const int& damage);
+		int calculate_damage(const int& damage, I_Attackable& enemy);
 		
 		// board will be managed from game class
 		void set_board(std::vector<MovableUnit*>& board_in);
