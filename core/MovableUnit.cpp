@@ -93,7 +93,7 @@ void MovableUnit::reduceHP(int damage)
 
 int MovableUnit::calculate_damage(const int& damage, I_Attackable& enemy)
 {
-	cout << "ATK:  " << _status.get_status(Stat::ATK) << endl;
+	// cout << "ATK:  " << _status.get_status(Stat::ATK) << endl;
 	int true_damage;
 	if(damage - enemy.get_status(Stat::DEF) > get_status(Stat::ATK)) {
 		true_damage = 0;

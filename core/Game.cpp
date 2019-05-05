@@ -74,15 +74,13 @@ void Game::update()
 	 *  유닛들 알아서 움직이기
 	 */
 	
-	auto input = convertInputToUnitMove();
-	cout << "input: " << input.first << ", " << input.second << endl;
-	_player.move(input.first, input.second);
-
 	
+	auto input = convertInputToUnitMove();
+	// cout << "input: " << input.first << ", " << input.second << endl;
+	_player.move(input.first, input.second);
 
 
 	// delete dead monsters from _units
-	// 20190422 11:19 
 	auto itr = _units.begin();
 	while(itr != _units.end()) {
 		cout << (*itr)->get_unit_type() << "'s HP: " << (*itr)->get_status(Stat::CUR_HP) << endl;
@@ -96,16 +94,27 @@ void Game::update()
 		}
 	}
 	
-	// AI's turn
+	// AI's move, use _units for move
 	_monster1_AI.move_AI();
 	_monster2_AI.move_AI();
+	
+	
+	
+	if(victory()) {
+		// string str = "Victory! All monster is defeated";
+		// auto border_size = str.size();
+		cout << "********************************" << endl;
+		cout << "Victory! All monster is defeated" << endl;
+		cout << "********************************" << endl;
+		exit(0);
+	}
 }
 
 
 void Game::render()
 {
 	/*
-	 * _units 기반으로 출력. 기본의 board 클래스 이용할듯
+	 * _units 기반으로 출력. 기존의 board 클래스 이용할듯
 	 */
 	cout << _board.stringForm() << endl;
 }
@@ -133,7 +142,17 @@ pair<int, int> Game::convertInputToUnitMove() {
 bool Game::victory() {
 	cout << "units_no: " << _units.size() << endl;
 	if(_units.size() == 1)
-		return true;
-	else false;
+	{
+		for(auto & ele : _units) {
+			if(ele->get_unit_type() == "Player")
+				return true;
+			
+			else { 
+				return false;
+			}
+		}
+	}
+	else 
+		return false;
 
 }

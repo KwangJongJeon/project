@@ -36,9 +36,9 @@ string Board::stringForm() const {
 void Board::set_board(std::vector<MovableUnit*>& units_in) {
 	_units = units_in;
 	
-	for(auto &ele : _units) {
-		cout << *ele << endl; 
-	}
+	// for(auto &ele : _units) {
+	// 	cout << *ele << endl; 
+	// }
 }
 
 vector<string> Board::rowStrings() const {
@@ -74,7 +74,7 @@ string Board::unitString(int x, int y) const {
 	for(auto &ele : _units) {
 		auto pos = ele->get_pos();
 		if((pos.first == x) && (pos.second == y)) {
-			cout << *ele << endl;
+			// cout << *ele << endl;
 			result = ele->get_string_form();
 		}
 	}
