@@ -41,9 +41,9 @@ Game::Game()
 	cout << *_units[0] << endl;
 
 	
-	_player.set_board(_units);
-	_monster1.set_board(_units);
-	_monster2.set_board(_units);
+	_player.set_board(&_units);
+	_monster1.set_board(&_units);
+	_monster2.set_board(&_units);
 	_board.set_board(_units);
 		
 	_monster1_AI = MonsterAI("Slime", &_units, &_monster1);

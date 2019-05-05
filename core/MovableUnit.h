@@ -15,7 +15,7 @@ class MovableUnit : public I_Unit, public I_Attackable
 		
 		MovableUnit(const int& x_in = 0, const int& y_in = 0, std::pair<int, int> board_in = std::make_pair(0, 0));
 		
-		MovableUnit(std::vector<MovableUnit*>& units_in, const int& x_in = 0, const int& y_in = 0, std::pair<int, int> board_in = std::make_pair(0, 0));
+		MovableUnit(std::vector<MovableUnit*>* units_in, const int& x_in = 0, const int& y_in = 0, std::pair<int, int> board_in = std::make_pair(0, 0));
 		
 		MovableUnit(Status status_in, const int& x_in = 0, const int& y_in = 0, std::pair<int, int> board_in = std::make_pair(0, 0));
 			
@@ -35,7 +35,7 @@ class MovableUnit : public I_Unit, public I_Attackable
 		int calculate_damage(const int& damage, I_Attackable& enemy);
 		
 		// board will be managed from game class
-		void set_board(std::vector<MovableUnit*>& board_in);
+		void set_board(std::vector<MovableUnit*>* board_in);
 		
 		
 	
@@ -61,7 +61,7 @@ class MovableUnit : public I_Unit, public I_Attackable
 		std::pair<int, int> _board;
 		std::pair<int, int> _cur_move;
 	
-		std::vector<MovableUnit*> _units;
+		std::vector<MovableUnit*>* _units;
 		Status _status;
 		
 		bool check_unit_in_valid_pos(std::pair<int, int> pos);

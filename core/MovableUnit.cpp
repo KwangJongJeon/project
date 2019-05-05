@@ -8,7 +8,7 @@ MovableUnit::MovableUnit(const int& x_in, const int& y_in, pair<int, int> board_
 		_status = Status();
 	}
 
-MovableUnit::MovableUnit(vector<MovableUnit*>& units_in, const int& x_in, const int& y_in, pair<int, int> board_in)
+MovableUnit::MovableUnit(vector<MovableUnit*>* units_in, const int& x_in, const int& y_in, pair<int, int> board_in)
 	: _cur_pos(x_in, y_in), _board(board_in), _units(units_in)
 	{
 		_status = Status(); 
@@ -24,7 +24,7 @@ std::vector<MovableUnit*> MovableUnit::get_enemies()
 	vector<MovableUnit*> enemies;
 	
 	//  set enemy_pos
-	for(auto &ele : _units)
+	for(auto &ele : (*_units))
 	{
 		if(ele->_cur_pos != this->_cur_pos)
 			enemies.push_back(ele);
@@ -121,7 +121,7 @@ Status MovableUnit::get_status_all() const
 	return _status;
 }
 
-void MovableUnit::set_board(std::vector<MovableUnit*>& board_in) {
+void MovableUnit::set_board(std::vector<MovableUnit*>* board_in) {
 	_units = board_in;
 }
 
