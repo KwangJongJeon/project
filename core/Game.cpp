@@ -45,6 +45,9 @@ Game::Game()
 	_monster1.set_board(_units);
 	_monster2.set_board(_units);
 	_board.set_board(_units);
+		
+	_monster1_AI = MonsterAI("Slime", _units, _monster1);
+	_monster2_AI = MonsterAI("Slime", _units, _monster2);
 	cout << "Game.cpp Constructor is called successfully" << endl;
 
 	// _board(_units, 10, 10);
@@ -91,9 +94,11 @@ void Game::update()
 		else {
 			++itr;
 		}
-		
-		
 	}
+	
+	// AI's turn
+	_monster1_AI.move_AI();
+	_monster2_AI.move_AI();
 }
 
 

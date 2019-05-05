@@ -15,6 +15,7 @@
 #include "Board.h"
 #include "MovableUnit.h"
 #include "MonsterFactory.h"
+#include "MonsterAI.h"
 // cp core/*.h include
 class Game
 {
@@ -27,6 +28,8 @@ class Game
 		MovableUnit _player;
 		MovableUnit _monster1;
 		MovableUnit _monster2;
+		MonsterAI _monster1_AI;
+		MonsterAI _monster2_AI;
 		
 		// Terminal _terminal;
 

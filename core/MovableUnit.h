@@ -6,6 +6,7 @@
 #include "I_Unit.h"
 #include "I_Attackable.h"
 #include "Status.h"
+// #include "MonsterAI.h"
 // #include "Stat.h" later.
 
 class MovableUnit : public I_Unit, public I_Attackable
