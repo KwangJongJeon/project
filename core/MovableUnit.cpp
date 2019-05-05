@@ -94,7 +94,15 @@ void MovableUnit::reduceHP(int damage)
 int MovableUnit::calculate_damage(const int& damage, I_Attackable& enemy)
 {
 	cout << "ATK:  " << _status.get_status(Stat::ATK) << endl;
-	return (damage - enemy.get_status(Stat::DEF));
+	int true_damage;
+	if(damage - enemy.get_status(Stat::DEF) > get_status(Stat::ATK)) {
+		true_damage = 0;
+		cout << "Defense!" << endl;
+	} 
+	else{
+		true_damage = damage - enemy.get_status(Stat::DEF);
+	}
+	return true_damage;
 }
 
 bool MovableUnit::check_unit_in_valid_pos(pair<int, int> pos) {
