@@ -10,7 +10,7 @@ class MonsterAI {
 	
 	public:
 		MonsterAI(){}
-		MonsterAI(std::string name_in, std::vector<MovableUnit*>& units_in,  MovableUnit& monster_in);
+		MonsterAI(std::string name_in, std::vector<MovableUnit*>* units_in,  MovableUnit* monster_in);
 	
 		void move_AI();	
 	
@@ -24,6 +24,6 @@ class MonsterAI {
 
 	
 		std::pair<int, int> _detection_range;
-		MovableUnit _monster;
-		std::vector<MovableUnit*> _units;
+		MovableUnit* _monster;
+		std::vector<MovableUnit*>* _units;
 };
