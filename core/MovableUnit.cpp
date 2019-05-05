@@ -98,10 +98,12 @@ int MovableUnit::calculate_damage(const int& damage, I_Attackable& enemy)
 }
 
 bool MovableUnit::check_unit_in_valid_pos(pair<int, int> pos) {
-	return	pos.first > _board.first - 1 || 
+	return  pos.first > _board.first - 1 || 
 			pos.second > _board.second - 1 ||
 	    	pos.first < 0 || 
 	    	pos.second < 0;
+
+
 }
 
 int MovableUnit::get_hp() const

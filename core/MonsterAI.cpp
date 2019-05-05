@@ -52,8 +52,8 @@ bool MonsterAI::detect_user() {
 	return
 		(monster_pos.first - _detection_range.first < user_pos.first ||
 		monster_pos.first + _detection_range.first  > user_pos.first) &&
-		(monster_pos.second + _detection_range.second < user_pos.second ||
-		monster_pos.second - _detection_range.second > user_pos.second);
+		(monster_pos.second + _detection_range.second > user_pos.second ||
+		monster_pos.second - _detection_range.second < user_pos.second);
 }
 
 MovableUnit MonsterAI::find_player() {
